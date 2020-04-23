@@ -1,162 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca9cc789-7c22-4f87-86ac-9d2033e02706" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/services/program.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/shared.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/actions/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/actions/program.actions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/effects/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/effects/program.effects.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/reducers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/reducers/program.reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/selectors/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/selectors/program.selectors.ts" afterDir="false" />
+    <list default="true" id="ca9cc789-7c22-4f87-86ac-9d2033e02706" name="Default Changelist" comment="Fix? first impression">
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/activities/activities.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/activities/activities.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/activities/activities.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/core.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/card-actions/card-actions.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/card-actions/card-actions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/card-actions/card-actions.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/card-actions/card-actions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/chat/chat.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/chat/chat.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/chat/chat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/detail-tiles/detail-tiles.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/detail-tiles/detail-tiles.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/detail-tiles/detail-tiles.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/detail-tiles/detail-tiles.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/general-feed/general-feed.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/general-feed/general-feed.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/general-feed/general-feed.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/general-feed/general-feed.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/index/index.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/index/index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/index/index.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/iot-dashboard/iot-dashboard.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/iot-dashboard/iot-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/iot-dashboard/iot-dashboard.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/iot-dashboard/iot-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/managed-data/managed-data.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/managed-data/managed-data.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/managed-data/managed-data.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/managed-data/managed-data.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/managed-data/managed-data.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/managed-data/managed-data.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/managed-data/managed-data.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/member-info/member-info.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/member-info/member-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/member-info/member-info.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/member-info/member-info.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/member-info/member-info.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/member-info/member-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/member-info/member-info.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/referrals/referrals.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/managed-data/managed-data.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/referrals/referrals.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/referrals/referrals.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/referrals/referrals.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/referrals/referrals.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/referrals/referrals.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/referrals/referrals.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/timeline-post/timeline-post.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/member-info/member-info.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/timeline-post/timeline-post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/timeline-post/timeline-post.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/timeline-post/timeline-post.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/timeline-post/timeline-post.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/timeline-post/timeline-post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/timeline-post/timeline-post.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/top-products/top-products.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/top-products/top-products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/top-products/top-products.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/top-products/top-products.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/top-products/top-products.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/top-products/top-products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/top-products/top-products.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/total-revenue/total-revenue.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/referrals/referrals.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/total-revenue/total-revenue.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/total-revenue/total-revenue.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/total-revenue/total-revenue.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/total-revenue/total-revenue.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/total-revenue/total-revenue.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/total-revenue/total-revenue.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/twitter-feed/twitter-feed.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/timeline-post/timeline-post.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/twitter-feed/twitter-feed.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/twitter-feed/twitter-feed.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/twitter-feed/twitter-feed.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/twitter-feed/twitter-feed.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/twitter-feed/twitter-feed.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/twitter-feed/twitter-feed.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/app-calendar/app-calendar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/app-calendar/app-calendar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/applications.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/applications.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/contact-grid/contact-grid.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/top-products/top-products.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/contact-grid/contact-grid.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/user/user.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/user/user.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/user/user.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-forbiddon-error/page-forbiddon-error.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-forbiddon-error/page-forbiddon-error.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-forgot-password/page-forgot-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-forgot-password/page-forgot-password.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-is-error/page-is-error.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-is-error/page-is-error.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-lockscreen/page-lockscreen.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-lockscreen/page-lockscreen.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-login/page-login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-login/page-login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-not-found/page-not-found.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-not-found/page-not-found.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-register/page-register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-register/page-register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-try-later/page-try-later.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-try-later/page-try-later.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-details/blog-details.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-details/blog-details.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-details/blog-details.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-details/blog-details.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-list/blog-list.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-list/blog-list.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-list/blog-list.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-list/blog-list.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blogs.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/chart-echart/chart-echart.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/chart-echart/chart-echart.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/chart-echart/chart-echart.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/chart-echart/chart-echart.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/charts.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/total-revenue/total-revenue.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/header/header.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/layout.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/navigation.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/page-loader/page-loader.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/twitter-feed/twitter-feed.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/page-loader/page-loader.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/page-loader/page-loader.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/page-loader/page-loader.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/sidebar/sidebar.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/maps.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/page-leaflet/page-leaflet.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/page-leaflet/page-leaflet.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/page-leaflet/page-leaflet.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/page-leaflet/page-leaflet.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile-v2/page-profile-v2.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile-v2/page-profile-v2.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/pages.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/pages.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/table-normal/table-normal.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/table-normal/table-normal.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/table-normal/table-normal.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/table-normal/table-normal.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/tables.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -637,16 +486,23 @@
       <workItem from="1587310465131" duration="7747000" />
       <workItem from="1587496408660" duration="22431000" />
       <workItem from="1587641928950" duration="6165000" />
-      <workItem from="1587674632845" duration="6392000" />
+      <workItem from="1587674632845" duration="7002000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix? first impression">
+      <created>1587685062401</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587685062401</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74757000" />
+    <option name="totallyTimeSpent" value="75367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22686376" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -722,6 +578,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix? first impression" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix? first impression" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/index.ts">

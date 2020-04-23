@@ -2,8 +2,7 @@
 import { ModuleWithProviders } from '@angular/core';
 
 export const routes: Routes = [
-    { path: '', redirectTo:'admin', pathMatch: 'full'},
-    { path: 'admin', loadChildren: () => import('app/admin/admin.module').then(m => m.AdminModule) },
+    { path: '', loadChildren: () => import('app/core/core.module').then(m => m.CoreModule) },
     { path: 'authentication', loadChildren: () => import('app/authentication/authentication.module').then(m => m.AuthenticationModule) }
 ];
 

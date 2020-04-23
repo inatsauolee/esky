@@ -8,17 +8,16 @@ import { RouterModule } from '@angular/router';
 
 import { ApplicationsComponent } from './applications/applications.component';
 import { InboxComponent } from './inbox/inbox.component';
-import { ContactGridComponent } from './contact-grid/contact-grid.component';
 import { ComposeComponent } from './compose/compose.component';
 import { AppChatComponent } from './app-chat/app-chat.component';
 import { AppCalendarComponent } from './app-calendar/app-calendar.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
   declarations: [
     ApplicationsComponent,
     InboxComponent,
-    ContactGridComponent,
     ComposeComponent,
     AppChatComponent,
     AppCalendarComponent
@@ -29,6 +28,7 @@ import { AppCalendarComponent } from './app-calendar/app-calendar.component';
     NgbModule,
     RichTextEditorAllModule,
     FullCalendarModule,
+    SharedModule,
     RouterModule
   ]
 })

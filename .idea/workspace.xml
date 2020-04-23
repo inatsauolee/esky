@@ -1,7 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca9cc789-7c22-4f87-86ac-9d2033e02706" name="Default Changelist" comment="" />
+    <list default="true" id="ca9cc789-7c22-4f87-86ac-9d2033e02706" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/services/program.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/shared.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/actions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/actions/program.actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/effects/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/effects/program.effects.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/reducers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/reducers/program.reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/selectors/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/store/selectors/program.selectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/activities/activities.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/activities/activities.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/activities/activities.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/core.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/card-actions/card-actions.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/card-actions/card-actions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/card-actions/card-actions.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/card-actions/card-actions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/chat/chat.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/chat/chat.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/chat/chat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/detail-tiles/detail-tiles.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/detail-tiles/detail-tiles.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/detail-tiles/detail-tiles.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/detail-tiles/detail-tiles.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/general-feed/general-feed.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/general-feed/general-feed.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/general-feed/general-feed.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/general-feed/general-feed.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/index/index.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/index/index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/index/index.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/iot-dashboard/iot-dashboard.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/iot-dashboard/iot-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/iot-dashboard/iot-dashboard.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/iot-dashboard/iot-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/managed-data/managed-data.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/managed-data/managed-data.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/managed-data/managed-data.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/managed-data/managed-data.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/managed-data/managed-data.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/managed-data/managed-data.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/managed-data/managed-data.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/member-info/member-info.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/member-info/member-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/member-info/member-info.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/member-info/member-info.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/member-info/member-info.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/member-info/member-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/member-info/member-info.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/referrals/referrals.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/managed-data/managed-data.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/referrals/referrals.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/referrals/referrals.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/referrals/referrals.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/referrals/referrals.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/referrals/referrals.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/referrals/referrals.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/timeline-post/timeline-post.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/member-info/member-info.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/timeline-post/timeline-post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/timeline-post/timeline-post.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/timeline-post/timeline-post.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/timeline-post/timeline-post.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/timeline-post/timeline-post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/timeline-post/timeline-post.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/top-products/top-products.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/top-products/top-products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/top-products/top-products.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/top-products/top-products.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/top-products/top-products.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/top-products/top-products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/top-products/top-products.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/total-revenue/total-revenue.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/referrals/referrals.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/total-revenue/total-revenue.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/total-revenue/total-revenue.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/total-revenue/total-revenue.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/total-revenue/total-revenue.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/total-revenue/total-revenue.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/total-revenue/total-revenue.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/twitter-feed/twitter-feed.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/timeline-post/timeline-post.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/twitter-feed/twitter-feed.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/twitter-feed/twitter-feed.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/twitter-feed/twitter-feed.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/twitter-feed/twitter-feed.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/twitter-feed/twitter-feed.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/twitter-feed/twitter-feed.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/app.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/app-calendar/app-calendar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/app-calendar/app-calendar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/applications.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/applications.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/contact-grid/contact-grid.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/top-products/top-products.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/contact-grid/contact-grid.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/user/user.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/user/user.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/user/user.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-forbiddon-error/page-forbiddon-error.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-forbiddon-error/page-forbiddon-error.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-forgot-password/page-forgot-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-forgot-password/page-forgot-password.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-is-error/page-is-error.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-is-error/page-is-error.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-lockscreen/page-lockscreen.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-lockscreen/page-lockscreen.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-login/page-login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-login/page-login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-not-found/page-not-found.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-not-found/page-not-found.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-register/page-register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-register/page-register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-try-later/page-try-later.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-try-later/page-try-later.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-details/blog-details.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-details/blog-details.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-details/blog-details.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-details/blog-details.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-list/blog-list.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-list/blog-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-list/blog-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-list/blog-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blogs.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/chart-echart/chart-echart.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/chart-echart/chart-echart.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/chart-echart/chart-echart.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/chart-echart/chart-echart.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/charts/charts.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/total-revenue/total-revenue.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/header/header.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/layout.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/navigation.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/page-loader/page-loader.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/twitter-feed/twitter-feed.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/page-loader/page-loader.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/page-loader/page-loader.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/page-loader/page-loader.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/sidebar/sidebar.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/layout/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/maps.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/page-leaflet/page-leaflet.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/page-leaflet/page-leaflet.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/page-leaflet/page-leaflet.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/maps/page-leaflet/page-leaflet.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile-v2/page-profile-v2.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile-v2/page-profile-v2.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/pages.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/pages.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/table-normal/table-normal.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/table-normal/table-normal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/table-normal/table-normal.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/table-normal/table-normal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/app/tables/tables.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webui/src/main/webui/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webui/src/main/webui/src/index.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/webui/target/" />
@@ -32,92 +188,111 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/ParseCustomFormat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/SecurityContextBean.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/ScorRedirectionTokenFilter.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/Currency.java">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/user/user.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+              <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/resources/application.properties">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+            <state relative-caret-position="235">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
-                <element signature="n#build#0;n#project#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/webservice/UserController.java">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/core.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/pages/pages.module.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <caret line="2" column="71" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/services/event.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#72#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/core.routing.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/webservice/CourseController.java">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="61" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/JSONStringConverter.java">
+        <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/entities/Course.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -135,27 +310,84 @@
     <findStrings>
       <find>Please sign in</find>
       <find>securit</find>
+      <find>layout</find>
+      <find>Event</find>
+      <find>profile</find>
+      <find>'admin</find>
+      <find>alt=&quot;Lucid&quot;</find>
+      <find>Lucid</find>
+      <find>Teams Board</find>
+      <find>Info about</find>
+      <find>visitorsOptions</find>
+      <find>/admin</find>
+      <find>admin/</find>
+      <find>contact</find>
+      <find>UserComponent</find>
+      <find>app-page-projects-list</find>
+      <find>../../services/sidebar.service</find>
     </findStrings>
+    <replaceStrings>
+      <replace>alt=&quot;Esky&quot;</replace>
+      <replace>../../shared/services/sidebar.service</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ESKY-BE/pom.xml" />
-        <option value="$PROJECT_DIR$/webui/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/service/CourseService.java" />
-        <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/repository/CourseRepository.java" />
-        <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/serviceImpl/CourseServiceImpl.java" />
-        <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/pojo/UserRequest.java" />
-        <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/ESKYTracableObject.java" />
-        <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/entities/Course.java" />
-        <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/pojo/ESKYTracableRequest.java" />
-        <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/pojo/CourseRequest.java" />
         <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/JSONStringConverter.java" />
         <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/entities/User.java" />
         <option value="$PROJECT_DIR$/eskybe/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/eskybe/pom.xml" />
         <option value="$PROJECT_DIR$/eskybe/src/main/java/com/esky/webservice/CourseController.java" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/store/actions/index.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/store/effects/index.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/services/program.service.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/store/actions/program.actions.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/store/reducers/index.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/store/effects/program.effects.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/store/reducers/program.reducer.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/store/selectors/index.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/admin/admin/admin.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/layout.module.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/navigation.module.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin.module.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/index.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-login/page-login.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/authentication/page-lockscreen/page-lockscreen.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/activities/activities.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/general-feed/general-feed.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile-v2/page-profile-v2.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/page-teams-board.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-teams-board/course.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/page-projects-list.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-projects-list/class.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/contact-grid/contact-grid.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/contact-grid/user.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/core.routing.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/shared.module.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/visits/visits.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/shared/visits/visits.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/app-calendar/app-calendar.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/applications/applications.module.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/page-profile.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/page-profile/profile.component.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/user/user.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/core.module.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/pages/pages.module.ts" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.html" />
+        <option value="$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.html" />
       </list>
     </option>
   </component>
@@ -205,12 +437,14 @@
     <option name="width" value="814" />
     <option name="height" value="867" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -221,65 +455,6 @@
             <path>
               <item name="esky" type="b2602c69:ProjectViewProjectNode" />
               <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="eskybe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="eskybe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="eskybe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="eskybe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="eskybe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="eskybe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="webservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="eskybe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
-              <item name="eskybe" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
-              <item name="esky" type="462c0819:PsiDirectoryNode" />
               <item name="webui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -302,12 +477,86 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esky" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esky" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esky" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esky" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esky" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esky" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="esky" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esky" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -315,22 +564,34 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/eskybe/src/main/java/com/esky" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/webui/src/main/webui/src/app/shared" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\inats\workspace\esky\webui\src\main\webui\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app" />
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app\shared\components" />
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app\shared" />
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app\core" />
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app\zmodules" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app\shared" />
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app\navigation" />
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app\services" />
+      <recent name="C:\Users\inats\workspace\esky\webui\src\main\webui\src\app" />
       <recent name="C:\Users\inats\workspace\esky\eskybe\src\main\java\com\esky" />
     </key>
   </component>
@@ -369,17 +630,25 @@
       <workItem from="1571005013673" duration="4125000" />
       <workItem from="1571238382388" duration="1961000" />
       <workItem from="1575118067976" duration="13454000" />
-      <workItem from="1576009282876" duration="6387000" />
+      <workItem from="1576009282876" duration="7153000" />
+      <workItem from="1576355786782" duration="528000" />
+      <workItem from="1577026707670" duration="4509000" />
+      <workItem from="1578335164901" duration="292000" />
+      <workItem from="1587310465131" duration="7747000" />
+      <workItem from="1587496408660" duration="22431000" />
+      <workItem from="1587641928950" duration="6165000" />
+      <workItem from="1587674632845" duration="6392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25927000" />
+    <option name="totallyTimeSpent" value="74757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19730078" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22686376" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -388,7 +657,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32974428" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -396,9 +665,9 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="TypeScript" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4993573" visible="true" weight="0.3257066" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50064266" side_tool="true" weight="0.3257066" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32974428" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" />
@@ -411,8 +680,8 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Database" order="8" weight="0.32969153" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="8" weight="0.32969153" />
+      <window_info anchor="right" id="Database" order="9" weight="0.32969153" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19473007" />
@@ -455,216 +724,365 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ESKY-BE/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/index.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/selectors/program.selectors.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        <state relative-caret-position="17">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/ServletInitializer.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/effects/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/effects/program.effects.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <caret line="14" column="75" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/DemoApplication.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/reducers/program.reducer.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="51">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/environments/environment.ts">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/selectors/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/actions/program.actions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/store/reducers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/admin.routing.ts" />
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/assets/images/logo-icon.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/page-loader/page-loader.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/navigation.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+          <folding>
+            <element signature="n#li#4;n#ul#0;n#div#0;n#div#2;n#div#0;n#nav#0;n#!!top" />
+            <element signature="n#li#5;n#ul#0;n#div#0;n#div#2;n#div#0;n#nav#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blogs.module.ts" />
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/blogs/blog-post/blog-post.component.ts" />
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="49" column="3" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/applications/app-calendar/app-calendar.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#0#83#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webui/pom.xml">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/applications/applications/applications.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/applications/applications/applications.component.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/admin/admin.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/service/CourseService.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/repository/CourseRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/serviceImpl/CourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/ESKYTracableObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="40" column="57" lean-forward="true" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/pojo/ESKYTracableRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="41" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/pojo/CourseRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1186#1187#0" expanded="true" />
-            <element signature="e#1213#1214#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/pojo/UserRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/ASDSEntitiesCloneTool.java" />
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/ASDSClonable.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/ClassLoaderUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/card-actions/card-actions.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/entities/User.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        <state relative-caret-position="68">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/package.json">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!block;n#loadLineChartOptions#0;n#CourseComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/applications/user/user.component.ts" />
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/shared/shared.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/JSONArrayConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/ParseCustomFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/SecurityContextBean.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/chat/chat.component.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/ScorRedirectionTokenFilter.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/Currency.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/detail-tiles/detail-tiles.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        <state relative-caret-position="51">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/tool/JSONStringConverter.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/shared/components/visits/visits.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/class/class.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/course/course.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/applications/applications.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/applications/app-calendar/app-calendar.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/user/user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/core.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/profile/profile.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/model/entities/Course.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/core.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+        <state relative-caret-position="223">
+          <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#60#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
-          <folding>
-            <element signature="n#build#0;n#project#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/webservice/UserController.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/pages/pages.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <caret line="2" column="71" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eskybe/src/main/java/com/esky/webservice/CourseController.java">
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/services/event.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+        <state relative-caret-position="391">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/iot-dashboard/iot-dashboard.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#72#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/navigation/sidebar/sidebar.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/user/user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/src/main/webui/src/app/core/index/index.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="61" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="61" />
         </state>
       </provider>
     </entry>

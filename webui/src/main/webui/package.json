@@ -23,6 +23,8 @@
     "@angular/router": "8.0.0",
     "@asymmetrik/ngx-leaflet": "^5.0.2",
     "@ng-bootstrap/ng-bootstrap": "^4.0.4",
+    "@ngrx/effects": "^9.1.0",
+    "@ngrx/store": "^9.1.0",
     "@syncfusion/ej2-angular-richtexteditor": "^16.4.55",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^4.3.1",

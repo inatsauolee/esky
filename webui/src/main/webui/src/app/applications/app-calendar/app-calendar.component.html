@@ -1,31 +1,6 @@
 <div class="container-fluid">
-	<div class="block-header">
-		<div class="row">
-			<div class="col-lg-5 col-md-8 col-sm-12">
-				<h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
-						<i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
-						<i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
-					</a> Calendar</h2>
-				<ul class="breadcrumb">
-					<li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>
-					<li class="breadcrumb-item">App</li>
-					<li class="breadcrumb-item active">Calendar</li>
-				</ul>
-			</div>
-            <div class="col-lg-7 col-md-4 col-sm-12 text-right">
-                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
-                    <div echarts [options]="visitorsOptions" class="echart-line-chart" [autoResize]="true" style="height: 20px;">
-                    </div>
-                    <span>Visitors</span>
-                </div>
-                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
-                    <div echarts [options]="visitsOptions" class="echart-line-chart" [autoResize]="true" style="height: 20px;">
-                    </div>
-                    <span>Visits</span>
-                </div>
-            </div>
-		</div>
-	</div>
+
+	<app-visits [title]="'Calendar'" [sub_title]="'Calendar'"></app-visits>
 
 	<div class="row clearfix">
 		<div class="col-lg-8">
@@ -41,7 +16,7 @@
 		<div class="col-lg-4">
 			<div class="card">
 				<div class="body">
-					<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addevent" (click)="openModal(content,'md')">Add New Event</button>
+					<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addevent" (click)="openModal(content,'md')">Add New Course</button>
 				</div>
 			</div>
 			<div class="card profile-header">
@@ -96,22 +71,22 @@
 
 <ng-template #content let-modal>
 	<div class="modal-header">
-		<h4 class="title" id="defaultModalLabel">Add Event</h4>
+		<h4 class="title" id="defaultModalLabel">Add Course</h4>
 	</div>
 	<div class="modal-body">
 		<div class="form-group">
 			<div class="form-line">
-				<input type="number" class="form-control" placeholder="Event Date">
+				<input type="number" class="form-control" placeholder="Course Date">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="form-line">
-				<input type="text" class="form-control" placeholder="Event Title">
+				<input type="text" class="form-control" placeholder="Course Title">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="form-line">
-				<textarea class="form-control no-resize" placeholder="Event Description..."></textarea>
+				<textarea class="form-control no-resize" placeholder="Course Description..."></textarea>
 			</div>
 		</div>
 	</div>

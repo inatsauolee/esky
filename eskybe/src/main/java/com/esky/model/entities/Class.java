@@ -3,7 +3,6 @@ package com.esky.model.entities;
 import com.esky.model.ESKYTracableObject;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.LazyCollection;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,10 +13,10 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "COURSES")
+@Table(name = "CLASSES")
 @Getter
 @Setter
-public class Course extends ESKYTracableObject implements Serializable {
+public class Class extends ESKYTracableObject implements Serializable {
     /**
      *
      */
@@ -31,21 +30,21 @@ public class Course extends ESKYTracableObject implements Serializable {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "SUBJECT")
-    private String subject;
+    @Column(name = "SCHOOL")
+    private String school;
+
+    @Column(name = "CITY")
+    private String city;
 
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "STATUS")
-    private String status;
-
     @ElementCollection
-    private Set<Class> classes;
+    private Set<User> students;
 
-    public Course() {}
+    public Class() {}
 
-    public Course(Long id) {
+    public Class(Long id) {
         this.id = id;
     }
 

@@ -37,6 +37,4 @@ public abstract class ESKYTracableObject implements Serializable {
     public ESKYTracableObject() {
     }
 
-    @Transient
-    public abstract ESKYTracableObject getParentObject();
 }

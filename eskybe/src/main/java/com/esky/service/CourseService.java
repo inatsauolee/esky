@@ -1,6 +1,7 @@
 package com.esky.service;
 
 import com.esky.model.entities.Course;
+import com.esky.model.pojo.CourseRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -8,13 +9,13 @@ import org.springframework.data.domain.Pageable;
 public interface CourseService {
 
     //Save Course:
-    public Course saveCourse(Course course);
+    public Course saveCourse(CourseRequest course);
 
     //Update Course:
-    public Course updateCourse(Course course);
+    public Course updateCourse(CourseRequest course);
 
     //Delete Course:
-    public void deleteCourse(Course course);
+    public void deleteCourse(CourseRequest course);
 
     //Delete Course by ID:
     public void deleteCourseById(Long id);

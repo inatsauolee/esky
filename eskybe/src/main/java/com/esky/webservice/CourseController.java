@@ -1,6 +1,7 @@
 package com.esky.webservice;
 
 import com.esky.model.entities.Course;
+import com.esky.model.pojo.CourseRequest;
 import com.esky.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,39 +24,30 @@ public class CourseController {
     private CourseService courseService;
 
     @PostMapping("/save")
-    public ResponseEntity saveCourse(@RequestBody Course course) {
-        return new ResponseEntity(courseService.saveCourse(course), HttpStatus.OK);
+    public ResponseEntity saveCourse(@RequestBody CourseRequest courseRequest) {
+        return new ResponseEntity(courseService.saveCourse(courseRequest), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateCourse(@PathVariable Long id, @RequestBody Course course) {
-        Course update = courseService.getCourseById(id);
-        if (null == update) {
-            return new ResponseEntity("No Course found for ID " + id, HttpStatus.NOT_FOUND);
-        }else {
-            if(course.getDescription()!=null) update.setDescription(course.getDescription());
-            if(course.getName()!=null) update.setName(course.getName());
-            if(course.getSubject()!=null) update.setSubject(course.getSubject());
-            if(course.getCreator()!=null) update.setCreator(course.getCreator());
-            return new ResponseEntity(courseService.saveCourse(update), HttpStatus.OK);
-        }
+    public ResponseEntity updateCourse(@PathVariable Long id, @RequestBody CourseRequest courseRequest) {
+        return new ResponseEntity(courseService.saveCourse(courseRequest), HttpStatus.OK);
     }
 
     @GetMapping("/get/{id}")
     public ResponseEntity getCourseById(@PathVariable Long id) {
-        Course course = courseService.getCourseById(id);
-        if (course == null) {
+        Course aCourse = courseService.getCourseById(id);
+        if (aCourse == null) {
             return new ResponseEntity("No Course found for ID " + id, HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(course, HttpStatus.OK);
+        return new ResponseEntity(aCourse, HttpStatus.OK);
     }
 
     @SuppressWarnings({ "deprecation" })
     @GetMapping("/all")
-    public List<Course> allCourses(int page, int size, Sort.Direction direction, String sort) {
+    public List<CourseRequest> allCourses(int page, int size, Sort.Direction direction, String sort) {
         PageRequest pageRequest = new PageRequest(page, size, direction, sort);
         Page<Course> pages= courseService.findAllCourse(pageRequest);
-        return pages.getContent();
+        return CourseRequest.buildRequest(pages.getContent());
     }
 
     @GetMapping("/all/filter")
@@ -68,6 +60,5 @@ public class CourseController {
     public ResponseEntity getCoursesCount() {
         return new ResponseEntity(courseService.getCoursesCount(), HttpStatus.OK);
     }
-
 
 }

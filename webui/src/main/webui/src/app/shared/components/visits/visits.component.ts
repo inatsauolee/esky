@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {EChartOption} from "echarts";
-import {SidebarService} from "../../../services/sidebar.service";
+import {SidebarService} from "../../services/sidebar.service";
 
 @Component({
   selector: 'app-visits',

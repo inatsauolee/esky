@@ -13,10 +13,10 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import {EffectsModule} from '@ngrx/effects';
 
 import * as $ from 'jquery';
-import {ProgramService} from "./services/program.service";
+import {UserService} from "./shared/services/http/user.service";
 import {StoreModule} from "@ngrx/store";
-import {sharedReducers} from "./store/reducers";
-import {effects} from "./store/effects";
+import {sharedReducers} from "./shared/store/reducers";
+import {effects} from "./shared/store/effects";
 import {RouterModule} from "@angular/router";
 import {SharedModule} from "./shared/shared.module";
 
@@ -39,7 +39,7 @@ import {SharedModule} from "./shared/shared.module";
         LeafletModule.forRoot(),
         NgxGalleryModule
     ],
-    providers: [ProgramService],
+    providers: [UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

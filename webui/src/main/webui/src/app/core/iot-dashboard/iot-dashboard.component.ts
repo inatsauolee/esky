@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { EChartOption } from 'echarts';
-import { SidebarService } from '../../services/sidebar.service';
-import { ThemeService } from '../../services/theme.service';
+import { SidebarService } from '../../shared/services/sidebar.service';
+import { ThemeService } from '../../shared/services/theme.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 

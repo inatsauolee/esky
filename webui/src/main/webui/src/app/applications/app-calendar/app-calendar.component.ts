@@ -2,8 +2,8 @@ import { Component, ViewChild, ChangeDetectorRef, OnDestroy } from '@angular/cor
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Options } from 'fullcalendar';
 import { EChartOption } from 'echarts';
-import { SidebarService } from '../../services/sidebar.service';
-import { EventService } from '../../services/event.service';
+import { SidebarService } from '../../shared/services/sidebar.service';
+import { EventService } from '../../shared/services/event.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';

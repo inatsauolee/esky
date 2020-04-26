@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { SidebarService } from '../../services/sidebar.service';
+import { SidebarService } from '../../shared/services/sidebar.service';
 import { EChartOption } from 'echarts';
 
 @Component({

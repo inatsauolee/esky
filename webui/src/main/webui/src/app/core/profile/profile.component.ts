@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { EChartOption } from 'echarts';
-import { SidebarService } from '../../services/sidebar.service';
+import { SidebarService } from '../../shared/services/sidebar.service';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';

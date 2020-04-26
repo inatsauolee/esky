@@ -1,31 +1,31 @@
-import {ProgramActionTypes} from '../actions/program.actions';
+import {UserActionTypes} from '../actions/user.actions';
 
-export interface ProgramsState {
-  programs: any[],
+export interface UserState {
+  users: any[],
   loading: boolean,
   loaded: boolean,
   load: boolean
 }
 
-const initialeState: ProgramsState = {
-  programs: [],
+const initialeState: UserState = {
+  users: [],
   loading: false,
   loaded: false,
   load: false
 };
 
-export function programsReducer(state = initialeState, action): ProgramsState {
+export function userReducer(state = initialeState, action): UserState {
   switch (action.type) {
-    case ProgramActionTypes.LoadProgramsSuccess : {
+    case UserActionTypes.LoadUsersSuccess : {
       return {
         ...state,
-        programs: action.payload,
+        users: action.payload,
         loaded: true,
         loading: false
       };
     }
 
-    case ProgramActionTypes.LoadProgramsFail : {
+    case UserActionTypes.LoadUsersFail : {
       return {
         ...state,
         loaded: false,
@@ -33,16 +33,16 @@ export function programsReducer(state = initialeState, action): ProgramsState {
       };
     }
 
-    case ProgramActionTypes.LoadProgramByCedentSuccess : {
+    case UserActionTypes.LoadUserByCedentSuccess : {
       return {
         ...state,
-        programs: action.payload,
+        users: action.payload,
         loaded: true,
         loading: false
       };
     }
 
-    case ProgramActionTypes.LoadProgramByCedentFail : {
+    case UserActionTypes.LoadUserByCedentFail : {
       return {
         ...state,
         loaded: false,

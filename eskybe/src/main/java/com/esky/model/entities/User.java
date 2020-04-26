@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.esky.model.pojo.UserRequest;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -67,9 +68,7 @@ public class User implements Serializable {
         return super.clone();
     }
 
-    public User() {
-
-    }
+    public User() { }
 
     public User(Long creator) {
         this.id = creator;
@@ -77,5 +76,20 @@ public class User implements Serializable {
 
     public boolean isAdmin() {
         return "A".equals(role);
+    }
+
+    public UserRequest toRequest() {
+        final UserRequest userRequest = new UserRequest();
+        userRequest.setId(this.id);
+        userRequest.setUserName(this.username);
+        userRequest.setFirstName(this.firstname);
+        userRequest.setLastName(this.lastname);
+        userRequest.setStatus(this.status);
+        userRequest.setEmail(this.email);
+        userRequest.setLang(this.lang);
+        userRequest.setRole(this.role);
+        userRequest.setPassword(this.password);
+        userRequest.setPreferences(this.preferences);
+        return userRequest;
     }
 }

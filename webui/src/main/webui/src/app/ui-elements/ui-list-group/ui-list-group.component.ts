@@ -1,6 +1,6 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { EChartOption } from 'echarts';
-import { SidebarService } from '../../services/sidebar.service';
+import { SidebarService } from '../../shared/services/sidebar.service';
 
 @Component({
   selector: 'app-ui-list-group',

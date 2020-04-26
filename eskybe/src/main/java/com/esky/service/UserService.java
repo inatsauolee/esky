@@ -1,6 +1,7 @@
 package com.esky.service;
 
 import com.esky.model.entities.User;
+import com.esky.model.pojo.UserRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -8,13 +9,13 @@ import org.springframework.data.domain.Pageable;
 public interface UserService {
 
     //Save User:
-    public User saveUser(User user);
+    public User saveUser(UserRequest user);
 
     //Update User:
-    public User updateUser(User user);
+    public User updateUser(UserRequest user);
 
     //Delete User:
-    public void deleteUser(User user);
+    public void deleteUser(UserRequest user);
 
     //Delete User by ID:
     public void deleteUserById(Long id);

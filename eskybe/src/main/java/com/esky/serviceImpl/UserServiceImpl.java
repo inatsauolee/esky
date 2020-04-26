@@ -1,6 +1,7 @@
 package com.esky.serviceImpl;
 
 import com.esky.model.entities.User;
+import com.esky.model.pojo.UserRequest;
 import com.esky.repository.UserRepository;
 import com.esky.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +21,22 @@ public class UserServiceImpl implements UserService {
 
     //Save User:
     @Override
-    public User saveUser(User user) {
+    public User saveUser(UserRequest userRequest) {
+        User user = UserRequest.buildUser(userRequest);
         return userRepository.save(user);
     }
 
     //Update User:
     @Override
-    public User updateUser(User user) {
+    public User updateUser(UserRequest userRequest) {
+        User user = UserRequest.buildUser(userRequest);
         return userRepository.save(user);
     }
 
     //Delete User:
     @Override
-    public void deleteUser(User user) {
+    public void deleteUser(UserRequest userRequest) {
+        User user = UserRequest.buildUser(userRequest);
         userRepository.delete(user);
     }
 

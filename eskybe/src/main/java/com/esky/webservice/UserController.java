@@ -1,6 +1,7 @@
 package com.esky.webservice;
 
 import com.esky.model.entities.User;
+import com.esky.model.pojo.UserRequest;
 import com.esky.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -23,39 +25,30 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/save")
-    public ResponseEntity saveUser(@RequestBody User user) {
-        return new ResponseEntity(userService.saveUser(user), HttpStatus.OK);
+    public ResponseEntity saveUser(@RequestBody UserRequest userRequest) {
+        return new ResponseEntity(userService.saveUser(userRequest), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody User user) {
-        User update = userService.getUserById(id);
-        if (null == update) {
-            return new ResponseEntity("No User found for ID " + id, HttpStatus.NOT_FOUND);
-        }else {
-            if(user.getUsername()!=null) update.setUsername(user.getUsername());
-            if(user.getLastname()!=null) update.setLastname(user.getLastname());
-            if(user.getFirstname()!=null) update.setFirstname(user.getFirstname());
-            if(user.getEmail()!=null) update.setEmail(user.getEmail());
-            return new ResponseEntity(userService.saveUser(update), HttpStatus.OK);
-        }
+    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
+        return new ResponseEntity(userService.saveUser(userRequest), HttpStatus.OK);
     }
 
     @GetMapping("/get/{id}")
     public ResponseEntity getUserById(@PathVariable Long id) {
-        User user = userService.getUserById(id);
-        if (user == null) {
+        User aUser = userService.getUserById(id);
+        if (aUser == null) {
             return new ResponseEntity("No User found for ID " + id, HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(user, HttpStatus.OK);
+        return new ResponseEntity(aUser, HttpStatus.OK);
     }
 
     @SuppressWarnings({ "deprecation" })
     @GetMapping("/all")
-    public List<User> allUsers(int page, int size, Sort.Direction direction, String sort) {
+    public Set<UserRequest> allUsers(int page, int size, Sort.Direction direction, String sort) {
         PageRequest pageRequest = new PageRequest(page, size, direction, sort);
         Page<User> pages= userService.findAllUser(pageRequest);
-        return pages.getContent();
+        return UserRequest.buildRequest(pages.getContent());
     }
 
     @GetMapping("/all/filter")

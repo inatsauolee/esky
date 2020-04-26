@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
-import { SidebarService } from '../../services/sidebar.service';
+import { SidebarService } from '../../shared/services/sidebar.service';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { ThemeService } from '../../services/theme.service';
+import { ThemeService } from '../../shared/services/theme.service';
 import { Title } from '@angular/platform-browser';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';

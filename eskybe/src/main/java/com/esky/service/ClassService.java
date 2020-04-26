@@ -1,6 +1,7 @@
 package com.esky.service;
 
 import com.esky.model.entities.Class;
+import com.esky.model.pojo.ClassRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -8,13 +9,13 @@ import org.springframework.data.domain.Pageable;
 public interface ClassService {
 
     //Save Class:
-    public Class saveClass(Class classe);
+    public Class saveClass(ClassRequest aClass);
 
     //Update Class:
-    public Class updateClass(Class classe);
+    public Class updateClass(ClassRequest aClass);
 
     //Delete Class:
-    public void deleteClass(Class classe);
+    public void deleteClass(ClassRequest aClass);
 
     //Delete Class by ID:
     public void deleteClassById(Long id);

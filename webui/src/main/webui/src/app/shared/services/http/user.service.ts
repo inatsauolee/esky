@@ -2,18 +2,18 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable()
-export class ProgramService {
+export class UserService {
   constructor(private _http: HttpClient) {
   }
 
-  getAllPrograms() {
+  getAllUsers() {
     return this._http.get('');
   }
 
-  getProgramById(id: number) {
+  getUserById(id: number) {
   }
 
-  getProgramByCedent(cedentRequest: any) {
+  getUserByCedent(cedentRequest: any) {
     // return this._http.post(environment.endpoint + api.programByCedent, cedentRequest);
     return this._http.post('', cedentRequest);
   }

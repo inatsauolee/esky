@@ -1,6 +1,7 @@
 package com.esky.serviceImpl;
 
 import com.esky.model.entities.Class;
+import com.esky.model.pojo.ClassRequest;
 import com.esky.repository.ClassRepository;
 import com.esky.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,20 +21,23 @@ public class ClassServiceImpl implements ClassService {
 
     //Save Class:
     @Override
-    public Class saveClass(Class classe) {
-        return classRepository.save(classe);
+    public Class saveClass(ClassRequest classRequest) {
+        Class aClass = ClassRequest.buildClass(classRequest);
+        return classRepository.save(aClass);
     }
 
     //Update Class:
     @Override
-    public Class updateClass(Class classe) {
-        return classRepository.save(classe);
+    public Class updateClass(ClassRequest classRequest) {
+        Class aClass = ClassRequest.buildClass(classRequest);
+        return classRepository.save(aClass);
     }
 
     //Delete Class:
     @Override
-    public void deleteClass(Class classe) {
-        classRepository.delete(classe);
+    public void deleteClass(ClassRequest classRequest) {
+        Class aClass = ClassRequest.buildClass(classRequest);
+        classRepository.delete(aClass);
     }
 
     //Delete Class by ID:

@@ -1,12 +1,13 @@
 package com.esky.model.entities;
 
 import com.esky.model.ESKYTracableObject;
+import com.esky.model.pojo.ClassRequest;
+import com.esky.model.pojo.UserRequest;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Set;
 
 /**
@@ -46,6 +47,21 @@ public class Class extends ESKYTracableObject implements Serializable {
 
     public Class(Long id) {
         this.id = id;
+    }
+
+    public ClassRequest toRequest() {
+        final ClassRequest classRequest = new ClassRequest();
+        classRequest.setId(this.id);
+        classRequest.setName(this.name);
+        classRequest.setSchool(this.school);
+        classRequest.setCity(this.city);
+        classRequest.setDescription(this.description);
+        classRequest.setStudents(UserRequest.buildRequest(this.students));
+        classRequest.setUpdated(this.getUpdated());
+        classRequest.setUpdator(this.getUpdator() != null ? this.getUpdator().getId() : null);
+        classRequest.setCreated(this.getCreated());
+        classRequest.setCreator(this.getCreator() != null ? this.getCreator().getId() : null);
+        return classRequest;
     }
 
 }

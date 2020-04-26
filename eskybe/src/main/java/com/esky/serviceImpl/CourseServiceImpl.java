@@ -1,6 +1,7 @@
 package com.esky.serviceImpl;
 
 import com.esky.model.entities.Course;
+import com.esky.model.pojo.CourseRequest;
 import com.esky.repository.CourseRepository;
 import com.esky.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +21,22 @@ public class CourseServiceImpl implements CourseService {
 
     //Save Course:
     @Override
-    public Course saveCourse(Course course) {
+    public Course saveCourse(CourseRequest courseRequest) {
+        Course course = CourseRequest.buildCourse(courseRequest);
         return courseRepository.save(course);
     }
 
     //Update Course:
     @Override
-    public Course updateCourse(Course course) {
+    public Course updateCourse(CourseRequest courseRequest) {
+        Course course = CourseRequest.buildCourse(courseRequest);
         return courseRepository.save(course);
     }
 
     //Delete Course:
     @Override
-    public void deleteCourse(Course course) {
+    public void deleteCourse(CourseRequest courseRequest) {
+        Course course = CourseRequest.buildCourse(courseRequest);
         courseRepository.delete(course);
     }
 

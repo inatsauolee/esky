@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { EChartOption } from 'echarts';
-import { SidebarService } from '../../services/sidebar.service';
+import { SidebarService } from '../../shared/services/sidebar.service';
 import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableService } from '@syncfusion/ej2-angular-richtexteditor';
 
 @Component({

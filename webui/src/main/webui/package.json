@@ -1,5 +1,5 @@
 {
-  "name": "lucid",
+  "name": "Esky",
   "version": "2.6.5",
   "license": "ISC",
   "author": "WrrapTheme",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.24",
-    "@angular/cli": "8.0.1",
+    "@angular/cli": "7.1.4",
     "@angular/compiler-cli": "8.0.0",
     "@angular/language-service": "8.0.0",
     "@types/chartist": "^0.9.44",

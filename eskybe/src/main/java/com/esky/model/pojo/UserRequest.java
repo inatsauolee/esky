@@ -3,6 +3,7 @@ package com.esky.model.pojo;
 import java.io.Serializable;
 import java.util.*;
 
+import com.esky.model.entities.Authority;
 import com.esky.model.entities.User;
 
 import lombok.Getter;
@@ -21,11 +22,11 @@ public class UserRequest implements Serializable {
 
     private Long id;
 
-    private String userName;
+    private String username;
 
-    private String firstName;
+    private String firstname;
 
-    private String lastName;
+    private String lastname;
 
     private Long status;
 
@@ -35,10 +36,15 @@ public class UserRequest implements Serializable {
 
     private String role;
 
+    private Boolean enabled;
+
     private String password;
 
     private String preferences;
 
+    private Date lastPasswordResetDate;
+
+    private List<Authority> authorities;
 
     public User toUser() {
         User user = new User(this.id);
@@ -57,15 +63,18 @@ public class UserRequest implements Serializable {
     public static User buildUser(UserRequest request) {
         final User user = new User();
         user.setId(request.id);
-        user.setUsername(request.userName);
-        user.setFirstname(request.firstName);
-        user.setLastname(request.lastName);
+        user.setUsername(request.username);
+        user.setFirstname(request.firstname);
+        user.setLastname(request.lastname);
         user.setStatus(request.status);
         user.setEmail(request.email);
         user.setLang(request.lang);
         user.setRole(request.role);
+        user.setEnabled(request.enabled);
         user.setPassword(request.password);
         user.setPreferences(request.preferences);
+        user.setLastPasswordResetDate(request.lastPasswordResetDate);
+        user.setAuthorities(request.authorities);
         return user;
     }
 

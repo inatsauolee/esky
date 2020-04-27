@@ -16,11 +16,12 @@ import {UserService} from "./shared/services/http/user.service";
 import {StoreModule} from "@ngrx/store";
 import {RouterModule} from "@angular/router";
 import {CourseService} from "./shared/services/http/course.service";
-import {HttpClientModule} from "@angular/common/http";
-import {metaReducers, reducers} from './reducers';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/shared.module";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
+import {JwtInterceptor} from "./shared/_helpers/jwt.interceptor";
+import {ErrorInterceptor} from "./shared/_helpers/error.interceptor";
 
 @NgModule({
     declarations: [
@@ -48,7 +49,10 @@ import {environment} from "../environments/environment";
         LeafletModule.forRoot(),
         NgxGalleryModule
     ],
-    providers: [UserService, CourseService],
+    providers: [
+        // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        UserService, CourseService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

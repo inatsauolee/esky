@@ -10,12 +10,9 @@ export class UserService {
     return this._http.get('');
   }
 
-  getUserById(id: number) {
-  }
-
-  getUserByCedent(cedentRequest: any) {
+  getUserById(id: any) {
     // return this._http.post(environment.endpoint + api.programByCedent, cedentRequest);
-    return this._http.post('', cedentRequest);
+    return this._http.post('', id);
   }
 
 }

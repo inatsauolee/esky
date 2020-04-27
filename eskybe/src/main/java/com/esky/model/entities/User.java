@@ -1,17 +1,17 @@
 package com.esky.model.entities;
 
+import constant.AuthorityName;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.esky.model.pojo.UserRequest;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  */
@@ -52,11 +52,21 @@ public class User implements Serializable {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "enabled")
+    private Boolean enabled;
+
     @Column(name = "pass")
     private String password;
 
     @Column(name = "preferences")
     private String preferences;
+
+    @Column(name = "lastPasswordResetDate")
+    private Date lastPasswordResetDate;
+
+    @ElementCollection
+    @LazyCollection(LazyCollectionOption.FALSE)
+	private List<Authority> authorities;
 
 //    @JsonIgnore
 //    @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
@@ -81,15 +91,18 @@ public class User implements Serializable {
     public UserRequest toRequest() {
         final UserRequest userRequest = new UserRequest();
         userRequest.setId(this.id);
-        userRequest.setUserName(this.username);
-        userRequest.setFirstName(this.firstname);
-        userRequest.setLastName(this.lastname);
+        userRequest.setUsername(this.username);
+        userRequest.setFirstname(this.firstname);
+        userRequest.setLastname(this.lastname);
         userRequest.setStatus(this.status);
         userRequest.setEmail(this.email);
         userRequest.setLang(this.lang);
         userRequest.setRole(this.role);
+        userRequest.setEnabled(this.enabled);
         userRequest.setPassword(this.password);
         userRequest.setPreferences(this.preferences);
+        userRequest.setLastPasswordResetDate(this.lastPasswordResetDate);
+        userRequest.setAuthorities(this.authorities);
         return userRequest;
     }
 }

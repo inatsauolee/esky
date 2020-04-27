@@ -4,15 +4,18 @@ import {
   UserActionTypes,
   LoadUsersFailAction,
   LoadUsersSuccessAction,
-  LoadUserByCedentSuccessAction, LoadUserByCedentFailAction
+  LoadUserByIdSuccessAction,
+  LoadUserByIdFailAction,
+  LoginSuccessAction
 } from '../actions/user.actions';
 import {catchError, mergeMap, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {UserService} from "../../services/http/user.service";
+import {AuthenticationService} from "../../services/http/authentication.service";
 
 @Injectable()
 export class UserEffects {
-  constructor(private actions$: Actions, private apiService: UserService) {}
+  constructor(private actions$: Actions, private apiService: UserService, private authService: AuthenticationService) {}
 
   @Effect()
   loadAllUsers$ = this.actions$.pipe(ofType(
@@ -28,14 +31,27 @@ export class UserEffects {
   );
 
   @Effect()
-  loadAllUsersByCedent$ = this.actions$.pipe(ofType(
-    UserActionTypes.LoadUserByCedent
+  loadAllUsersById$ = this.actions$.pipe(ofType(
+    UserActionTypes.LoadUserById
   )).pipe(
     switchMap(({payload}:any) =>
-      this.apiService.getUserByCedent(payload)
+      this.apiService.getUserById(payload)
         .pipe(
-          mergeMap((content) => of(new LoadUserByCedentSuccessAction(content))),
-          catchError(error => of(new LoadUserByCedentFailAction(error)))
+          mergeMap((content) => of(new LoadUserByIdSuccessAction(content))),
+          catchError(error => of(new LoadUserByIdFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
+  login$ = this.actions$.pipe(ofType(
+    UserActionTypes.Login
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.authService.login(payload.username, payload.password)
+        .pipe(
+          mergeMap((content) => of(new LoginSuccessAction(content))),
+          catchError(error => of(new LoginSuccessAction(error)))
         )
     )
   );

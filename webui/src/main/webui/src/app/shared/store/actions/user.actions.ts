@@ -5,9 +5,13 @@ export enum UserActionTypes {
   LoadUsersFail = '[User] Load All Users Fail',
   LoadUsersSuccess = '[User] Load All Users Success',
   
-  LoadUserByCedent = '[User] Load User By Cedent',
-  LoadUserByCedentFail = '[User] Load User By Cedent Fail',
-  LoadUserByCedentSuccess = '[User] Load User By Cedent Success',
+  LoadUserById = '[User] Load User By Id',
+  LoadUserByIdFail = '[User] Load User By Id Fail',
+  LoadUserByIdSuccess = '[User] Load User By Id Success',
+
+  Login = '[User] Login',
+  LoginFail = '[User] Login Fail',
+  LoginSuccess = '[User] Login Success'
 }
 
 export class LoadUsers implements Action {
@@ -31,33 +35,57 @@ export class LoadUsersSuccessAction implements Action {
   }
 }
 
-export class LoadUserByCedentAction implements Action {
-  readonly type = UserActionTypes.LoadUserByCedent;
+export class LoadUserByIdAction implements Action {
+  readonly type = UserActionTypes.LoadUserById;
 
   constructor(public payload: any) {
   }
 }
 
-export class LoadUserByCedentFailAction implements Action {
-  readonly type = UserActionTypes.LoadUserByCedentFail;
+export class LoadUserByIdFailAction implements Action {
+  readonly type = UserActionTypes.LoadUserByIdFail;
 
   constructor(public payload: any) {
   }
 }
 
-export class LoadUserByCedentSuccessAction implements Action {
-  readonly type = UserActionTypes.LoadUserByCedentSuccess;
+export class LoadUserByIdSuccessAction implements Action {
+  readonly type = UserActionTypes.LoadUserByIdSuccess;
 
   constructor(public payload: any) {
   }
 }
 
+export class LoginAction implements Action {
+  readonly type = UserActionTypes.Login;
+
+  constructor(public payload: {username: string, password: string}) {
+  }
+}
+
+export class LoginFailAction implements Action {
+  readonly type = UserActionTypes.LoginFail;
+
+  constructor(public payload: any) {
+  }
+}
+
+export class LoginSuccessAction implements Action {
+  readonly type = UserActionTypes.LoginSuccess;
+
+  constructor(public payload: any) {
+  }
+}
 
 export type UserActions =
   LoadUsers |
   LoadUsersFailAction |
   LoadUsersSuccessAction |
     
-  LoadUserByCedentAction |
-  LoadUserByCedentFailAction |
-  LoadUserByCedentSuccessAction;
+  LoadUserByIdAction |
+  LoadUserByIdFailAction |
+  LoadUserByIdSuccessAction |
+
+  LoginAction |
+  LoginFailAction |
+  LoginSuccessAction;

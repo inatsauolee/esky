@@ -1,0 +1,1 @@
+web: java -jar target/*.jar:8080/esky

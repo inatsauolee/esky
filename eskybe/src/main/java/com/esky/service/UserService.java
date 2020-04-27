@@ -23,13 +23,18 @@ public interface UserService {
     //Get User by ID:
     public User getUserById(Long id);
 
-    //Get all Users by Filter:
-    public Page<User> findAllUserByFilter(Pageable pageable, String filterValue);
+    //Get User by Username:
+    public User getUserByUsername(String username);
+
+    //Get User by Creator:
+    public User getUserByCreator(Long id);
 
     //Find all Users:
     public Page<User> findAllUser(PageRequest pageRequest);
 
     //Get Users Count
     public long getUsersCount();
+
+    public Page<User> findAllUserByFilter(Pageable pageable, String filterValue);
 
 }

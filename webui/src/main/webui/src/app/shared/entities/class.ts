@@ -1,6 +1,7 @@
 import {User} from "./user";
+import {EskyTracableObject} from "./esky-tracable-object";
 
-export class Class {
+export class Class  extends EskyTracableObject{
 
     id: number;
 

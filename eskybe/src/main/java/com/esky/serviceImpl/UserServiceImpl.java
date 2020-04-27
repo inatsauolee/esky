@@ -54,6 +54,20 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    //Get User by Username:
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    //Get User by Creator:
+    @Override
+    public User getUserByCreator(Long id) {
+        Optional<User> op = userRepository.findById(id);
+        if(op.isPresent()) return op.get();
+        return null;
+    }
+
     //Get all Users by Filter:
     @Override
     public Page<User> findAllUserByFilter(Pageable pageable, String filterValue) {

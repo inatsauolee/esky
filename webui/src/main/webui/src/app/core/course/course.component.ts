@@ -1,6 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { EChartOption } from 'echarts';
 import { SidebarService } from '../../shared/services/sidebar.service';
+import {LoadCoursesAction} from "../../shared/store/actions";
+import {Store} from "@ngrx/store";
+import {getAllCourses} from "../../shared/store/selectors/course.selectors";
+import {Course} from "../../shared/entities/course";
 
 @Component({
   selector: 'app-course',
@@ -12,13 +16,18 @@ export class CourseComponent implements OnInit {
   public visitorsOptions: EChartOption = {};
   public visitsOptions: EChartOption = {};
   public sidebarVisible: boolean = true;
+  public courseList: Course[] = [];
 
-  constructor(private sidebarService: SidebarService, private cdr: ChangeDetectorRef) {
+  constructor(private store$: Store<any>, private sidebarService: SidebarService, private cdr: ChangeDetectorRef) {
     this.visitorsOptions = this.loadLineChartOptions([3, 5, 1, 6, 5, 4, 8, 3], "#49c5b6");
     this.visitsOptions = this.loadLineChartOptions([4, 6, 3, 2, 5, 6, 5, 4], "#f4516c");
   }
 
   ngOnInit() {
+    this.store$.dispatch(new LoadCoursesAction(null));
+    this.store$.select(getAllCourses).subscribe(data => {
+      this.courseList = data;
+    })
   }
 
   toggleFullWidth() {

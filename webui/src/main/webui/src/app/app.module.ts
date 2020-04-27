@@ -12,13 +12,15 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgxGalleryModule } from 'ngx-gallery';
 import {EffectsModule} from '@ngrx/effects';
 
-import * as $ from 'jquery';
 import {UserService} from "./shared/services/http/user.service";
 import {StoreModule} from "@ngrx/store";
-import {sharedReducers} from "./shared/store/reducers";
-import {effects} from "./shared/store/effects";
 import {RouterModule} from "@angular/router";
+import {CourseService} from "./shared/services/http/course.service";
+import {HttpClientModule} from "@angular/common/http";
+import {metaReducers, reducers} from './reducers';
 import {SharedModule} from "./shared/shared.module";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {environment} from "../environments/environment";
 
 @NgModule({
     declarations: [
@@ -27,19 +29,26 @@ import {SharedModule} from "./shared/shared.module";
     imports: [
         BrowserModule,
         routing,
+        HttpClientModule,
         NgbModule,
+        SharedModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
-        // RouterModule.forRoot([]),
-        // StoreModule.forFeature('sharedState', sharedReducers),
-        // EffectsModule.forFeature(effects),
+        RouterModule.forRoot([]),
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
+        StoreDevtoolsModule.instrument({
+            name: 'Angular 8 ngRx Example',
+            maxAge: 25,
+            logOnly: environment.production
+        }),
         RichTextEditorAllModule,
         FullCalendarModule,
         NgMultiSelectDropDownModule.forRoot(),
         LeafletModule.forRoot(),
         NgxGalleryModule
     ],
-    providers: [UserService],
+    providers: [UserService, CourseService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

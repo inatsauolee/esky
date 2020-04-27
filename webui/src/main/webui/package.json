@@ -39,7 +39,7 @@
     "leaflet": "^1.5.1",
     "moment": "^2.24.0",
     "ng-fullcalendar": "1.7.1",
-    "ng-multiselect-dropdown": "^0.2.3",
+    "ng-multiselect-dropdown": "0.2.4",
     "ngx-echarts": "^4.1.0",
     "ngx-gallery": "^5.10.0",
     "ngx-toastr": "^9.1.2",

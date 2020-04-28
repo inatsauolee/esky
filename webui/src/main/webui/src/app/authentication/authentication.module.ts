@@ -13,6 +13,7 @@ import { PageTryLaterComponent } from './page-try-later/page-try-later.component
 import { PagesModule } from '../pages/pages.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
 	declarations: [PageLoginComponent, AuthenticationComponent, PageRegisterComponent, PageLockscreenComponent, PageForgotPasswordComponent, PageNotFoundComponent, PageForbiddonErrorComponent, PageIsErrorComponent, PageTryLaterComponent],
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 		routing,
 		PagesModule,
         RouterModule,
+		SharedModule,
         FormsModule
 	]
 })

@@ -22,6 +22,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
 import {JwtInterceptor} from "./shared/_helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./shared/_helpers/error.interceptor";
+import {AuthenticationService} from "./shared/services/http/authentication.service";
 
 @NgModule({
     declarations: [
@@ -50,9 +51,9 @@ import {ErrorInterceptor} from "./shared/_helpers/error.interceptor";
         NgxGalleryModule
     ],
     providers: [
-        // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-        UserService, CourseService],
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        AuthenticationService, UserService, CourseService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

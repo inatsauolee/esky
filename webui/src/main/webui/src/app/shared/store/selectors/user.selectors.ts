@@ -13,3 +13,8 @@ export const getAllUsers = createSelector(
   state => state.users
 );
 
+export const selectLoggedInUser = createSelector(
+    selectUserState,
+  state => state.loggedInUser
+);
+

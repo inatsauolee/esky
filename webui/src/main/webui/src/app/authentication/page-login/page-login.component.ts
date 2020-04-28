@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {Store} from "@ngrx/store";
+import {LoginAction} from "../../shared/store/actions";
+import {selectLoggedInUser} from "../../shared/store/selectors";
 
 @Component({
 	selector: 'app-page-login',
@@ -8,12 +11,22 @@ import { Router } from '@angular/router';
 })
 export class PageLoginComponent implements OnInit {
 
-	constructor(private router: Router) { }
+	mock: any = {
+		username: '',
+		password: ''
+	};
+
+	constructor(private store$: Store<any>, private router: Router) { }
 
 	ngOnInit() {
+		this.store$.select(selectLoggedInUser).subscribe(data => {
+			if(data) {
+				this.router.navigate(['/dashboard']);
+			}
+		});
 	}
 
 	onSubmit(){
-		this.router.navigate(['/admin/dashboard/index']);
+		this.store$.dispatch(new LoginAction(this.mock));
 	}
 }

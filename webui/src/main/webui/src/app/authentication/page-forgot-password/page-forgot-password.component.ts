@@ -14,7 +14,7 @@ export class PageForgotPasswordComponent implements OnInit {
     }
 
     onSubmit() {
-        this.router.navigate(['/authentication/page-login']);
+        this.router.navigate(['/auth/login']);
     }
 
 }

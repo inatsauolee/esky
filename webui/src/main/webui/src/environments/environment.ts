@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://localhost:8080/esky'
+  endpoint: 'http://localhost:8080'
 };
 
 export const api = {

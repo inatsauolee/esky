@@ -29,7 +29,7 @@ export class AdminComponent implements AfterViewInit, OnInit, OnDestroy {
     public darkClass: string = "";
     private ngUnsubscribe = new Subject();
 
-	constructor(private sidebarService: SidebarService, private router: Router, private activatedRoute: ActivatedRoute, private themeService: ThemeService, private titleService: Title) {
+	constructor(public sidebarService: SidebarService, private router: Router, private activatedRoute: ActivatedRoute, private themeService: ThemeService, private titleService: Title) {
 		this.activatedRoute.url.pipe(takeUntil(this.ngUnsubscribe)).subscribe(url => {
 			this.isStopLoading = false;
 			this.getActiveRoutes();

@@ -7,6 +7,8 @@ import { EventService } from '../../shared/services/event.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import {Store} from "@ngrx/store";
+import {LoadMyCoursesByCreatorAction} from "../../shared/store/actions";
 
 @Component({
 	selector: 'app-app-calendar',
@@ -23,10 +25,12 @@ export class AppCalendarComponent implements OnDestroy {
     public displayEvent: any;
     private ngUnsubscribe = new Subject();
 
-	constructor(private sidebarService: SidebarService, private cdr: ChangeDetectorRef, private eventService: EventService, private modalService: NgbModal) {
+	constructor(private store$: Store<any>, private sidebarService: SidebarService, private cdr: ChangeDetectorRef, private eventService: EventService, private modalService: NgbModal) {
 		this.visitorsOptions = this.loadLineChartOptions([3, 5, 1, 6, 5, 4, 8, 3], "#49c5b6");
 		this.visitsOptions = this.loadLineChartOptions([4, 6, 3, 2, 5, 6, 5, 4], "#f4516c");
+		this.store$.dispatch(new LoadMyCoursesByCreatorAction({idCreator: 1}));
         this.eventService.getEvents().pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => {
+        	console.log(data);
 			this.calendarOptions = {
 				editable: true,
 				eventLimit: false,

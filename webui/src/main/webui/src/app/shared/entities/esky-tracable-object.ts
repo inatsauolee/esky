@@ -1,13 +1,11 @@
-import {User} from "./user";
-
 export class EskyTracableObject {
 
     updated: Date;
 
     created: Date;
 
-    creator: User;
+    creator: number;
 
-    updator: User;
+    updator: number;
 
 }

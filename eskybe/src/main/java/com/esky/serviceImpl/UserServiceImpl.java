@@ -21,22 +21,19 @@ public class UserServiceImpl implements UserService {
 
     //Save User:
     @Override
-    public User saveUser(UserRequest userRequest) {
-        User user = UserRequest.buildUser(userRequest);
+    public User saveUser(User user) {
         return userRepository.save(user);
     }
 
     //Update User:
     @Override
-    public User updateUser(UserRequest userRequest) {
-        User user = UserRequest.buildUser(userRequest);
+    public User updateUser(User user) {
         return userRepository.save(user);
     }
 
     //Delete User:
     @Override
-    public void deleteUser(UserRequest userRequest) {
-        User user = UserRequest.buildUser(userRequest);
+    public void deleteUser(User user) {
         userRepository.delete(user);
     }
 

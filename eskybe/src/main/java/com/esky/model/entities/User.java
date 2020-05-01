@@ -95,14 +95,8 @@ public class User implements Serializable {
         userRequest.setFirstname(this.firstname);
         userRequest.setLastname(this.lastname);
         userRequest.setStatus(this.status);
-        userRequest.setEmail(this.email);
-        userRequest.setLang(this.lang);
         userRequest.setRole(this.role);
         userRequest.setEnabled(this.enabled);
-        userRequest.setPassword(this.password);
-        userRequest.setPreferences(this.preferences);
-        userRequest.setLastPasswordResetDate(this.lastPasswordResetDate);
-        userRequest.setAuthorities(this.authorities);
         return userRequest;
     }
 }

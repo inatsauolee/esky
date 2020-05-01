@@ -25,13 +25,13 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/save")
-    public ResponseEntity saveUser(@RequestBody UserRequest userRequest) {
-        return new ResponseEntity(userService.saveUser(userRequest), HttpStatus.OK);
+    public ResponseEntity saveUser(@RequestBody User user) {
+        return new ResponseEntity(userService.saveUser(user), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
-        return new ResponseEntity(userService.saveUser(userRequest), HttpStatus.OK);
+    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody User user) {
+        return new ResponseEntity(userService.saveUser(user), HttpStatus.OK);
     }
 
     @GetMapping("/get/{id}")

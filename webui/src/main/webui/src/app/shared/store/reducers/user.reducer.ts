@@ -60,6 +60,8 @@ export function userReducer(state = initialeState, action): UserState {
         localStorage.setItem('JWT', JSON.stringify(action.payload.token));
       }
 
+      localStorage.setItem('currentUser', JSON.stringify(action.payload.currentUser));
+
       return {
         ...state,
         loggedInUser: action.payload.currentUser,

@@ -1,6 +1,7 @@
 package com.esky.serviceImpl;
 
 import com.esky.model.entities.Course;
+import com.esky.model.entities.User;
 import com.esky.model.pojo.CourseRequest;
 import com.esky.repository.CourseRepository;
 import com.esky.service.CourseService;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -50,25 +52,41 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public Course getCourseById(Long id) {
         Optional<Course> op = courseRepository.findById(id);
-        if(op.isPresent()) return op.get();
+        if (op.isPresent()) return op.get();
         return null;
     }
 
-    //Get Course by Creator:
+    //Get all Courses by Student + Filter:
     @Override
-    public Page<Course> getCourseByCreator(Pageable pageable, Long id) {
-        return courseRepository.findByCreator(pageable, id);
+    public Page<Course> findByStudentAndFilter(PageRequest pageRequest, String filterValue, Long id) {
+        return courseRepository.findByStudentAndFilter(pageRequest, id, '%' + filterValue + '%');
+    }
+
+    //Get all Courses by Creator + Filter:
+    @Override
+    public Page<Course> findAllCourseByCreator(PageRequest pageRequest, String filterValue, Long id) {
+        if ("".equals(filterValue)) {
+            return courseRepository.findByCreatorId(pageRequest, id);
+        } else {
+            return courseRepository.findByCreatorIdAndFilter(pageRequest, new User(id), '%' + filterValue + '%');
+        }
+    }
+
+    //Get my Courses by Creator:
+    @Override
+    public List<CourseRequest> findMyCourseByCreator(Long id) {
+        return CourseRequest.buildRequest(courseRepository.findMyCourseByCreator(new User(id)));
     }
 
     //Get all Courses by Filter:
     @Override
-    public Page<Course> findAllCourseByFilter(Pageable pageable, String filterValue) {
-        return courseRepository.findByNameIgnoreCaseContainingOrSubjectIgnoreCaseContainingOrDescriptionIgnoreCaseContaining(pageable, filterValue, filterValue, filterValue);
+    public Page<Course> findAllCourseByFilter(PageRequest pageRequest, String filterValue) {
+        return courseRepository.findAllByFilter(pageRequest, '%' + filterValue + '%');
     }
 
     //Find all Courses:
     @Override
-    public Page<Course> findAllCourse(PageRequest pageRequest){
+    public Page<Course> findAllCourse(PageRequest pageRequest) {
         return courseRepository.findAll(pageRequest);
     }
 

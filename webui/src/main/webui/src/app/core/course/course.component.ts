@@ -1,10 +1,19 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { EChartOption } from 'echarts';
 import { SidebarService } from '../../shared/services/sidebar.service';
-import {LoadCoursesAction} from "../../shared/store/actions";
+import {
+  AddCourseAction,
+  DeleteCourseAction,
+  LoadCoursesAction, LoadCoursesByCreatorAction,
+  LoadCoursesByFilterAction, LoadCoursesByStudentAction
+} from "../../shared/store/actions";
 import {Store} from "@ngrx/store";
 import {getAllCourses} from "../../shared/store/selectors/course.selectors";
 import {Course} from "../../shared/entities/course";
+import {NgbCalendar, NgbDateAdapter, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {selectLoggedInUser} from "../../shared/store/selectors";
+import {User} from "../../shared/entities/user";
+import {Pageable} from "../../shared/entities/pageable";
+import {Direction, Sort} from "../../shared/constant/tools";
 
 @Component({
   selector: 'app-course',
@@ -13,21 +22,59 @@ import {Course} from "../../shared/entities/course";
 })
 export class CourseComponent implements OnInit {
 
-  public visitorsOptions: EChartOption = {};
-  public visitsOptions: EChartOption = {};
   public sidebarVisible: boolean = true;
-  public courseList: Course[] = [];
+  public activeTab: number = 0;
 
-  constructor(private store$: Store<any>, private sidebarService: SidebarService, private cdr: ChangeDetectorRef) {
-    this.visitorsOptions = this.loadLineChartOptions([3, 5, 1, 6, 5, 4, 8, 3], "#49c5b6");
-    this.visitsOptions = this.loadLineChartOptions([4, 6, 3, 2, 5, 6, 5, 4], "#f4516c");
+  tabChange(num: number){
+    if(this.activeTab != num){
+      this.activeTab = num;
+      this.loadCources();
+    }
+  }
+
+  model1: string;
+  model2: string;
+
+
+  get today() {
+    return this.dateAdapter.toModel(this.ngbCalendar.getToday())!;
+  }
+
+  public loggedInUser: User;
+  public pageable: Pageable = new Pageable('0', '9', Sort.updated, Direction.desc);
+  public courseList: Course[] = [];
+  public filterValue: string = '';
+  public courseToAdd: Course = new Course(null, '', '', '', 'Not started', new Date(), '', 'None', null, []);
+  Number = Number;
+
+  constructor(private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>, private store$: Store<any>, private sidebarService: SidebarService, private cdr: ChangeDetectorRef, private modalService: NgbModal) {
   }
 
   ngOnInit() {
-    this.store$.dispatch(new LoadCoursesAction(null));
+    if(localStorage.getItem('currentUser')) {
+      this.loggedInUser =  JSON.parse(localStorage.getItem('currentUser'));
+    }
+    this.store$.select(selectLoggedInUser).subscribe(data => {
+      if(data) {
+        this.loggedInUser = data;
+      }
+    });
+    this.loadCources();
     this.store$.select(getAllCourses).subscribe(data => {
       this.courseList = data;
-    })
+    });
+  }
+
+  loadCources() {
+    if(this.activeTab === 0) {
+      this.store$.dispatch(new LoadCoursesByStudentAction({pageable: this.pageable, filterValue: this.filterValue, idStudent: this.loggedInUser.id}));
+    } else if (this.activeTab === 1) {
+      if(this.filterValue === '') {
+        this.store$.dispatch(new LoadCoursesAction(this.pageable));
+      } else {
+        this.store$.dispatch(new LoadCoursesByFilterAction({pageable: this.pageable, filterValue: this.filterValue}));
+      }
+    }
   }
 
   toggleFullWidth() {
@@ -36,49 +83,37 @@ export class CourseComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  loadLineChartOptions(data, color) {
-    let chartOption: EChartOption;
-    let xAxisData: Array<any> = new Array<any>();
-
-    data.forEach(element => {
-      xAxisData.push("");
-    });
-
-    return chartOption = {
-      xAxis: {
-        type: 'category',
-        show: false,
-        data: xAxisData,
-        boundaryGap: false,
-      },
-      yAxis: {
-        type: 'value',
-        show: false
-      },
-      tooltip: {
-        trigger: 'axis',
-        formatter: function (params, ticket, callback) {
-          return '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:' + color + ';"></span>' + params[0].value;
-        }
-      },
-      grid: {
-        left: '0%',
-        right: '0%',
-        bottom: '0%',
-        top: '0%',
-        containLabel: false
-      },
-      series: [{
-        data: data,
-        type: 'line',
-        showSymbol: false,
-        symbolSize: 1,
-        lineStyle: {
-          color: color,
-          width: 1
-        }
-      }]
-    };
+  addCourse() {
+    this.courseToAdd.creator = this.loggedInUser.id;
+    this.courseToAdd.updator = this.loggedInUser.id;
+    this.store$.dispatch(new AddCourseAction(this.courseToAdd));
   }
 
+  openModal(content, size) {
+    this.modalService.open(content, { size: size });
+  }
+
+  deleteCourse(id: number) {
+    this.store$.dispatch(new DeleteCourseAction(id));
+  }
+
+  filter() {
+    this.loadCources();
+  }
+
+  prevPage() {
+    if(Number.parseInt(this.pageable.page) > 0) {
+      this.pageable.page = (Number.parseInt(this.pageable.page) - 1).toString();
+      this.loadCources();
+    }
+  }
+
+  nextPage() {
+    this.pageable.page = (Number.parseInt(this.pageable.page) + 1).toString();
+    this.loadCources();
+  }
+
+  profile(id: any) {
+    
+  }
 }

@@ -10,7 +10,14 @@ import {
   DeleteCourseSuccessAction,
   LoadCoursesFailAction,
   LoadCoursesSuccessAction,
-  LoadCourseByIdSuccessAction, LoadCourseByIdFailAction
+  LoadCourseByIdSuccessAction,
+  LoadCourseByIdFailAction,
+  LoadCoursesByFilterSuccessAction,
+  LoadCoursesByFilterFailAction,
+  LoadCoursesByCreatorSuccessAction,
+  LoadCoursesByCreatorFailAction,
+  LoadCoursesByStudentSuccessAction,
+  LoadCoursesByStudentFailAction, LoadMyCoursesByCreatorSuccessAction, LoadMyCoursesByCreatorFailAction
 } from '../actions/course.actions';
 import {catchError, mergeMap, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
@@ -51,7 +58,7 @@ export class CourseEffects {
     CourseActionTypes.DeleteCourse
   )).pipe(
     switchMap(({payload}:any) =>
-      this.apiService.deleteCourse(payload.id)
+      this.apiService.deleteCourse(payload)
         .pipe(
           mergeMap((content) => of(new DeleteCourseSuccessAction(content))),
           catchError(error => of(new DeleteCourseFailAction(error)))
@@ -64,10 +71,62 @@ export class CourseEffects {
     CourseActionTypes.LoadCourses
   )).pipe(
     switchMap(({payload}:any) =>
-      this.apiService.getAllCourses('0', '10', 'ASC', 'id')
+      this.apiService.getAllCourses(payload)
         .pipe(
           mergeMap((content) => of(new LoadCoursesSuccessAction(content))),
           catchError(error => of(new LoadCoursesFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
+  loadAllCoursesByCreator$ = this.actions$.pipe(ofType(
+    CourseActionTypes.LoadCoursesByCreator
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.apiService.getCoursesByCreator(payload.pageable, payload.filterValue, payload.idCreator)
+        .pipe(
+          mergeMap((content) => of(new LoadCoursesByCreatorSuccessAction(content))),
+          catchError(error => of(new LoadCoursesByCreatorFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
+  loadMyCoursesByCreator$ = this.actions$.pipe(ofType(
+    CourseActionTypes.LoadMyCoursesByCreator
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.apiService.getMyCoursesByCreator(payload.idCreator)
+        .pipe(
+          mergeMap((content) => of(new LoadMyCoursesByCreatorSuccessAction(content))),
+          catchError(error => of(new LoadMyCoursesByCreatorFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
+  loadAllCoursesByStudent$ = this.actions$.pipe(ofType(
+    CourseActionTypes.LoadCoursesByStudent
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.apiService.getCoursesByStudent(payload.pageable, payload.filterValue, payload.idStudent)
+        .pipe(
+          mergeMap((content) => of(new LoadCoursesByStudentSuccessAction(content))),
+          catchError(error => of(new LoadCoursesByStudentFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
+  loadAllCoursesByFilter$ = this.actions$.pipe(ofType(
+    CourseActionTypes.LoadCoursesByFilter
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.apiService.getCoursesByFilter(payload.pageable, payload.filterValue)
+        .pipe(
+          mergeMap((content) => of(new LoadCoursesByFilterSuccessAction(content))),
+          catchError(error => of(new LoadCoursesByFilterFailAction(error)))
         )
     )
   );

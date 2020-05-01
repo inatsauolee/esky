@@ -65,7 +65,7 @@ public class ClassRequest extends ESKYTracableRequest {
             aClass.setUpdator(new User(request.getUpdator()));
         aClass.setCreated(request.getCreated());
         if (request.getCreator() != null)
-            aClass.setCreator(new User(request.getCreator()));
+            aClass.setCreator(UserRequest.buildUser(request.getCreator()));
         return aClass;
     }
 }

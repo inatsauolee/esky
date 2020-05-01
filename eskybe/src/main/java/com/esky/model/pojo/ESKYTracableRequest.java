@@ -12,7 +12,7 @@ public abstract class ESKYTracableRequest {
 
     private Date created = new Date();
 
-    private Long creator;
+    private UserRequest creator;
 
     private Long updator;
 }

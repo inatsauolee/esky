@@ -60,7 +60,7 @@ public class Class extends ESKYTracableObject implements Serializable {
         classRequest.setUpdated(this.getUpdated());
         classRequest.setUpdator(this.getUpdator() != null ? this.getUpdator().getId() : null);
         classRequest.setCreated(this.getCreated());
-        classRequest.setCreator(this.getCreator() != null ? this.getCreator().getId() : null);
+        classRequest.setCreator(this.getCreator() != null ? this.getCreator().toRequest() : null);
         return classRequest;
     }
 

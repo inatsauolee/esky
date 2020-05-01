@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface CourseService {
 
     //Save Course:
@@ -23,11 +25,17 @@ public interface CourseService {
     //Get Course by ID:
     public Course getCourseById(Long id);
 
-    //Get Course by Creator:
-    public Page<Course> getCourseByCreator(Pageable pageable, Long id);
-
     //Get all Courses by Filter:
-    public Page<Course> findAllCourseByFilter(Pageable pageable, String filterValue);
+    public Page<Course> findAllCourseByFilter(PageRequest pageRequest, String filterValue);
+
+    //Get all Courses by Creator:
+    public Page<Course> findAllCourseByCreator(PageRequest pageRequest, String filterValue, Long idCreator);
+
+    //Get all Courses by Student:
+    public Page<Course> findByStudentAndFilter(PageRequest pageRequest, String filterValue, Long idCreator);
+
+    //Get my Courses by Creator:
+    public List<CourseRequest> findMyCourseByCreator(Long idCreator);
 
     //Find all Courses:
     public Page<Course> findAllCourse(PageRequest pageRequest);

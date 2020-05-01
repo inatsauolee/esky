@@ -1,65 +1,244 @@
 <div class="container-fluid">
 
-	<app-visits [title]="'Courses'" [sub_title]="'Courses'"></app-visits>
-	<div class="block-header">
-	<div class="row">
-		<div class="col-lg-12 col-md-4 col-sm-12 text-right">
-			<div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 col-sm-12">
+                <h2>
+                    <a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"
+                       (click)="toggleFullWidth()">
+                        <i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+                        <i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+                    </a>
+                    Courses
+                </h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="['/']"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item active">Courses</li>
+                </ul>
+            </div>
+            <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
+                    <ul class="nav nav-tabs-new">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (0 == activeTab)}"
+                               (click)="tabChange(0)">
+                                <span>Mine</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (1 == activeTab)}"
+                               (click)="tabChange(1)">
+                                <span>All</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (2 == activeTab)}"
+                               (click)="tabChange(2)">
+                                <span>Something else</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-header">
+        <div class="d-flex">
+            <div class="ml-auto">
+                <div class="row" style="padding-right: 10px;">
+                    <!--                    <div class="input-group-prepend">-->
+                    <!--                        <div class="input-group-text" id="btnGroupAddon">@</div>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="btn-group">-->
+                    <!--                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                    <!--                        <span class="sr-only">Toggle Dropdown</span>-->
+                    <!--                    </button>-->
+                    <!--                    <div class="dropdown-menu">-->
+                    <!--                        <a class="dropdown-item" href="#">Action</a>-->
+                    <!--                        <a class="dropdown-item" href="#">Another action</a>-->
+                    <!--                        <a class="dropdown-item" href="#">Something else here</a>-->
+                    <!--                        <div class="dropdown-divider"></div>-->
+                    <!--                        <a class="dropdown-item" href="#">Separated link</a>-->
+                    <!--                    </div>-->
+                    <!--                    </div>-->
+                    <input type="text" class="form-control" placeholder="Tap for search.."
+                           [(ngModel)]="filterValue"
+                           aria-label="Tap for search.." aria-describedby="btnGroupAddon"
+                           style="max-width: 150px;min-width: 50px;margin-right: 5px;border: 1px #dcdada38 solid">
+                    <button type="button" class="btn btn-default mr-1" title="Search" (click)="filter()">
+                        <span class="sr-only">Search</span> <i
+                            [ngClass]="(filterValue === '') ? 'fa fa-refresh' : 'fa fa-search'"></i>
+                    </button>
+                    <button type="button" class="btn btn-default mr-1" title="Select">
+                        <span class="sr-only">Select</span> <i class="fa fa-check-circle-o"></i>
+                    </button>
+                    <button type="button" class="btn btn-default mr-1" title="Add" (click)="openModal(content,'md')">
+                        <span class="sr-only">Add</span> <i class="fa fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-default mr-1" title="Delete">
+                        <span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i>
+                    </button>
+                </div>
 
-			</div>
-			<div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text" id="btnGroupAddon">@</div>
-					</div>
-					<input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">
-				</div>
-			</div>
-			<div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
-				<button type="button" class="btn btn-default mr-1" title="Refresh"><span class="sr-only">Refresh</span> <i class="fa fa-refresh"></i></button>
-				<button type="button" class="btn btn-default mr-1" title="Select"><span class="sr-only">Select</span> <i class="fa fa-check-circle-o"></i></button>
-				<button type="button" class="btn btn-default mr-1" title="Add"><span class="sr-only">Add</span> <i class="fa fa-plus"></i></button>
-				<button type="button" class="btn btn-default mr-1" title="Delete"><span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i></button>
-			</div>
-		</div>
-	</div>
-	</div>
+            </div>
+        </div>
+    </div>
 
-	<div class="row clearfix">
-		<div  *ngFor="let course of courseList" class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-			<div class="card">
-				<div class="header">
-					<h2>{{course.name}}<small>{{course.created}}</small></h2>
-					<ul class="header-dropdown">
-						<li class="dropdown" ngbDropdown>
-							<a href="javascript:void(0);" class="dropdown-toggle" role="button" ngbDropdownToggle></a>
-							<ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-								<li><a href="javascript:void(0);">See Details</a></li>
-								<li><a href="javascript:void(0);">Edit</a></li>
-								<li><a href="javascript:void(0);">Copy</a></li>
-								<li><a href="javascript:void(0);">Delete</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<div class="body">
-					<h6 class="m-b-15">Description<span class="badge badge-success float-right">{{course.status}}</span></h6>
-					<p>{{course.description}}</p><button class="btn btn-danger mr-1 float-right">JOIN NOW</button>
-					<ul class="list-unstyled team-info m-t-20">
-						<li class="m-r-15"><small class="text-muted">Classes:</small></li>
-						<li *ngFor="let aClass of course.classes"><span class="badge badge-success float-right">{{aClass.name}}</span></li>
-					</ul>
-					<p>
-						<ngb-progressbar type="success" [value]="87" height="5px"></ngb-progressbar>
-					</p>
-					<div class="row">
-						<div class="col-7">
-							<small>PROJECTS: 12</small>
-							<h6>BUDGET: 4,870 USD</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="row clearfix">
+        <div *ngFor="let course of courseList" class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="card">
+                <div class="header row" style="padding-bottom: 5px">
+                    <div class="col-lg-3 text-center">
+                        <small style="color: #00000059;font-size: 10px;margin-left: 0;">Created By:</small>
+                        <span>
+                            <img src="assets/images/sm/avatar1.jpg" alt="user" class="rounded-circle"
+                                 style="width: 50px;"/>
+                        </span>
+                        <a style="font-weight: bold;font-size: 12px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                           (click)="profile(course.creator ? course.creator.id: null)">{{course.creator ? (course.creator.firstname + ' ' + course.creator.lastname) : 'Unknown'}}</a>
+                    </div>
+                    <div class="col-lg-9">
+                        <h2 style="font-size: 22px;">{{course.name}}
+                            <small style="font-size: 10px;">Last Update: {{course.updated}}</small>
+                        </h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown" ngbDropdown>
+                                <a href="javascript:void(0);" class="dropdown-toggle" role="button"
+                                   ngbDropdownToggle></a>
+                                <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                                    <li><a href="javascript:void(0);">See Details</a></li>
+                                    <li><a href="javascript:void(0);">Edit</a></li>
+                                    <li><a href="javascript:void(0);">Copy</a></li>
+                                    <li><a (click)="deleteCourse(course.id)">Delete</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p style="background: #969696;padding-left: 2px;margin: 0;font-size: 13px;color: white;">
+                            Subject: <b>{{course.subject}}</b></p>
+                        <p style="margin-bottom: 0px;text-overflow: ellipsis;overflow: hidden;height: 34px;font-size: 11px;color: #a0a0a0;">{{course.description}}</p>
+                    </div>
+                </div>
+                <div class="body" style="padding-top: 0">
+                    <div class="row">
+                        <div class="col-lg-4 text-left">
+                            <h6>Date</h6>
+                            <p style="margin-bottom: 0;">Thu, April 30</p>
+                            <small>Tomorrow</small>
+                        </div>
+                        <div class="col-lg-4 text-left">
+                            <h6>Time</h6>
+                            <p style="margin-bottom: 0;">10:00 <i class="fa fa-arrow-right"></i> 11:00</p>
+                            <small>Duration: 1 hour</small>
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <span class="badge badge-success" style="margin: 2px;">{{course.status}}</span>
+                            <button class="btn btn-danger mr-1" style="margin: 2px;">JOIN NOW</button>
+                        </div>
+                    </div>
+                    <p>
+                        <ngb-progressbar type="success" [value]="87" height="5px"></ngb-progressbar>
+                    </p>
+                    <div class="row">
+                        <div class="col-7" style="margin-bottom: -30px;"
+                             *ngIf="course.classes && course.classes.length">
+                            <small>Classes:</small>
+                            <ul class="list-unstyled team-info">
+                                <li *ngFor="let aClass of course.classes"><span
+                                        class="badge badge-success float-right">{{aClass.name}}</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-7" style="margin-bottom: -17px;"
+                             *ngIf="!course.classes || course.classes.length === 0">
+                            <small>No Class found for this course.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-12 text-center">
+            <div class="btn-group" role="group" aria-label="Basic example"
+                 style="height: 30px;margin-bottom: 16px;">
+                <button type="button" class="btn btn-secondary" style="padding-top: 5px;width: 30px;"
+                        [disabled]="this.pageable.page === ''" (click)="prevPage()"><i class="fa fa-caret-left"></i>
+                </button>
+                <button type="button" class="btn btn-secondary"
+                        style="background: #fffdfd;color: #6c757d; border: none;">
+                    Page: {{Number.parseInt(pageable.page) + 1}}</button>
+                <button type="button" class="btn btn-secondary" style="padding-top: 5px;width: 30px;"
+                        (click)="nextPage()"><i class="fa fa-caret-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="title" id="defaultModalLabel">Add Course</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="form-line">
+                <input type="text" [(ngModel)]="courseToAdd.name" class="form-control" placeholder="Course Title">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-line">
+                <input type="text" [(ngModel)]="courseToAdd.subject" class="form-control"
+                       placeholder="Course Subject">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-line">
+                <textarea [(ngModel)]="courseToAdd.description" class="form-control no-resize"
+                          placeholder="Classes"></textarea>
+            </div>
+        </div>
+    <hr/>
+        <div class="form-group">
+            <div class="input-group">
+                <label class="form-control" style="max-width: 55px !important;">Date</label>
+                <input class="form-control" placeholder="dd/mm/yyyy"
+                       name="d2" #c2="ngModel" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button"><i
+                            class="fa fa-calendar"></i></button>
+                </div>
+                <label type="text" class="form-control" style="max-width: 55px !important;">Time</label>
+                <input class="form-control" placeholder="Start" style="max-width: 60px;" mask="'00:00'">
+                <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                    <button class="form-control dropdown-toggle-split" ngbDropdownToggle></button>
+                    <div class="dropdown-menu" ngbDropdownMenu>
+                        <button ngbDropdownItem>One</button>
+                        <button ngbDropdownItem>Two</button>
+                        <button ngbDropdownItem>Four!</button>
+                    </div>
+                </div>
+                <input class="form-control" placeholder="End" style="max-width: 60px;">
+                <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                    <button class="form-control dropdown-toggle-split" ngbDropdownToggle></button>
+                    <div class="dropdown-menu" ngbDropdownMenu>
+                        <button ngbDropdownItem>One</button>
+                        <button ngbDropdownItem>Two</button>
+                        <button ngbDropdownItem>Four!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-line">
+                <textarea class="form-control no-resize" placeholder="Course Description..."></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="addCourse();modal.dismiss('Close click')">Add
+        </button>
+        <button type="button" class="btn btn-simple" data-dismiss="modal" (click)="modal.dismiss('Close click')">
+            CLOSE
+        </button>
+    </div>
+</ng-template>

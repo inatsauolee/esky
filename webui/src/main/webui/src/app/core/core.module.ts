@@ -34,26 +34,29 @@ import {ClassComponent} from "./class/class.component";
 import {SharedModule} from "../shared/shared.module";
 import {UserComponent} from "./user/user.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
-	imports: [
-		CommonModule,
-		routing,
-		NgxEchartsModule,
-		NavigationModule,
-		RichTextEditorAllModule,
-		NgbModule,
-		FullCalendarModule,
-		ApplicationsModule,
-		FileManagerModule,
-		PagesModule,
-		RouterModule,
-		CommonElementsModule,
-		UiElementsModule,
-		FormModule,
-		SharedModule,
-        WidgetsModule
-	],
+    imports: [
+        CommonModule,
+        routing,
+        NgxEchartsModule,
+        NavigationModule,
+        RichTextEditorAllModule,
+        NgbModule,
+        FullCalendarModule,
+        ApplicationsModule,
+        FileManagerModule,
+        PagesModule,
+        RouterModule,
+        CommonElementsModule,
+        UiElementsModule,
+        FormModule,
+        SharedModule,
+        WidgetsModule,
+        NgbModule,
+        FormsModule
+    ],
 	declarations: [
 		AdminComponent,
 		IndexComponent,

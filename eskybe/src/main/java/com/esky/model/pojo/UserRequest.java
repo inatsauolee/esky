@@ -30,21 +30,9 @@ public class UserRequest implements Serializable {
 
     private Long status;
 
-    private String email;
-
-    private String lang;
-
     private String role;
 
     private Boolean enabled;
-
-    private String password;
-
-    private String preferences;
-
-    private Date lastPasswordResetDate;
-
-    private List<Authority> authorities;
 
     public User toUser() {
         User user = new User(this.id);
@@ -67,14 +55,8 @@ public class UserRequest implements Serializable {
         user.setFirstname(request.firstname);
         user.setLastname(request.lastname);
         user.setStatus(request.status);
-        user.setEmail(request.email);
-        user.setLang(request.lang);
         user.setRole(request.role);
         user.setEnabled(request.enabled);
-        user.setPassword(request.password);
-        user.setPreferences(request.preferences);
-        user.setLastPasswordResetDate(request.lastPasswordResetDate);
-        user.setAuthorities(request.authorities);
         return user;
     }
 

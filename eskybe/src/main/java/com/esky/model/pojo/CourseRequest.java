@@ -1,4 +1,5 @@
 package com.esky.model.pojo;
+
 import com.esky.model.entities.Course;
 import com.esky.model.entities.User;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 import java.util.*;
 
 /**
+ *
  */
 @Getter
 @Setter
@@ -26,6 +28,16 @@ public class CourseRequest extends ESKYTracableRequest {
     private String description;
 
     private String status;
+
+    private Date date;
+
+    private String startTime;
+
+    private String endTime;
+
+    private String repeat;
+
+    private Date until;
 
     private Set<ClassRequest> classes;
 
@@ -51,12 +63,17 @@ public class CourseRequest extends ESKYTracableRequest {
         course.setSubject(request.subject);
         course.setDescription(request.description);
         course.setStatus(request.status);
+        course.setDate(request.date);
+        course.setStartTime(request.startTime);
+        course.setEndTime(request.endTime);
+        course.setRepeat(request.repeat);
+        course.setUntil(request.until);
         course.setUpdated(new Date());
         if (request.getUpdator() != null)
             course.setUpdator(new User(request.getUpdator()));
         course.setCreated(request.getCreated());
         if (request.getCreator() != null)
-            course.setCreator(new User(request.getCreator()));
+            course.setCreator(UserRequest.buildUser(request.getCreator()));
         return course;
     }
 }

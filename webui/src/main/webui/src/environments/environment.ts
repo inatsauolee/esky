@@ -13,9 +13,12 @@ export const api = {
   save: '/save',
   get: '/get',
   update: '/update',
-  delete: '/delete',
+  delete: '/delete/',
   all: '/all',
+  mine: '/mine',
   auth: '/auth',
   filter: '/filter',
+  creator: '/creator/',
+  student: '/student/',
   count: '/count'
 };

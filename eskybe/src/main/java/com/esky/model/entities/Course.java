@@ -10,6 +10,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -42,6 +43,21 @@ public class Course extends ESKYTracableObject implements Serializable {
     @Column(name = "STATUS")
     private String status;
 
+    @Column(name = "DATE")
+    private Date date;
+
+    @Column(name = "START_TIME")
+    private String startTime;
+
+    @Column(name = "END_TIME")
+    private String endTime;
+
+    @Column(name = "REPEAT")
+    private String repeat;
+
+    @Column(name = "UNTIL")
+    private Date until;
+
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
     private Set<Class> classes;
@@ -59,11 +75,16 @@ public class Course extends ESKYTracableObject implements Serializable {
         courseRequest.setSubject(this.subject);
         courseRequest.setDescription(this.description);
         courseRequest.setStatus(this.status);
+        courseRequest.setDate(this.date);
+        courseRequest.setStartTime(this.startTime);
+        courseRequest.setEndTime(this.endTime);
+        courseRequest.setRepeat(this.repeat);
+        courseRequest.setUntil(this.until);
         courseRequest.setClasses(ClassRequest.buildRequest(this.classes));
         courseRequest.setUpdated(this.getUpdated());
         courseRequest.setUpdator(this.getUpdator() != null ? this.getUpdator().getId() : null);
         courseRequest.setCreated(this.getCreated());
-        courseRequest.setCreator(this.getCreator() != null ? this.getCreator().getId() : null);
+        courseRequest.setCreator(this.getCreator() != null ? this.getCreator().toRequest() : null);
         return courseRequest;
     }
 

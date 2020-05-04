@@ -1,7 +1,6 @@
 package com.esky.model.pojo;
 
 import com.esky.model.entities.Class;
-import com.esky.model.entities.Course;
 import com.esky.model.entities.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,8 +37,8 @@ public class ClassRequest extends ESKYTracableRequest {
         return aClass;
     }
 
-    public static Set<ClassRequest> buildRequest(Collection<Class> classes) {
-        Set<ClassRequest> list = new HashSet<>();
+    public static List<ClassRequest> buildRequest(Collection<Class> classes) {
+        List<ClassRequest> list = new ArrayList<>();
         classes.forEach(el -> {
             if (el != null)
                 list.add(el.toRequest());

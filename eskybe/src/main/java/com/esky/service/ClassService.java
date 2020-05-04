@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface ClassService {
 
     //Save Class:
@@ -23,16 +25,22 @@ public interface ClassService {
     //Get Class by ID:
     public Class getClassById(Long id);
 
-    //Get Class by Creator:
-    public Page<Class> getClassByCreator(Pageable pageable, Long id);
+    //Get all Classes by Filter:
+    public Page<Class> findAllClassByFilter(PageRequest pageRequest, String filterValue);
 
-    //Get all Classs by Filter:
-    public Page<Class> findAllClassByFilter(Pageable pageable, String filterValue);
+    //Get all Classes by Creator:
+    public Page<Class> findAllClassByCreator(PageRequest pageRequest, String filterValue, Long idCreator);
 
-    //Find all Classs:
+    //Get all Classes by Student:
+    public Page<Class> findByStudentAndFilter(PageRequest pageRequest, String filterValue, Long idCreator);
+
+    //Get my Classes by Creator:
+    public List<ClassRequest> findMyClassByCreator(Long idCreator);
+
+    //Find all Classes:
     public Page<Class> findAllClass(PageRequest pageRequest);
 
-    //Get Classs Count
-    public long getClasssCount();
+    //Get Classes Count
+    public long getClassesCount();
 
 }

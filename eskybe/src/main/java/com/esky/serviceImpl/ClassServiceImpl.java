@@ -1,15 +1,16 @@
 package com.esky.serviceImpl;
 
 import com.esky.model.entities.Class;
+import com.esky.model.entities.User;
 import com.esky.model.pojo.ClassRequest;
 import com.esky.repository.ClassRepository;
 import com.esky.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -50,31 +51,47 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public Class getClassById(Long id) {
         Optional<Class> op = classRepository.findById(id);
-        if(op.isPresent()) return op.get();
+        if (op.isPresent()) return op.get();
         return null;
     }
 
-    //Get Class by Creator:
+    //Get all Classes by Student + Filter:
     @Override
-    public Page<Class> getClassByCreator(Pageable pageable, Long id) {
-        return classRepository.findByCreator(pageable, id);
+    public Page<Class> findByStudentAndFilter(PageRequest pageRequest, String filterValue, Long id) {
+        return classRepository.findByStudentAndFilter(pageRequest, id, '%' + filterValue + '%');
+    }
+
+    //Get all Classes by Creator + Filter:
+    @Override
+    public Page<Class> findAllClassByCreator(PageRequest pageRequest, String filterValue, Long id) {
+        if ("".equals(filterValue)) {
+            return classRepository.findByCreatorId(pageRequest, id);
+        } else {
+            return classRepository.findByCreatorIdAndFilter(pageRequest, new User(id), '%' + filterValue + '%');
+        }
+    }
+
+    //Get my Classes by Creator:
+    @Override
+    public List<ClassRequest> findMyClassByCreator(Long id) {
+        return ClassRequest.buildRequest(classRepository.findMyClassByCreator(new User(id)));
     }
 
     //Get all Classes by Filter:
     @Override
-    public Page<Class> findAllClassByFilter(Pageable pageable, String filterValue) {
-        return classRepository.findByNameIgnoreCaseContainingOrSchoolIgnoreCaseContainingOrDescriptionIgnoreCaseContaining(pageable, filterValue, filterValue, filterValue);
+    public Page<Class> findAllClassByFilter(PageRequest pageRequest, String filterValue) {
+        return classRepository.findAllByFilter(pageRequest, '%' + filterValue + '%');
     }
 
     //Find all Classes:
     @Override
-    public Page<Class> findAllClass(PageRequest pageRequest){
+    public Page<Class> findAllClass(PageRequest pageRequest) {
         return classRepository.findAll(pageRequest);
     }
 
     //Get Classes Count:
     @Override
-    public long getClasssCount() {
+    public long getClassesCount() {
         return classRepository.count();
     }
 }

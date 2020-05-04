@@ -35,6 +35,17 @@ import {SharedModule} from "../shared/shared.module";
 import {UserComponent} from "./user/user.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {FormsModule} from "@angular/forms";
+import {IConfig, NgxMaskModule} from "ngx-mask";
+import {PageNumberPipe} from "../shared/pipes/page-number.pipe";
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {GetClassNamePipe} from "../shared/pipes/get-class-name.pipe";
+import {DropdownModule} from "primeng/primeng";
+
+
+const maskConfig: Partial<IConfig> = {
+	validation: false,
+};
 
 @NgModule({
     imports: [
@@ -53,11 +64,16 @@ import {FormsModule} from "@angular/forms";
         UiElementsModule,
         FormModule,
         SharedModule,
+		DropdownModule,
         WidgetsModule,
-        NgbModule,
+		MultiSelectModule,
+		NgbModule,
+		NgxMaskModule.forRoot(maskConfig),
         FormsModule
     ],
 	declarations: [
+		PageNumberPipe,
+		GetClassNamePipe,
 		AdminComponent,
 		IndexComponent,
 		DetailTilesComponent,
@@ -67,6 +83,7 @@ import {FormsModule} from "@angular/forms";
 		ChatComponent,
 		CourseComponent,
 		ClassComponent,
+		// SingleCourseComponent,
 		ProfileComponent,
 		UserComponent,
 		GeneralFeedComponent,
@@ -77,6 +94,7 @@ import {FormsModule} from "@angular/forms";
 		ReferralsComponent,
 		TotalRevenueComponent,
 		IotDashboardComponent
-	]
+	],
+	exports: [MultiSelectModule, DropdownModule]
 })
 export class CoreModule { }

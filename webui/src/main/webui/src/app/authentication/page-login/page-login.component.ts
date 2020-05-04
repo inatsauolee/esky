@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {Store} from "@ngrx/store";
 import {LoginAction} from "../../shared/store/actions";
 import {selectLoggedInUser} from "../../shared/store/selectors";
+import {ThemeService} from "../../shared/services/theme.service";
 
 @Component({
 	selector: 'app-page-login',
@@ -16,11 +17,11 @@ export class PageLoginComponent implements OnInit {
 		password: ''
 	};
 
-	constructor(private store$: Store<any>, private router: Router) { }
+	constructor(private themeService: ThemeService, private store$: Store<any>, private router: Router) { }
 
 	ngOnInit() {
 		this.store$.select(selectLoggedInUser).subscribe(data => {
-			if(data) {
+			if (data) {
 				this.router.navigate(['/dashboard']);
 			}
 		});

@@ -15,15 +15,17 @@ export class Course extends EskyTracableObject{
 
     date: Date;
 
-    time: string;
+    startTime: string;
+
+    endTime: string;
 
     repeat: string;
 
     until: Date;
 
-    classes: Class[];
+    classes: any[];
 
-    constructor(id: number, name: string, subject: string, description: string, status: string, date: Date, time: string, repeat: string, until: Date, classes: Class[]) {
+    constructor(id: number, name: string, subject: string, description: string, status: string, date: Date, startTime: string, endTime: string, repeat: string, until: Date, classes: Class[]) {
         super();
         this.id = id;
         this.name = name;
@@ -31,7 +33,8 @@ export class Course extends EskyTracableObject{
         this.description = description;
         this.status = status;
         this.date = date;
-        this.time = time;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.repeat = repeat;
         this.until = until;
         this.classes = classes;

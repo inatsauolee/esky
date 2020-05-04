@@ -1,19 +1,22 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { SidebarService } from '../../shared/services/sidebar.service';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {SidebarService} from '../../shared/services/sidebar.service';
 import {
   AddCourseAction,
-  DeleteCourseAction,
-  LoadCoursesAction, LoadCoursesByCreatorAction,
-  LoadCoursesByFilterAction, LoadCoursesByStudentAction
+  DeleteCourseAction, LoadClassesByCreatorAction,
+  LoadCoursesAction,
+  LoadCoursesByCreatorAction,
+  LoadCoursesByFilterAction
 } from "../../shared/store/actions";
 import {Store} from "@ngrx/store";
 import {getAllCourses} from "../../shared/store/selectors/course.selectors";
 import {Course} from "../../shared/entities/course";
+import {Class} from "../../shared/entities/class";
 import {NgbCalendar, NgbDateAdapter, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {selectLoggedInUser} from "../../shared/store/selectors";
 import {User} from "../../shared/entities/user";
 import {Pageable} from "../../shared/entities/pageable";
 import {Direction, Sort} from "../../shared/constant/tools";
+import {getAllClassesForMultiSelect} from "../../shared/store/selectors/class.selectors";
 
 @Component({
   selector: 'app-course',
@@ -21,6 +24,14 @@ import {Direction, Sort} from "../../shared/constant/tools";
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+  selectedClasses = [];
+  classes = [];
+  repeatOptions = [
+    {value: 'None', label: 'None'},
+    {value: 'Daily', label: 'Daily'},
+    {value: 'Weekly', label: 'Weekly'},
+    {value: 'Monthly', label: 'Monthly'}
+    ];
 
   public sidebarVisible: boolean = true;
   public activeTab: number = 0;
@@ -32,8 +43,11 @@ export class CourseComponent implements OnInit {
     }
   }
 
-  model1: string;
-  model2: string;
+  listOfOption: Array<{ value: string; label: string }> = [];
+  listOfSelectedValue = ['a10', 'c12'];
+  mask = '00:00';
+  times = [];
+  createCourse = false;
 
 
   get today() {
@@ -44,8 +58,7 @@ export class CourseComponent implements OnInit {
   public pageable: Pageable = new Pageable('0', '9', Sort.updated, Direction.desc);
   public courseList: Course[] = [];
   public filterValue: string = '';
-  public courseToAdd: Course = new Course(null, '', '', '', 'Not started', new Date(), '', 'None', null, []);
-  Number = Number;
+  public courseToAdd: Course = new Course(null, '', '', '', 'Not started', new Date(), '', '', 'None', null, []);
 
   constructor(private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>, private store$: Store<any>, private sidebarService: SidebarService, private cdr: ChangeDetectorRef, private modalService: NgbModal) {
   }
@@ -54,6 +67,12 @@ export class CourseComponent implements OnInit {
     if(localStorage.getItem('currentUser')) {
       this.loggedInUser =  JSON.parse(localStorage.getItem('currentUser'));
     }
+    this.store$.select(getAllClassesForMultiSelect).subscribe(data => {
+      if(data) {
+        this.classes = data;
+      }
+    });
+    this.store$.dispatch(new LoadClassesByCreatorAction({pageable: this.pageable, filterValue: '', idCreator: this.loggedInUser.id}));
     this.store$.select(selectLoggedInUser).subscribe(data => {
       if(data) {
         this.loggedInUser = data;
@@ -67,7 +86,7 @@ export class CourseComponent implements OnInit {
 
   loadCources() {
     if(this.activeTab === 0) {
-      this.store$.dispatch(new LoadCoursesByStudentAction({pageable: this.pageable, filterValue: this.filterValue, idStudent: this.loggedInUser.id}));
+      this.store$.dispatch(new LoadCoursesByCreatorAction({pageable: this.pageable, filterValue: this.filterValue, idCreator: this.loggedInUser.id}));
     } else if (this.activeTab === 1) {
       if(this.filterValue === '') {
         this.store$.dispatch(new LoadCoursesAction(this.pageable));
@@ -84,9 +103,16 @@ export class CourseComponent implements OnInit {
   }
 
   addCourse() {
-    this.courseToAdd.creator = this.loggedInUser.id;
+    this.courseToAdd.creator = this.loggedInUser;
     this.courseToAdd.updator = this.loggedInUser.id;
+    this.courseToAdd.startTime = this.getTime(this.courseToAdd.startTime);
+    this.courseToAdd.endTime = this.getTime(this.courseToAdd.endTime);
+    this.courseToAdd.classes = this.selectedClasses.map(c => { return {id: c}});
     this.store$.dispatch(new AddCourseAction(this.courseToAdd));
+  }
+
+  getTime(time: string) {
+    return time.substring(0, 2) + ':' + time.substring(2, 4);
   }
 
   openModal(content, size) {
@@ -115,5 +141,9 @@ export class CourseComponent implements OnInit {
 
   profile(id: any) {
     
+  }
+
+  dateSelect(event: any, param: string) {
+    this.courseToAdd[param] = new Date(event.year + '-' + event.month + '-' + event.day);
   }
 }

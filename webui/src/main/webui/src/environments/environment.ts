@@ -10,6 +10,7 @@ export const environment = {
 
 export const api = {
   course: '/course',
+  class: '/class',
   save: '/save',
   get: '/get',
   update: '/update',

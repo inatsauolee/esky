@@ -2,3 +2,8 @@ ngb-progressbar {
     margin-top: 5rem;
     margin-bottom: 5rem;
 }
+
+::ng-deep .ui-multiselect {
+    width: 100% !important;
+    height: 34px !important;
+}

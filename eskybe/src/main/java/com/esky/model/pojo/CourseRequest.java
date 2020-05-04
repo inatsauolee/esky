@@ -39,7 +39,7 @@ public class CourseRequest extends ESKYTracableRequest {
 
     private Date until;
 
-    private Set<ClassRequest> classes;
+    private List<ClassRequest> classes;
 
     public Course toSimpleObject() {
         Course course = new Course();

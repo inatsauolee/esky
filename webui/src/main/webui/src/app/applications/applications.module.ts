@@ -12,11 +12,6 @@ import { ComposeComponent } from './compose/compose.component';
 import { AppChatComponent } from './app-chat/app-chat.component';
 import { AppCalendarComponent } from './app-calendar/app-calendar.component';
 import {SharedModule} from "../shared/shared.module";
-import {IConfig, NgxMaskModule} from "ngx-mask";
-
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
 
 @NgModule({
   declarations: [
@@ -33,7 +28,6 @@ const maskConfig: Partial<IConfig> = {
     RichTextEditorAllModule,
     FullCalendarModule,
     SharedModule,
-    NgxMaskModule.forRoot(maskConfig),
     RouterModule
   ]
 })

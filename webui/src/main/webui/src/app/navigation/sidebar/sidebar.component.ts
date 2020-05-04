@@ -2,6 +2,9 @@ import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core
 import { ThemeService } from '../../shared/services/theme.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import {Store} from "@ngrx/store";
+import {Router} from "@angular/router";
+import {LogoutAction} from "../../shared/store/actions";
 
 @Component({
 	selector: 'app-sidebar',
@@ -20,7 +23,7 @@ export class SidebarComponent implements OnDestroy {
     public darkClass: string = "";
     private ngUnsubscribe = new Subject();
 
-	constructor(private themeService: ThemeService) {
+	constructor(private themeService: ThemeService, private store$: Store<any>, private router: Router) {
         this.themeService.themeClassChange.pipe(takeUntil(this.ngUnsubscribe)).subscribe(themeClass => {
 			this.themeClass = themeClass;
         });
@@ -48,5 +51,10 @@ export class SidebarComponent implements OnDestroy {
     
     changeDarkMode(darkClass: string) {
         this.themeService.changeDarkMode(darkClass);
+    }
+
+    logout() {
+        this.store$.dispatch(new LogoutAction());
+        this.router.navigate(['/auth/login']);
     }
 }

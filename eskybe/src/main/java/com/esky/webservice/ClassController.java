@@ -6,7 +6,6 @@ import com.esky.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -34,6 +32,15 @@ public class ClassController {
         return new ResponseEntity(classService.saveClass(classRequest), HttpStatus.OK);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity deleteClass(@PathVariable Long id) {
+        if (null == classService.getClassById(id)) {
+            return new ResponseEntity("No Class found for ID " + id, HttpStatus.NOT_FOUND);
+        }
+        classService.deleteClassById(id);
+        return new ResponseEntity("Class "+ id +" deleted !", HttpStatus.OK);
+    }
+
     @GetMapping("/get/{id}")
     public ResponseEntity getClassById(@PathVariable Long id) {
         Class aClass = classService.getClassById(id);
@@ -45,21 +52,48 @@ public class ClassController {
 
     @SuppressWarnings({ "deprecation" })
     @GetMapping("/all")
-    public Set<ClassRequest> allClasss(int page, int size, Sort.Direction direction, String sort) {
+    public List<ClassRequest> allClasses(int page, int size, Sort.Direction direction, String sort) {
         PageRequest pageRequest = new PageRequest(page, size, direction, sort);
-        Page<Class> pages= classService.findAllClass(pageRequest);
+        Page<Class> pages = classService.findAllClass(pageRequest);
+        return ClassRequest.buildRequest(pages.getContent());
+    }
+
+    @GetMapping("/all/creator/{id}")
+    public List<ClassRequest> allClassesByCreator(int page, int size, Sort.Direction direction, String sort, String filterValue, @PathVariable Long id) {
+        PageRequest pageRequest = new PageRequest(page, size, direction, sort);
+        Page<Class> pages = classService.findAllClassByCreator(pageRequest, filterValue, id);
+        return ClassRequest.buildRequest(pages.getContent());
+    }
+
+    @GetMapping("/all/student/{id}")
+    public List<ClassRequest> allCourcesByStudent(int page, int size, Sort.Direction direction, String sort, String filterValue, @PathVariable Long id) {
+        PageRequest pageRequest = new PageRequest(page, size, direction, sort);
+        Page<Class> pages = classService.findByStudentAndFilter(pageRequest, filterValue, id);
+        return ClassRequest.buildRequest(pages.getContent());
+    }
+
+    @GetMapping("/mine/creator/{id}")
+    public List<ClassRequest> myClassesByCreator(@PathVariable Long id) {
+        return classService.findMyClassByCreator(id);
+    }
+
+    @GetMapping("/mine/student/{id}")
+    public List<ClassRequest> myCourcesByStudent(int page, int size, Sort.Direction direction, String sort, String filterValue, @PathVariable Long id) {
+        PageRequest pageRequest = new PageRequest(page, size, direction, sort);
+        Page<Class> pages = classService.findByStudentAndFilter(pageRequest, filterValue, id);
         return ClassRequest.buildRequest(pages.getContent());
     }
 
     @GetMapping("/all/filter")
-    public List<Class> allClasss(Pageable pageable, String filterValue) {
-        Page<Class> page= classService.findAllClassByFilter(pageable, filterValue);
-        return page.getContent();
+    public List<ClassRequest> allClassesByFilter(int page, int size, Sort.Direction direction, String sort, String filterValue) {
+        PageRequest pageRequest = new PageRequest(page, size, direction, sort);
+        Page<Class> pages = classService.findAllClassByFilter(pageRequest, filterValue);
+        return ClassRequest.buildRequest(pages.getContent());
     }
 
     @GetMapping("/all/count")
-    public ResponseEntity getClasssCount() {
-        return new ResponseEntity(classService.getClasssCount(), HttpStatus.OK);
+    public ResponseEntity getClassesCount() {
+        return new ResponseEntity(classService.getClassesCount(), HttpStatus.OK);
     }
 
 }

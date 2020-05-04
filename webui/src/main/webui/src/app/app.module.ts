@@ -53,7 +53,7 @@ import {AuthenticationService} from "./shared/services/http/authentication.servi
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-        AuthenticationService, UserService, CourseService],
+        AuthenticationService, UserService, CourseService, ClassService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

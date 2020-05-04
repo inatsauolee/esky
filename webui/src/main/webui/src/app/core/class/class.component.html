@@ -1,6 +1,74 @@
 <div class="container-fluid">
 
-	<app-visits [title]="'Classes'" [sub_title]="'Classes'"></app-visits>
+	<div class="block-header">
+		<div class="row">
+			<div class="col-lg-5 col-md-8 col-sm-12">
+				<h2>
+					<a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"
+					   (click)="toggleFullWidth()">
+						<i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+						<i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+					</a>
+					Classes
+				</h2>
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item"><a [routerLink]="['/']"><i class="icon-home"></i></a></li>
+					<li class="breadcrumb-item active">Classes</li>
+				</ul>
+			</div>
+			<div class="col-lg-7 col-md-4 col-sm-12 text-right">
+				<div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
+					<ul class="nav nav-tabs-new">
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (0 == activeTab)}"
+							   (click)="tabChange(0)">
+								<span>Mine</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (1 == activeTab)}"
+							   (click)="tabChange(1)">
+								<span>All</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (2 == activeTab)}"
+							   (click)="tabChange(2)">
+								<span>Something else</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="block-header">
+		<div class="d-flex">
+			<div class="ml-auto">
+				<div class="row" style="padding-right: 10px;">
+					<input type="text" class="form-control" placeholder="Tap for search.."
+						   [(ngModel)]="filterValue"
+						   aria-label="Tap for search.." aria-describedby="btnGroupAddon"
+						   style="max-width: 150px;min-width: 50px;margin-right: 5px;border: 1px #dcdada38 solid">
+					<button type="button" class="btn btn-default mr-1" title="Search" (click)="filter()">
+						<span class="sr-only">Search</span> <i
+							[ngClass]="(filterValue === '') ? 'fa fa-refresh' : 'fa fa-search'"></i>
+					</button>
+					<button type="button" class="btn btn-default mr-1" title="Select">
+						<span class="sr-only">Select</span> <i class="fa fa-check-circle-o"></i>
+					</button>
+					<button type="button" class="btn btn-default mr-1" title="Add" (click)="openModal(content,'md')">
+						<span class="sr-only">Add</span> <i class="fa fa-plus"></i>
+					</button>
+					<button type="button" class="btn btn-default mr-1" title="Delete">
+						<span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i>
+					</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 	<div class="row clearfix">
 		<div class="col-lg-12 col-md-12">
@@ -10,7 +78,7 @@
 						<table class="table m-b-0 table-hover">
 							<thead class="thead-light">
 								<tr>
-									<th>Status</th>
+									<th>Created By</th>
 									<th>Name</th>
 									<th>School</th>
 									<th>Members</th>
@@ -18,35 +86,35 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr *ngFor="let aClass of classList">
 									<td>
-										<span class="badge badge-default">InActive</span>
-										<span class="badge badge-success">Active</span>
-										<span class="badge badge-warning">Pending</span>
-										<span class="badge badge-primary">Closed</span>
+										<h6><a href="javascript:void(0);">{{aClass.creator ? aClass.creator.username : 'Unknown'}}</a></h6>
+										<small>{{aClass.creator ? aClass.creator.firstname + ' ' + aClass.creator.lastname : ''}}</small>
+<!--										<span class="badge badge-default">InActive</span>-->
+<!--										<span>{{aClass.creator ? aClass.creator.firstname + ' ' + aClass.creator.lastname : 'Unknown'}}</span>-->
+<!--										<span class="badge badge-warning">Pending</span>-->
+<!--										<span class="badge badge-primary">Closed</span>-->
 									</td>
 									<td class="project-title">
-										<h6><a href="javascript:void(0);">InfiniO 4.1</a></h6>
-										<small>Created 14.Mar.2018</small>
+										<h6><a href="javascript:void(0);">{{aClass.name}}</a></h6>
+										<small>Last Update: {{aClass.updated}}</small>
 									</td>
 									<td>
-										<h6><a href="javascript:void(0);">Abou Bakr High School</a></h6>
-										<small>Casablanca</small>
+										<h6><a href="javascript:void(0);">{{aClass.school}}</a></h6>
+										<small>{{aClass.city}}</small>
 <!--										<div class="progress progress-xs">-->
 <!--											<div class="progress-bar" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" style="width: 48%;"></div>-->
 <!--										</div>-->
-<!--										<small>Completion with: 48%</small>-->
 									</td>
 									<td>
 										<ul class="list-unstyled team-info">
-											<li><img src="assets/images/xs/avatar1.jpg" alt="Avatar"></li>
-											<li><img src="assets/images/xs/avatar2.jpg" alt="Avatar"></li>
-											<li><img src="assets/images/xs/avatar3.jpg" alt="Avatar"></li>
+											<li *ngFor="let student of aClass.students"><img src="assets/images/xs/avatar1.jpg" placement="top" ngbTooltip="Tooltip on top" alt="Avatar"></li>
 										</ul>
 									</td>
 									<td class="project-actions">
-										<a href="javascript:void(0);" class="btn btn-outline-secondary mr-1"><i class="icon-eye"></i></a>
-										<a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="icon-pencil"></i></a>
+										<a class="btn btn-outline-secondary mr-1"><i class="icon-eye"></i></a>
+										<a class="btn btn-outline-secondary mr-1"><i class="icon-pencil"></i></a>
+										<a class="btn btn-outline-secondary" style="border-color: red;color: red;"><i class="icon-trash"></i></a>
 									</td>
 								</tr>
 							</tbody>
@@ -57,4 +125,66 @@
 		</div>
 	</div>
 
+	<div class="row clearfix">
+		<div class="col-lg-12 text-center">
+			<div class="btn-group" role="group" aria-label="Basic example"
+				 style="height: 30px;margin-bottom: 16px;">
+				<button type="button" class="btn btn-secondary" style="padding-top: 5px;width: 30px;"
+						[disabled]="this.pageable.page === ''" (click)="prevPage()"><i class="fa fa-caret-left"></i>
+				</button>
+				<button type="button" class="btn btn-secondary"
+						style="background: #fffdfd;color: #6c757d; border: none;">
+					Page: {{pageable.page | pageNumber}}</button>
+				<button type="button" class="btn btn-secondary" style="padding-top: 5px;width: 30px;"
+						(click)="nextPage()"><i class="fa fa-caret-right"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+
 </div>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="title" id="defaultModalLabel">Add Class</h4>
+	</div>
+	<div class="modal-body">
+		<div class="form-group">
+			<div class="form-line">
+				<input type="text" [(ngModel)]="classToAdd.name" class="form-control" placeholder="Title*">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-line">
+				<input type="text" [(ngModel)]="classToAdd.school" class="form-control"
+					   placeholder="School">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-line">
+				<input type="text" [(ngModel)]="classToAdd.city" class="form-control"
+					   placeholder="City">
+			</div>
+		</div>
+		<hr/>
+		<div class="form-group">
+			<div class="form-line">
+				<input type="text" class="form-control"
+					   placeholder="Satudents">
+			</div>
+		</div>
+		<hr/>
+		<div class="form-group">
+			<div class="form-line">
+				<textarea class="form-control no-resize" placeholder="Description"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="addClass();modal.dismiss('Close click')">Add
+		</button>
+		<button type="button" class="btn btn-simple" data-dismiss="modal" (click)="modal.dismiss('Close click')">
+			CLOSE
+		</button>
+	</div>
+</ng-template>

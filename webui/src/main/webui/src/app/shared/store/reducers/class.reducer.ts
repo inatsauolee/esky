@@ -1,24 +1,24 @@
-import {CourseActionTypes} from '../actions/course.actions';
-import {Course} from "../../entities/course";
+import {ClassActionTypes} from '../actions';
+import {Class} from "../../entities/class";
 
-export interface CourseState {
-  courses: Course[],
+export interface ClassState {
+  classes: Class[],
   loading: boolean,
   loaded: boolean,
   load: boolean
 }
 
-const initialState: CourseState = {
-  courses: [],
+const initialState: ClassState = {
+  classes: [],
   loading: false,
   loaded: false,
   load: false
 };
 
-export function courseReducer(state = initialState, action): CourseState {
+export function classReducer(state = initialState, action): ClassState {
   switch (action.type) {
-    case CourseActionTypes.AddCourseSuccess : {
-      state.courses.unshift(action.payload);
+    case ClassActionTypes.AddClassSuccess : {
+      state.classes.unshift(action.payload);
       return {
         ...state,
         loaded: true,
@@ -26,7 +26,7 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.AddCourseFail : {
+    case ClassActionTypes.AddClassFail : {
       return {
         ...state,
         loaded: false,
@@ -34,8 +34,8 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.DeleteCourseSuccess : {
-      // state.courses.unshift(action.payload);
+    case ClassActionTypes.DeleteClassSuccess : {
+      // state.classes.unshift(action.payload);
       return {
         ...state,
         loaded: true,
@@ -43,7 +43,7 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.DeleteCourseFail : {
+    case ClassActionTypes.DeleteClassFail : {
       return {
         ...state,
         loaded: false,
@@ -51,16 +51,16 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.LoadCoursesSuccess : {
+    case ClassActionTypes.LoadClassesSuccess : {
       return {
         ...state,
-        courses: action.payload,
+        classes: action.payload,
         loaded: true,
         loading: false
       };
     }
 
-    case CourseActionTypes.LoadCoursesFail : {
+    case ClassActionTypes.LoadClassesFail : {
       return {
         ...state,
         loaded: false,
@@ -68,16 +68,16 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.LoadCoursesByCreatorSuccess : {
+    case ClassActionTypes.LoadClassesByCreatorSuccess : {
       return {
         ...state,
-        courses: action.payload,
+        classes: action.payload,
         loaded: true,
         loading: false
       };
     }
 
-    case CourseActionTypes.LoadCoursesByCreatorFail : {
+    case ClassActionTypes.LoadClassesByCreatorFail : {
       return {
         ...state,
         loaded: false,
@@ -85,16 +85,16 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.LoadMyCoursesByCreatorSuccess : {
+    case ClassActionTypes.LoadMyClassesByCreatorSuccess : {
       return {
         ...state,
-        courses: action.payload,
+        classes: action.payload,
         loaded: true,
         loading: false
       };
     }
 
-    case CourseActionTypes.LoadMyCoursesByCreatorFail : {
+    case ClassActionTypes.LoadMyClassesByCreatorFail : {
       return {
         ...state,
         loaded: false,
@@ -102,16 +102,16 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.LoadCoursesByStudentSuccess : {
+    case ClassActionTypes.LoadClassesByStudentSuccess : {
       return {
         ...state,
-        courses: action.payload,
+        classes: action.payload,
         loaded: true,
         loading: false
       };
     }
 
-    case CourseActionTypes.LoadCoursesByStudentFail : {
+    case ClassActionTypes.LoadClassesByStudentFail : {
       return {
         ...state,
         loaded: false,
@@ -119,16 +119,16 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.LoadCoursesByFilterSuccess : {
+    case ClassActionTypes.LoadClassesByFilterSuccess : {
       return {
         ...state,
-        courses: action.payload,
+        classes: action.payload,
         loaded: true,
         loading: false
       };
     }
 
-    case CourseActionTypes.LoadCoursesByFilterFail : {
+    case ClassActionTypes.LoadClassesByFilterFail : {
       return {
         ...state,
         loaded: false,
@@ -136,16 +136,16 @@ export function courseReducer(state = initialState, action): CourseState {
       };
     }
 
-    case CourseActionTypes.LoadCourseByIdSuccess : {
+    case ClassActionTypes.LoadClassByIdSuccess : {
       return {
         ...state,
-        courses: action.payload,
+        classes: action.payload,
         loaded: true,
         loading: false
       };
     }
 
-    case CourseActionTypes.LoadCourseByIdFail : {
+    case ClassActionTypes.LoadClassByIdFail : {
       return {
         ...state,
         loaded: false,

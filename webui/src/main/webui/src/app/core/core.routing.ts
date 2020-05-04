@@ -40,36 +40,37 @@ import { WidgetsBlogComponent } from '../widgets/widgets-blog/widgets-blog.compo
 import { WidgetsWeatherComponent } from '../widgets/widgets-weather/widgets-weather.component';
 import { WidgetsDataComponent } from '../widgets/widgets-data/widgets-data.component';
 import {UserComponent} from "./user/user.component";
+import {AuthGuard} from "../shared/_guards/auth.guard";
 
 const routes: Routes = [   
     {
         path: '',
         component: AdminComponent,
         children: [
-            { path: '', redirectTo:'dashboard'},
+            { path: '', redirectTo:'dashboard', canActivate: [AuthGuard] },
             {
                 path: 'dashboard',
-                component: IndexComponent, data: { title: 'ESKY | Dashboard' }
+                component: IndexComponent, data: { title: 'ESKY | Dashboard' }, canActivate: [AuthGuard]
             },
             {
                 path: 'calendar',
-                component: AppCalendarComponent, data: { title: 'ESKY | Calendar' }
+                component: AppCalendarComponent, data: { title: 'ESKY | Calendar' }, canActivate: [AuthGuard]
             },
             {
                 path: 'courses',
-                component: CourseComponent, data: { title: 'ESKY | Courses' }
+                component: CourseComponent, data: { title: 'ESKY | Courses' }, canActivate: [AuthGuard]
             },
             {
                 path: 'classes',
-                component: ClassComponent, data: { title: 'ESKY | Classes' }
+                component: ClassComponent, data: { title: 'ESKY | Classes' }, canActivate: [AuthGuard]
             },
             {
                 path: 'users',
-                component: UserComponent, data: { title: 'ESKY | Users' }
+                component: UserComponent, data: { title: 'ESKY | Users' }, canActivate: [AuthGuard]
             },
             {
                 path: 'profile',
-                component: ProfileComponent, data: { title: 'ESKY | Profile' }
+                component: ProfileComponent, data: { title: 'ESKY | Profile' }, canActivate: [AuthGuard]
             },
             { 
                 path: 'app',

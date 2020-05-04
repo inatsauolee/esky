@@ -4,7 +4,7 @@ export class EskyTracableObject {
 
     created: Date;
 
-    creator: number;
+    creator: any;
 
     updator: number;
 

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lucid": {
+    "esky": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -56,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "lucid:build"
+            "browserTarget": "esky:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "lucid:build:production"
+              "browserTarget": "esky:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lucid:build"
+            "browserTarget": "esky:build"
           }
         },
         "test": {
@@ -103,7 +103,7 @@
         }
       }
     },
-    "lucid-e2e": {
+    "esky-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -112,7 +112,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "lucid:serve"
+            "devServerTarget": "esky:serve"
           }
         },
         "lint": {
@@ -129,7 +129,7 @@
       }
     }
   },
-  "defaultProject": "lucid",
+  "defaultProject": "esky",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

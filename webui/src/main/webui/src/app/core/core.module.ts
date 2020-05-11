@@ -37,7 +37,6 @@ import {ProfileComponent} from "./profile/profile.component";
 import {FormsModule} from "@angular/forms";
 import {IConfig, NgxMaskModule} from "ngx-mask";
 import {PageNumberPipe} from "../shared/pipes/page-number.pipe";
-import { NzSelectModule } from 'ng-zorro-antd/select';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {GetClassNamePipe} from "../shared/pipes/get-class-name.pipe";
 import {DropdownModule} from "primeng/primeng";

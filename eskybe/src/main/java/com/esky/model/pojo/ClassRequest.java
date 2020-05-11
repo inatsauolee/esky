@@ -53,12 +53,14 @@ public class ClassRequest extends ESKYTracableRequest {
         aClass.setSchool(request.school);
         aClass.setCity(request.city);
         aClass.setDescription(request.description);
-        Set<User> cList = new HashSet<>();
-        for (UserRequest uq : request.getStudents()) {
-            User student = UserRequest.buildUser(uq);
-            cList.add(student);
+        if(request.getStudents() != null) {
+            Set<User> cList = new HashSet<>();
+            for (UserRequest uq : request.getStudents()) {
+                User student = UserRequest.buildUser(uq);
+                cList.add(student);
+            }
+            aClass.setStudents(cList);
         }
-        aClass.setStudents(cList);
         aClass.setUpdated(new Date());
         if (request.getUpdator() != null)
             aClass.setUpdator(new User(request.getUpdator()));

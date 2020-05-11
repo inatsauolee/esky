@@ -1,0 +1,4 @@
+::ng-deep .ui-multiselect {
+    width: 100% !important;
+    height: 34px !important;
+}

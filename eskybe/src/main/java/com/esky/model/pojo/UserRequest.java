@@ -14,7 +14,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class UserRequest implements Serializable {
+public class UserRequest extends ESKYTracableRequest implements Serializable {
     /**
      *
      */

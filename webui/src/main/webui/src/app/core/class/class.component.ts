@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {selectLoggedInUser} from "../../shared/store/selectors";
+import {getAllUsers, getAllUsersForMultiSelect, selectLoggedInUser} from "../../shared/store/selectors";
 import {User} from "../../shared/entities/user";
 import {Pageable} from "../../shared/entities/pageable";
 import {Direction, Sort} from "../../shared/constant/tools";
@@ -8,12 +8,12 @@ import {
   AddClassAction,
   LoadClassesAction,
   LoadClassesByCreatorAction,
-  LoadClassesByFilterAction
+  LoadClassesByFilterAction, LoadUsersByRoleAction
 } from "../../shared/store/actions";
 import {NgbCalendar, NgbDateAdapter, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Store} from "@ngrx/store";
 import {SidebarService} from "../../shared/services/sidebar.service";
-import {getAllClasses} from "../../shared/store/selectors/class.selectors";
+import {getAllClasses, getAllClassesForMultiSelect} from "../../shared/store/selectors/class.selectors";
 
 @Component({
   selector: 'app-class',
@@ -36,7 +36,8 @@ export class ClassComponent implements OnInit {
     this.sidebarVisible = this.sidebarService.getStatus();
     this.cdr.detectChanges();
   }
-
+  selectedStudents = [];
+  students = [];
 
   public loggedInUser: User;
   public pageable: Pageable = new Pageable('0', '9', Sort.updated, Direction.desc);
@@ -48,10 +49,15 @@ export class ClassComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('init')
     if(localStorage.getItem('currentUser')) {
       this.loggedInUser =  JSON.parse(localStorage.getItem('currentUser'));
     }
+    this.store$.dispatch(new LoadUsersByRoleAction({pageable: {...this.pageable, sort: Sort.id}, filterValue: '', role: 'S'}));
+    this.store$.select(getAllUsersForMultiSelect).subscribe(data => {
+      if(data) {
+        this.students = data;
+      }
+    });
     this.store$.select(selectLoggedInUser).subscribe(data => {
       if(data) {
         this.loggedInUser = data;
@@ -78,6 +84,7 @@ export class ClassComponent implements OnInit {
   addClass() {
     this.classToAdd.creator = this.loggedInUser;
     this.classToAdd.updator = this.loggedInUser.id;
+    this.classToAdd.students = this.selectedStudents.map(s => { return {id: s}});
     this.store$.dispatch(new AddClassAction(this.classToAdd));
   }
 

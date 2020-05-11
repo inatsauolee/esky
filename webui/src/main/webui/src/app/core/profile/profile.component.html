@@ -7,14 +7,14 @@
 			<div class="card">
 				<div class="body">
 					<ul class="nav nav-tabs">
-						<li class="nav-item"><a class="nav-link" data-toggle="tab" [routerLink] = "['/admin/pages/page-profile']" fragment="settings" [ngClass]="{'active':fragment == 'settings'}">Settings</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab" [routerLink] = "['/admin/pages/page-profile']" fragment="billings" [ngClass]="{'active':fragment == 'billings'}">Billings</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab" [routerLink] = "['/admin/pages/page-profile']" fragment="preferences" [ngClass]="{'active':fragment == 'preferences'}">Preferences</a></li>
+						<li class="nav-item"><a class="nav-link" data-toggle="tab" fragment="settings" [ngClass]="{'active':fragment == 'settings'}" (click)="fragment = 'settings'">Settings</a></li>
+						<li class="nav-item"><a class="nav-link" data-toggle="tab" fragment="billings" [ngClass]="{'active':fragment == 'security'}" (click)="fragment = 'security'">Security</a></li>
+						<li class="nav-item"><a class="nav-link" data-toggle="tab" fragment="preferences" [ngClass]="{'active':fragment == 'preferences'}" (click)="fragment = 'preferences'">Preferences</a></li>
 					</ul>
 				</div>
 				<div class="tab-content">
 
-					<div class="tab-pane" [ngClass]="{'active':fragment == 'settings'}">
+					<div class="tab-pane" [ngClass]="{'active':fragment == 'settings'}" *ngIf="fragment === 'settings'">
 
 						<div class="body">
 							<h6>Profile Photo</h6>
@@ -36,10 +36,10 @@
 							<div class="row clearfix">
 								<div class="col-lg-6 col-md-12">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="First Name">
+										<input type="text" class="form-control" placeholder="First Name" [(ngModel)]="loggedInUser.firstname">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Last Name">
+										<input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="loggedInUser.lastname">
 									</div>
 									<div class="form-group">
 										<div>
@@ -338,15 +338,19 @@
 							<button type="button" class="btn btn-default">Cancel</button>
 						</div>
 
+					</div>
+
+					<div class="tab-pane" [ngClass]="{'active':fragment == 'security'}" *ngIf="fragment === 'security'">
+
 						<div class="body">
 							<div class="row clearfix">
 								<div class="col-lg-6 col-md-12">
 									<h6>Account Data</h6>
 									<div class="form-group">
-										<input type="text" class="form-control" value="alizeethomas" disabled placeholder="Username">
+										<input type="text" class="form-control" value="alizeethomas" disabled placeholder="Username" [(ngModel)]="loggedInUser.username">
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" value="alizee.info@yourdomain.com" placeholder="Email">
+										<input type="email" class="form-control" value="esky.info@yourdomain.com" placeholder="Email" [(ngModel)]="loggedInUser.email">
 									</div>
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="Phone Number">
@@ -366,9 +370,67 @@
 									</div>
 								</div>
 							</div>
+							<div class="row clearfix">
+								<div class="col-lg-12 col-md-12">
+									<h6>Payment Method</h6>
+									<div class="payment-info">
+										<h3 class="payment-name"><i class="fa fa-paypal"></i> PayPal ****2222</h3>
+										<span>Next billing charged $29</span>
+										<br>
+										<em class="text-muted">Autopay on May 12, 2018</em>
+										<a href="javascript:void(0);" class="edit-payment-info">Edit Payment Info</a>
+									</div>
+									<p class="margin-top-30"><a href="javascript:void(0);"><i class="fa fa-plus-circle"></i> Add Payment Info</a></p>
+								</div>
+							</div>
 							<button type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
 							<button class="btn btn-default">Cancel</button>
 						</div>
+
+<!--						<div class="body">-->
+<!--							<h6>Billing History</h6>-->
+<!--							<table class="table billing-history">-->
+<!--								<thead class="sr-only">-->
+<!--									<tr>-->
+<!--										<th>Plan</th>-->
+<!--										<th>Amount</th>-->
+<!--										<th>Action</th>-->
+<!--									</tr>-->
+<!--								</thead>-->
+<!--								<tbody>-->
+<!--									<tr>-->
+<!--										<td>-->
+<!--											<h3 class="billing-title">Basic Plan <span class="invoice-number">#LA35628</span></h3>-->
+<!--											<span class="text-muted">Charged at April 17, 2018</span>-->
+<!--										</td>-->
+<!--										<td class="amount">$29</td>-->
+<!--										<td class="action"><a href="javascript:void(0);">View</a></td>-->
+<!--									</tr>-->
+<!--									<tr>-->
+<!--										<td>-->
+<!--											<h3 class="billing-title">Pro Plan <span class="invoice-number">#LA3599</span></h3>-->
+<!--											<span class="text-muted">Charged at March 18, 2018</span>-->
+<!--										</td>-->
+<!--										<td class="amount">$59</td>-->
+<!--										<td class="action"><a href="javascript:void(0);">View</a></td>-->
+<!--									</tr>-->
+<!--									<tr>-->
+<!--										<td>-->
+<!--											<h3 class="billing-title">Platinum Plan <span class="invoice-number">#LA1245</span></h3>-->
+<!--											<span class="text-muted">Charged at Feb 02, 2018</span>-->
+<!--										</td>-->
+<!--										<td class="amount">$89</td>-->
+<!--										<td class="action"><a href="javascript:void(0);">View</a></td>-->
+<!--									</tr>-->
+<!--								</tbody>-->
+<!--							</table>-->
+<!--							<button type="button" class="btn btn-primary">Update</button>-->
+<!--							<button type="button" class="btn btn-default">Cancel</button>-->
+<!--						</div>-->
+
+					</div>
+
+					<div class="tab-pane" [ngClass]="{'active':fragment == 'preferences'}" *ngIf="fragment === 'preferences'">
 
 						<div class="body">
 							<h6>General Information</h6>
@@ -1002,163 +1064,104 @@
 							<button type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
 							<button class="btn btn-default">Cancel</button>
 						</div>
-					</div>
 
-					<div class="tab-pane" [ngClass]="{'active':fragment == 'billings'}">
-
-						<div class="body">
-							<h6>Payment Method</h6>
-							<div class="payment-info">
-								<h3 class="payment-name"><i class="fa fa-paypal"></i> PayPal ****2222</h3>
-								<span>Next billing charged $29</span>
-								<br>
-								<em class="text-muted">Autopay on May 12, 2018</em>
-								<a href="javascript:void(0);" class="edit-payment-info">Edit Payment Info</a>
-							</div>
-							<p class="margin-top-30"><a href="javascript:void(0);"><i class="fa fa-plus-circle"></i> Add Payment Info</a></p>
-						</div>
-
-						<div class="body">
-							<h6>Billing History</h6>
-							<table class="table billing-history">
-								<thead class="sr-only">
-									<tr>
-										<th>Plan</th>
-										<th>Amount</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<h3 class="billing-title">Basic Plan <span class="invoice-number">#LA35628</span></h3>
-											<span class="text-muted">Charged at April 17, 2018</span>
-										</td>
-										<td class="amount">$29</td>
-										<td class="action"><a href="javascript:void(0);">View</a></td>
-									</tr>
-									<tr>
-										<td>
-											<h3 class="billing-title">Pro Plan <span class="invoice-number">#LA3599</span></h3>
-											<span class="text-muted">Charged at March 18, 2018</span>
-										</td>
-										<td class="amount">$59</td>
-										<td class="action"><a href="javascript:void(0);">View</a></td>
-									</tr>
-									<tr>
-										<td>
-											<h3 class="billing-title">Platinum Plan <span class="invoice-number">#LA1245</span></h3>
-											<span class="text-muted">Charged at Feb 02, 2018</span>
-										</td>
-										<td class="amount">$89</td>
-										<td class="action"><a href="javascript:void(0);">View</a></td>
-									</tr>
-								</tbody>
-							</table>
-							<button type="button" class="btn btn-primary">Update</button>
-							<button type="button" class="btn btn-default">Cancel</button>
-						</div>
-
-					</div>
-
-					<div class="tab-pane" [ngClass]="{'active':fragment == 'preferences'}">
-						<div class="row clearfix">
-							<div class="col-lg-6 col-md-12">
-								<div class="body">
-									<h6>Your Login Sessions</h6>
-									<ul class="list-unstyled list-login-session">
-										<li>
-											<div class="login-session">
-												<i class="fa fa-laptop device-icon"></i>
-												<div class="login-info">
-													<h3 class="login-title">Mac - New York, United States</h3>
-													<span class="login-detail">Chrome - <span class="text-success">Active Now</span></span>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="login-session">
-												<i class="fa fa-desktop device-icon"></i>
-												<div class="login-info">
-													<h3 class="login-title">Windows 10 - New York, United States</h3>
-													<span class="login-detail">Firefox - about an hour ago</span>
-												</div>
-												<button type="button" class="btn btn-link btn-logout"><i placement="top"  ngbTooltip="Close this login session"
-													 class="fa fa-times-circle text-danger"></i></button>
-											</div>
-										</li>
-										<li>
-											<div class="login-session">
-												<i class="fa fa-mobile fa-fw device-icon"></i>
-												<div class="login-info">
-													<h3 class="login-title">Android - New York, United States</h3>
-													<span class="login-detail">Android Browser - yesterday</span>
-												</div>
-												<button type="button" class="btn btn-link btn-logout"><i placement="top"  ngbTooltip="Close this login session"
-													 class="fa fa-times-circle text-danger"></i></button>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-12">
-								<div class="body">
-									<h6>Connected Social Media</h6>
-									<ul class="list-unstyled list-connected-app">
-										<li>
-											<div class="connected-app">
-												<i class="fa fa-facebook app-icon"></i>
-												<div class="connection-info">
-													<h3 class="app-title">FaceBook</h3>
-													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"
-														 class="text-danger">Revoke Access</a></span>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="connected-app">
-												<i class="fa fa-twitter app-icon"></i>
-												<div class="connection-info">
-													<h3 class="app-title">Twitter</h3>
-													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"
-														 class="text-danger">Revoke Access</a></span>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="connected-app">
-												<i class="fa fa-instagram app-icon"></i>
-												<div class="connection-info">
-													<h3 class="app-title">Instagram</h3>
-													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"
-														 class="text-danger">Revoke Access</a></span>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="connected-app">
-												<i class="fa fa-linkedin app-icon"></i>
-												<div class="connection-info">
-													<h3 class="app-title">Linkedin</h3>
-													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"
-														 class="text-danger">Revoke Access</a></span>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="connected-app">
-												<i class="fa fa-vimeo app-icon"></i>
-												<div class="connection-info">
-													<h3 class="app-title">Vimeo</h3>
-													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"
-														 class="text-danger">Revoke Access</a></span>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+<!--						<div class="row clearfix">-->
+<!--							<div class="col-lg-6 col-md-12">-->
+<!--								<div class="body">-->
+<!--									<h6>Your Login Sessions</h6>-->
+<!--									<ul class="list-unstyled list-login-session">-->
+<!--										<li>-->
+<!--											<div class="login-session">-->
+<!--												<i class="fa fa-laptop device-icon"></i>-->
+<!--												<div class="login-info">-->
+<!--													<h3 class="login-title">Mac - New York, United States</h3>-->
+<!--													<span class="login-detail">Chrome - <span class="text-success">Active Now</span></span>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li>-->
+<!--											<div class="login-session">-->
+<!--												<i class="fa fa-desktop device-icon"></i>-->
+<!--												<div class="login-info">-->
+<!--													<h3 class="login-title">Windows 10 - New York, United States</h3>-->
+<!--													<span class="login-detail">Firefox - about an hour ago</span>-->
+<!--												</div>-->
+<!--												<button type="button" class="btn btn-link btn-logout"><i placement="top"  ngbTooltip="Close this login session"-->
+<!--													 class="fa fa-times-circle text-danger"></i></button>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li>-->
+<!--											<div class="login-session">-->
+<!--												<i class="fa fa-mobile fa-fw device-icon"></i>-->
+<!--												<div class="login-info">-->
+<!--													<h3 class="login-title">Android - New York, United States</h3>-->
+<!--													<span class="login-detail">Android Browser - yesterday</span>-->
+<!--												</div>-->
+<!--												<button type="button" class="btn btn-link btn-logout"><i placement="top"  ngbTooltip="Close this login session"-->
+<!--													 class="fa fa-times-circle text-danger"></i></button>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="col-lg-6 col-md-12">-->
+<!--								<div class="body">-->
+<!--									<h6>Connected Social Media</h6>-->
+<!--									<ul class="list-unstyled list-connected-app">-->
+<!--										<li>-->
+<!--											<div class="connected-app">-->
+<!--												<i class="fa fa-facebook app-icon"></i>-->
+<!--												<div class="connection-info">-->
+<!--													<h3 class="app-title">FaceBook</h3>-->
+<!--													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"-->
+<!--														 class="text-danger">Revoke Access</a></span>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li>-->
+<!--											<div class="connected-app">-->
+<!--												<i class="fa fa-twitter app-icon"></i>-->
+<!--												<div class="connection-info">-->
+<!--													<h3 class="app-title">Twitter</h3>-->
+<!--													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"-->
+<!--														 class="text-danger">Revoke Access</a></span>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li>-->
+<!--											<div class="connected-app">-->
+<!--												<i class="fa fa-instagram app-icon"></i>-->
+<!--												<div class="connection-info">-->
+<!--													<h3 class="app-title">Instagram</h3>-->
+<!--													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"-->
+<!--														 class="text-danger">Revoke Access</a></span>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li>-->
+<!--											<div class="connected-app">-->
+<!--												<i class="fa fa-linkedin app-icon"></i>-->
+<!--												<div class="connection-info">-->
+<!--													<h3 class="app-title">Linkedin</h3>-->
+<!--													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"-->
+<!--														 class="text-danger">Revoke Access</a></span>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li>-->
+<!--											<div class="connected-app">-->
+<!--												<i class="fa fa-vimeo app-icon"></i>-->
+<!--												<div class="connection-info">-->
+<!--													<h3 class="app-title">Vimeo</h3>-->
+<!--													<span class="actions"><a href="javascript:void(0);">View Permissions</a> <a href="javascript:void(0);"-->
+<!--														 class="text-danger">Revoke Access</a></span>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 					</div>
 
 				</div>

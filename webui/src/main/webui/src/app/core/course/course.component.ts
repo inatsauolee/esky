@@ -43,11 +43,7 @@ export class CourseComponent implements OnInit {
     }
   }
 
-  listOfOption: Array<{ value: string; label: string }> = [];
-  listOfSelectedValue = ['a10', 'c12'];
   mask = '00:00';
-  times = [];
-  createCourse = false;
 
 
   get today() {

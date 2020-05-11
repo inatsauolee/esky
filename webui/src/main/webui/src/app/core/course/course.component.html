@@ -17,7 +17,7 @@
                 </ul>
             </div>
             <div class="col-lg-7 col-md-4 col-sm-12 text-right">
-                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
+                <div class="inlineblock text-center m-r-15 m-l-15 pt-2">
                     <ul class="nav nav-tabs-new">
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (0 == activeTab)}"
@@ -125,15 +125,15 @@
                         <ngb-progressbar type="success" [value]="87" height="5px"></ngb-progressbar>
                     </p>
                     <div class="row">
-                        <div class="col-7" style="margin-bottom: -30px;"
+                        <div class="row col-7" style="margin-bottom: -30px;"
                              *ngIf="course.classes && course.classes.length">
                             <small>Classes:</small>
-                            <ul class="list-unstyled team-info">
+                            <ul class="list-unstyled team-info" style="margin-top: -6px;">
                                 <li *ngFor="let aClass of course.classes"><span
                                         class="badge badge-success float-right">{{aClass.name}}</span></li>
                             </ul>
                         </div>
-                        <div class="col-7" style="margin-bottom: -17px;"
+                        <div class="col-7" style="margin-bottom: -12px;"
                              *ngIf="!course.classes || course.classes.length === 0">
                             <small>No Class found for this course.</small>
                         </div>

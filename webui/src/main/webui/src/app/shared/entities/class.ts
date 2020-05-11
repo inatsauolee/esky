@@ -13,9 +13,9 @@ export class Class  extends EskyTracableObject{
 
     description: string;
 
-    students: User[];
+    students: any[];
 
-    constructor(id: number, name: string, school: string, city: string, description: string, students: User[]) {
+    constructor(id: number, name: string, school: string, city: string, description: string, students: any[]) {
         super();
         this.id = id;
         this.name = name;

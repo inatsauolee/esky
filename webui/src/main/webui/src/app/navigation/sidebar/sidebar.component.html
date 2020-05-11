@@ -4,8 +4,8 @@
             <img src="assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
             <div class="dropdown" ngbDropdown>
                 <span>Welcome,</span>
-                <a href="javascript:void(0);" class="dropdown-toggle user-name" ngbDropdownToggle><strong>Alizee
-                        Thomas</strong></a>
+                <a href="javascript:void(0);" class="dropdown-toggle user-name" ngbDropdownToggle>
+                    <strong>{{loggedInUser.lastname + ' ' + loggedInUser.firstname}}</strong></a>
                 <ul class="dropdown-menu dropdown-menu-right account" ngbDropdownMenu>
                     <li><a [routerLink]="['/profile']"><i class="icon-user"></i>My Profile</a></li>
                     <li><a [routerLink]="['/app/app-inbox']"><i class="icon-envelope-open"></i>Messages</a></li>
@@ -17,16 +17,20 @@
             <hr>
             <ul class="row list-unstyled">
                 <li class="col-4">
-                    <small>Sales</small>
-                    <h6>456</h6>
+                    <small>Courses</small>
+                    <h6>40</h6>
                 </li>
                 <li class="col-4">
-                    <small>Order</small>
-                    <h6>1350</h6>
+                    <small>Classes</small>
+                    <h6>5</h6>
                 </li>
-                <li class="col-4">
-                    <small>Revenue</small>
-                    <h6>$2.13B</h6>
+                <li class="col-4" *ngIf="loggedInUser.role === 'A'">
+                    <small>Users</small>
+                    <h6>34</h6>
+                </li>
+                <li class="col-4" *ngIf="loggedInUser.role !== 'A'">
+                    <small>Duration</small>
+                    <h6>349 m</h6>
                 </li>
             </ul>
         </div>

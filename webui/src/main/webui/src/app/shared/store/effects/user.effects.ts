@@ -6,7 +6,11 @@ import {
   LoadUsersSuccessAction,
   LoadUserByIdSuccessAction,
   LoadUserByIdFailAction,
-  LoginSuccessAction
+  LoginSuccessAction,
+  LoadUsersByRoleSuccessAction,
+  LoadUsersByRoleFailAction,
+  LoadUserByCreatorSuccessAction,
+  LoadUserByCreatorFailAction, LoadUserByFilterFailAction, LoadUserByFilterSuccessAction
 } from '../actions/user.actions';
 import {catchError, mergeMap, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
@@ -31,6 +35,19 @@ export class UserEffects {
   );
 
   @Effect()
+  loadUsersByRole$ = this.actions$.pipe(ofType(
+    UserActionTypes.LoadUsersByRole
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.apiService.getUsersByRole(payload.pageable, payload.filterValue, payload.role)
+        .pipe(
+          mergeMap((content) => of(new LoadUsersByRoleSuccessAction(content))),
+          catchError(error => of(new LoadUsersByRoleFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
   loadAllUsersById$ = this.actions$.pipe(ofType(
     UserActionTypes.LoadUserById
   )).pipe(
@@ -39,6 +56,32 @@ export class UserEffects {
         .pipe(
           mergeMap((content) => of(new LoadUserByIdSuccessAction(content))),
           catchError(error => of(new LoadUserByIdFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
+  loadAllUsersByCreator$ = this.actions$.pipe(ofType(
+    UserActionTypes.LoadUserByCreator
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.apiService.getUserByCreator(payload.pageable, payload.filterValue, payload.idCreator)
+        .pipe(
+          mergeMap((content) => of(new LoadUserByCreatorSuccessAction(content))),
+          catchError(error => of(new LoadUserByCreatorFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
+  loadAllUsersByFilter$ = this.actions$.pipe(ofType(
+    UserActionTypes.LoadUserByFilter
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.apiService.getUserByFilter(payload.pageable, payload.filterValue)
+        .pipe(
+          mergeMap((content) => of(new LoadUserByFilterSuccessAction(content))),
+          catchError(error => of(new LoadUserByFilterFailAction(error)))
         )
     )
   );

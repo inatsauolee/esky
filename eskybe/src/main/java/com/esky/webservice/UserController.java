@@ -51,10 +51,25 @@ public class UserController {
         return UserRequest.buildRequest(pages.getContent());
     }
 
+    @GetMapping("/all/creator/{id}")
+    public Set<UserRequest> allCoursesByCreator(int page, int size, Sort.Direction direction, String sort, String filterValue, @PathVariable Long id) {
+        PageRequest pageRequest = new PageRequest(page, size, direction, sort);
+        Page<User> pages = userService.findAllUsersByCreator(pageRequest, filterValue, id);
+        return UserRequest.buildRequest(pages.getContent());
+    }
+
     @GetMapping("/all/filter")
-    public List<User> allUsers(Pageable pageable, String filterValue) {
-        Page<User> page= userService.findAllUserByFilter(pageable, filterValue);
-        return page.getContent();
+    public Set<UserRequest> allCoursesByFilter(int page, int size, Sort.Direction direction, String sort, String filterValue) {
+        PageRequest pageRequest = new PageRequest(page, size, direction, sort);
+        Page<User> pages = userService.findAllUsersByFilter(pageRequest, filterValue);
+        return UserRequest.buildRequest(pages.getContent());
+    }
+
+    @GetMapping("/role/{role}")
+    public Set<UserRequest> allCourcesByStudent(int page, int size, Sort.Direction direction, String sort, String filterValue, @PathVariable String role) {
+        PageRequest pageRequest = new PageRequest(page, size, direction, sort);
+        Page<User> pages = userService.findByRoleAndFilter(pageRequest, filterValue, role);
+        return UserRequest.buildRequest(pages.getContent());
     }
 
     @GetMapping("/all/count")

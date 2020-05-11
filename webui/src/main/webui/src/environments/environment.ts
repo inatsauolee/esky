@@ -11,11 +11,13 @@ export const environment = {
 export const api = {
   course: '/course',
   class: '/class',
+  user: '/user',
   save: '/save',
   get: '/get',
   update: '/update',
   delete: '/delete/',
   all: '/all',
+  role: '/role/',
   mine: '/mine',
   auth: '/auth',
   filter: '/filter',

@@ -17,7 +17,7 @@
 				</ul>
 			</div>
 			<div class="col-lg-7 col-md-4 col-sm-12 text-right">
-				<div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
+				<div class="inlineblock text-center m-r-15 m-l-15 pt-2">
 					<ul class="nav nav-tabs-new">
 						<li class="nav-item">
 							<a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (0 == activeTab)}"
@@ -169,14 +169,14 @@
 		<hr/>
 		<div class="form-group">
 			<div class="form-line">
-				<input type="text" class="form-control"
-					   placeholder="Satudents">
+				<p-multiSelect defaultLabel="Students*" [options]="students" [(ngModel)]="selectedStudents" [filter]="true" filterBy="label,value.name"></p-multiSelect>
+				<p>Selected Students: {{selectedStudents | getClassName : students}}</p>
 			</div>
 		</div>
 		<hr/>
 		<div class="form-group">
 			<div class="form-line">
-				<textarea class="form-control no-resize" placeholder="Description"></textarea>
+				<textarea class="form-control no-resize" [(ngModel)]="classToAdd.description" placeholder="Description"></textarea>
 			</div>
 		</div>
 	</div>

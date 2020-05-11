@@ -18,7 +18,7 @@ import {selectLoggedInUser} from "../../shared/store/selectors";
 })
 export class AdminComponent implements AfterViewInit, OnInit, OnDestroy {
 
-    public title = 'lucid';
+    public title = 'esky';
     public isStopLoading: boolean = false;
     public showNotifMenu: boolean = false;
     public showToggleMenu: boolean = false;

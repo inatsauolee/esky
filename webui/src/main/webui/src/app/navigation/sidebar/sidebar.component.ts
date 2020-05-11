@@ -1,17 +1,18 @@
-import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnDestroy, OnInit} from '@angular/core';
 import { ThemeService } from '../../shared/services/theme.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import {Store} from "@ngrx/store";
 import {Router} from "@angular/router";
 import {LogoutAction} from "../../shared/store/actions";
+import {User} from "../../shared/entities/user";
 
 @Component({
 	selector: 'app-sidebar',
 	templateUrl: './sidebar.component.html',
 	styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnDestroy {
+export class SidebarComponent implements OnInit, OnDestroy {
 
 	@Input() sidebarVisible: boolean = true;
 	@Input() navTab: string = "menu";
@@ -21,6 +22,7 @@ export class SidebarComponent implements OnDestroy {
 	@Output() activeInactiveMenuEvent = new EventEmitter();
     public themeClass: string = "theme-cyan";
     public darkClass: string = "";
+    public loggedInUser: User;
     private ngUnsubscribe = new Subject();
 
 	constructor(private themeService: ThemeService, private store$: Store<any>, private router: Router) {
@@ -30,6 +32,12 @@ export class SidebarComponent implements OnDestroy {
         this.themeService.darkClassChange.pipe(takeUntil(this.ngUnsubscribe)).subscribe(darkClass => {
             this.darkClass = darkClass;
         });
+    }
+
+    ngOnInit(): void {
+        if (localStorage.getItem('currentUser')) {
+            this.loggedInUser = JSON.parse(localStorage.getItem('currentUser'));
+        }
     }
     
     ngOnDestroy() {

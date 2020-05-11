@@ -34,6 +34,15 @@ public interface UserService {
     //Get Users Count
     public long getUsersCount();
 
+    //Get all Courses by Creator:
+    public Page<User> findAllUsersByCreator(PageRequest pageRequest, String filterValue, Long idCreator);
+
+    //Get all Courses by Filter:
+    public Page<User> findAllUsersByFilter(PageRequest pageRequest, String filterValue);
+
+    //Get User by Role + filter:
+    public Page<User> findByRoleAndFilter(Pageable pageable, String filterValue, String role);
+
     public Page<User> findAllUserByFilter(Pageable pageable, String filterValue);
 
 }

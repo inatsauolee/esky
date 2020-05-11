@@ -1,6 +1,19 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { EChartOption } from 'echarts';
 import { SidebarService } from '../../shared/services/sidebar.service';
+import {User} from "../../shared/entities/user";
+import {Pageable} from "../../shared/entities/pageable";
+import {Direction, Sort} from "../../shared/constant/tools";
+import {getAllClassesForMultiSelect} from "../../shared/store/selectors/class.selectors";
+import {
+  LoadClassesByCreatorAction,
+  LoadCoursesAction,
+  LoadCoursesByCreatorAction,
+  LoadCoursesByFilterAction, LoadUserByCreatorAction, LoadUserByFilterAction
+} from "../../shared/store/actions";
+import {getAllUsers, selectLoggedInUser} from "../../shared/store/selectors";
+import {getAllCourses} from "../../shared/store/selectors/course.selectors";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-contact-grid',
@@ -9,67 +22,50 @@ import { SidebarService } from '../../shared/services/sidebar.service';
 })
 export class UserComponent implements OnInit {
 
-  public visitorsOptions: EChartOption = {};
-  public visitsOptions: EChartOption = {};
   public sidebarVisible: boolean = true;
+  public activeTab: number = 0;
+  public loggedInUser: User;
+  public pageable: Pageable = new Pageable('0', '9', Sort.id, Direction.desc);
+  public userList: User[] = [];
+  public filterValue: string = '';
 
-  constructor(private sidebarService: SidebarService, private cdr: ChangeDetectorRef) {
-    this.visitorsOptions = this.loadLineChartOptions([3, 5, 1, 6, 5, 4, 8, 3], "#49c5b6");
-    this.visitsOptions = this.loadLineChartOptions([4, 6, 3, 2, 5, 6, 5, 4], "#f4516c");
+  constructor(private store$: Store<any>, private sidebarService: SidebarService, private cdr: ChangeDetectorRef) {
+  }
+
+  tabChange(num: number){
+    if(this.activeTab != num){
+      this.activeTab = num;
+      this.loadUsers();
+    }
   }
 
   ngOnInit() {
+    if(localStorage.getItem('currentUser')) {
+      this.loggedInUser =  JSON.parse(localStorage.getItem('currentUser'));
+    }
+    this.store$.select(selectLoggedInUser).subscribe(data => {
+      if(data) {
+        this.loggedInUser = data;
+      }
+    });
+    this.loadUsers();
+    this.store$.select(getAllUsers).subscribe(data => {
+      this.userList = data;
+    });
+  }
+
+  loadUsers() {
+    if(this.activeTab === 0) {
+      this.store$.dispatch(new LoadUserByCreatorAction({pageable: this.pageable, filterValue: this.filterValue, idCreator: this.loggedInUser.id}));
+    } else if (this.activeTab === 1) {
+      this.store$.dispatch(new LoadUserByFilterAction({pageable: this.pageable, filterValue: this.filterValue}));
+    }
   }
 
   toggleFullWidth() {
     this.sidebarService.toggle();
     this.sidebarVisible = this.sidebarService.getStatus();
     this.cdr.detectChanges();
-  }
-
-  loadLineChartOptions(data, color) {
-    let chartOption: EChartOption;
-    let xAxisData: Array<any> = new Array<any>();
-
-    data.forEach(element => {
-      xAxisData.push("");
-    });
-
-    return chartOption = {
-      xAxis: {
-        type: 'category',
-        show: false,
-        data: xAxisData,
-        boundaryGap: false,
-      },
-      yAxis: {
-        type: 'value',
-        show: false
-      },
-      tooltip: {
-        trigger: 'axis',
-        formatter: function (params, ticket, callback) {
-          return '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:' + color + ';"></span>' + params[0].value;
-        }
-      },
-      grid: {
-        left: '0%',
-        right: '0%',
-        bottom: '0%',
-        top: '0%',
-        containLabel: false
-      },
-      series: [{
-        data: data,
-        type: 'line',
-        showSymbol: false,
-        symbolSize: 1,
-        lineStyle: {
-          color: color,
-          width: 1
-        }
-      }]
-    };
   }
 
 }

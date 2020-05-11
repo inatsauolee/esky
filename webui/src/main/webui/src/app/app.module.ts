@@ -23,6 +23,7 @@ import {environment} from "../environments/environment";
 import {JwtInterceptor} from "./shared/_helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./shared/_helpers/error.interceptor";
 import {AuthenticationService} from "./shared/services/http/authentication.service";
+import {ClassService} from "./shared/services/http/class.service";
 
 @NgModule({
     declarations: [

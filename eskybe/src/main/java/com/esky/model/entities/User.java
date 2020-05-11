@@ -1,5 +1,6 @@
 package com.esky.model.entities;
 
+import com.esky.model.ESKYTracableObject;
 import constant.AuthorityName;
 import java.io.Serializable;
 import java.util.Date;
@@ -20,7 +21,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Table(name = "USERS")
 @Getter
 @Setter
-public class User implements Serializable {
+public class User extends ESKYTracableObject implements Serializable {
     /**
      *
      */

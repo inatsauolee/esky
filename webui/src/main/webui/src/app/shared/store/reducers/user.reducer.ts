@@ -38,6 +38,23 @@ export function userReducer(state = initialeState, action): UserState {
             };
         }
 
+        case UserActionTypes.LoadUsersByRoleSuccess : {
+            return {
+                ...state,
+                users: action.payload,
+                loaded: true,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.LoadUsersByRoleFail : {
+            return {
+                ...state,
+                loaded: false,
+                loading: false
+            };
+        }
+
         case UserActionTypes.LoadUserByIdSuccess : {
             return {
                 ...state,
@@ -48,6 +65,40 @@ export function userReducer(state = initialeState, action): UserState {
         }
 
         case UserActionTypes.LoadUserByIdFail : {
+            return {
+                ...state,
+                loaded: false,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.LoadUserByCreatorSuccess : {
+            return {
+                ...state,
+                users: action.payload,
+                loaded: true,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.LoadUserByCreatorFail : {
+            return {
+                ...state,
+                loaded: false,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.LoadUserByFilterSuccess : {
+            return {
+                ...state,
+                users: action.payload,
+                loaded: true,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.LoadUserByFilterFail : {
             return {
                 ...state,
                 loaded: false,

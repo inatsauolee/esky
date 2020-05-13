@@ -72,6 +72,10 @@ const routes: Routes = [
                 path: 'profile',
                 component: ProfileComponent, data: { title: 'ESKY | Profile' }, canActivate: [AuthGuard]
             },
+            {
+                path: 'faq',
+                component: PageFaqComponent, data: { title: 'ESKY | FAQ' }, canActivate: [AuthGuard]
+            },
             { 
                 path: 'app',
                 children: [

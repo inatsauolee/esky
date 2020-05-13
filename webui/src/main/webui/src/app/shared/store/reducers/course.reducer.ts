@@ -3,6 +3,7 @@ import {Course} from "../../entities/course";
 
 export interface CourseState {
   courses: Course[],
+  count: number,
   loading: boolean,
   loaded: boolean,
   load: boolean
@@ -10,6 +11,7 @@ export interface CourseState {
 
 const initialState: CourseState = {
   courses: [],
+  count: 0,
   loading: false,
   loaded: false,
   load: false
@@ -146,6 +148,23 @@ export function courseReducer(state = initialState, action): CourseState {
     }
 
     case CourseActionTypes.LoadCourseByIdFail : {
+      return {
+        ...state,
+        loaded: false,
+        loading: false
+      };
+    }
+
+    case CourseActionTypes.GetCourseCountSuccess : {
+      return {
+        ...state,
+        count: action.payload,
+        loaded: true,
+        loading: false
+      };
+    }
+
+    case CourseActionTypes.GetCourseCountFail : {
       return {
         ...state,
         loaded: false,

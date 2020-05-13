@@ -87,4 +87,8 @@ export class CourseService {
     deleteCourse(id: number) {
         return this.http.delete<Course>(environment.endpoint + api.course + api.delete + id);
     }
+
+    getCourseCount(type: any, id: any) {
+        return this.http.get<number>(environment.endpoint + api.course + '/' + type + api.count + id);
+    }
 }

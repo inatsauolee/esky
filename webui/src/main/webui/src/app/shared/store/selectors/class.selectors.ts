@@ -14,6 +14,11 @@ export const getAllClasses = createSelector(
   state => state.classes
 );
 
+export const getClassesCount = createSelector(
+    selectClassState,
+    state => state.count
+);
+
 export const getAllClassesForMultiSelect = createSelector(
   selectClassState,
   state => {

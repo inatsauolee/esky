@@ -90,6 +90,18 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findAll(pageRequest);
     }
 
+    //Get Courses Count By Creator:
+    @Override
+    public long getCoursesCountByCreator(Long id) {
+        return courseRepository.countByCreator(id);
+    }
+
+    //Get Courses Count By Student:
+    @Override
+    public long getCoursesCountByStudent(Long id) {
+        return courseRepository.countByStudent(id);
+    }
+
     //Get Courses Count:
     @Override
     public long getCoursesCount() {

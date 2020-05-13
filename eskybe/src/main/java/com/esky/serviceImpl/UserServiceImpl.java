@@ -107,6 +107,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll(pageRequest);
     }
 
+    //Get Student Count By Teacher:
+    @Override
+    public long getStudentsCountByTeacher(Long id) {
+        return userRepository.studentsCountByTeacher(id);
+    }
+
     //Get Users Count:
     @Override
     public long getUsersCount() {

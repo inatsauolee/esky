@@ -38,6 +38,10 @@ export enum ClassActionTypes {
   LoadClassById = '[Class] Load Class By Id',
   LoadClassByIdFail = '[Class] Load Class By Id Fail',
   LoadClassByIdSuccess = '[Class] Load Class By Id Success',
+
+  GetClassCount = '[Class] Get Class Count ',
+  GetClassCountFail = '[Class] Get Class Count Fail',
+  GetClassCountSuccess = '[Class] Get Class Count Success',
 }
 
 export class AddClassAction implements Action {
@@ -229,6 +233,26 @@ export class LoadClassByIdSuccessAction implements Action {
   }
 }
 
+export class GetClassCountAction implements Action {
+  readonly type = ClassActionTypes.GetClassCount;
+
+  constructor(public payload: {type: string, id: number}) {
+  }
+}
+
+export class GetClassCountFailAction implements Action {
+  readonly type = ClassActionTypes.GetClassCountFail;
+
+  constructor(public payload: any) {
+  }
+}
+
+export class GetClassCountSuccessAction implements Action {
+  readonly type = ClassActionTypes.GetClassCountSuccess;
+
+  constructor(public payload: any) {
+  }
+}
 
 export type ClassActions =
   AddClassAction |
@@ -265,4 +289,8 @@ export type ClassActions =
     
   LoadClassByIdAction |
   LoadClassByIdFailAction |
-  LoadClassByIdSuccessAction;
+  LoadClassByIdSuccessAction |
+
+  GetClassCountAction |
+  GetClassCountFailAction |
+  GetClassCountSuccessAction;

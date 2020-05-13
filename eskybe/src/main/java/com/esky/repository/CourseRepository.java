@@ -42,6 +42,13 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     @Query(value = "SELECT * FROM COURSES c WHERE c.status = ?1 AND (c.name LIKE ?2 OR c.subject LIKE ?2 OR c.description LIKE ?2)", nativeQuery = true)
     Page<Course> findAllByStatusAndFilter(Pageable pageable, String status, String filterValue);
 
+    @Query(value = "SELECT COUNT(*) FROM COURSES c WHERE c.CREATOR_ID = ?1", nativeQuery = true)
+    Long countByCreator(Long id);
+
+    @Query(value = "SELECT COUNT(*) FROM COURSES c WHERE c.ID IN (SELECT course_id FROM courses_classes s WHERE s.classes_id IN " +
+            "(SELECT class_id FROM classes_students cs WHERE cs.students_id = ?1 ))", nativeQuery = true)
+    Long countByStudent(Long id);
+
     Page<Course> findByCreatorIdAndNameIgnoreCaseContainingOrSubjectIgnoreCaseContainingOrDescriptionIgnoreCaseContaining(Pageable pageable, Long id, String name, String subject, String description);
     Page<Course> findByNameIgnoreCaseContainingOrSubjectIgnoreCaseContainingOrDescriptionIgnoreCaseContaining(Pageable pageable, String name, String subject, String description);
 }

@@ -9,7 +9,8 @@ import {Subject} from 'rxjs';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import {selectLoggedInUser} from "../../shared/store/selectors";
+import {Store} from "@ngrx/store";
+import {GetCourseCountAction} from "../../shared/store/actions";
 
 @Component({
     selector: 'app-admin',
@@ -30,7 +31,7 @@ export class AdminComponent implements AfterViewInit, OnInit, OnDestroy {
     public darkClass: string = "";
     private ngUnsubscribe = new Subject();
 
-    constructor(public sidebarService: SidebarService, private router: Router, private activatedRoute: ActivatedRoute, private themeService: ThemeService, private titleService: Title) {
+    constructor(private store$: Store<any>, public sidebarService: SidebarService, private router: Router, private activatedRoute: ActivatedRoute, private themeService: ThemeService, private titleService: Title) {
         this.activatedRoute.url.pipe(takeUntil(this.ngUnsubscribe)).subscribe(url => {
             this.isStopLoading = false;
             this.getActiveRoutes();
@@ -54,6 +55,7 @@ export class AdminComponent implements AfterViewInit, OnInit, OnDestroy {
         if (currentUser) {
             // this.changeTheme(currentUser.role);
             // this.changeDarkMode(currentUser.role);
+            this.store$.dispatch(new GetCourseCountAction({type: this.getType(currentUser.role), id: currentUser.id}))
         }
         let that = this;
         this.router.events
@@ -117,6 +119,10 @@ export class AdminComponent implements AfterViewInit, OnInit, OnDestroy {
             darkClass = 'full-dark';
         }
         this.themeService.changeDarkMode(darkClass);
+    }
+
+    getType(role: string) {
+        return role === 'S' ? 'student' : 'creator';
     }
 
 }

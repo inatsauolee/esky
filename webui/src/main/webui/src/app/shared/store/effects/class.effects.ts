@@ -17,7 +17,10 @@ import {
   LoadClassesByCreatorSuccessAction,
   LoadClassesByCreatorFailAction,
   LoadClassesByStudentSuccessAction,
-  LoadClassesByStudentFailAction, LoadMyClassesByCreatorSuccessAction, LoadMyClassesByCreatorFailAction
+  LoadClassesByStudentFailAction,
+  LoadMyClassesByCreatorSuccessAction,
+  LoadMyClassesByCreatorFailAction,
+  GetClassCountSuccessAction, GetClassCountFailAction
 } from '../actions/class.actions';
 import {catchError, mergeMap, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
@@ -142,5 +145,18 @@ export class ClassEffects {
           catchError(error => of(new LoadClassByIdFailAction(error)))
         )
     )
+  );
+
+  @Effect()
+  getClassCount$ = this.actions$.pipe(ofType(
+      ClassActionTypes.GetClassCount
+  )).pipe(
+      switchMap(({payload}:any) =>
+          this.apiService.getClassCount(payload.type, payload.id)
+              .pipe(
+                  mergeMap((content) => of(new GetClassCountSuccessAction(content))),
+                  catchError(error => of(new GetClassCountFailAction(error)))
+              )
+      )
   );
 }

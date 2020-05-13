@@ -92,6 +92,16 @@ public class CourseController {
         return CourseRequest.buildRequest(pages.getContent());
     }
 
+    @GetMapping("/creator/count/{id}")
+    public ResponseEntity getCoursesCountByCreator(@PathVariable Long id) {
+        return new ResponseEntity(courseService.getCoursesCountByCreator(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/student/count/{id}")
+    public ResponseEntity getCoursesCountByStudent(@PathVariable Long id) {
+        return new ResponseEntity(courseService.getCoursesCountByStudent(id), HttpStatus.OK);
+    }
+
     @GetMapping("/all/count")
     public ResponseEntity getCoursesCount() {
         return new ResponseEntity(courseService.getCoursesCount(), HttpStatus.OK);

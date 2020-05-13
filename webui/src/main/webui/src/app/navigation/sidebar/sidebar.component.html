@@ -18,7 +18,7 @@
             <ul class="row list-unstyled">
                 <li class="col-4">
                     <small>Courses</small>
-                    <h6>40</h6>
+                    <h6>{{coursesCount}}</h6>
                 </li>
                 <li class="col-4">
                     <small>Classes</small>
@@ -28,7 +28,11 @@
                     <small>Users</small>
                     <h6>34</h6>
                 </li>
-                <li class="col-4" *ngIf="loggedInUser.role !== 'A'">
+                <li class="col-4" *ngIf="loggedInUser.role === 'T'">
+                    <small>Students</small>
+                    <h6>34</h6>
+                </li>
+                <li class="col-4" *ngIf="loggedInUser.role === 'S'">
                     <small>Duration</small>
                     <h6>349 m</h6>
                 </li>
@@ -37,8 +41,8 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item"><a class="nav-link" [ngClass]="{'active':navTab == 'menu'}" (click)="changeNavTab('menu')">Menu</a></li>
-            <li class="nav-item"><a class="nav-link" [ngClass]="{'active':navTab == 'chat'}" (click)="changeNavTab('chat')"><i
-                        class="icon-book-open"></i></a></li>
+<!--            <li class="nav-item"><a class="nav-link" [ngClass]="{'active':navTab == 'chat'}" (click)="changeNavTab('chat')"><i-->
+<!--                        class="icon-book-open"></i></a></li>-->
             <li class="nav-item"><a class="nav-link" [ngClass]="{'active':navTab == 'setting'}" (click)="changeNavTab('setting')"><i
                         class="icon-settings"></i></a></li>
             <li class="nav-item"><a class="nav-link" [ngClass]="{'active':navTab == 'question'}" (click)="changeNavTab('question')"><i
@@ -331,16 +335,16 @@
                 </form>
                 <ul class="list-unstyled question">
                     <li class="menu-heading">HOW-TO</li>
-                    <li><a href="javascript:void(0);">How to Create Campaign</a></li>
-                    <li><a href="javascript:void(0);">Boost Your Sales</a></li>
-                    <li><a href="javascript:void(0);">Website Analytics</a></li>
+                    <li><a href="javascript:void(0);" (click)="redirectToFAQ('How to Create Campaign')">How to Create Campaign</a></li>
+                    <li><a href="javascript:void(0);" (click)="redirectToFAQ('Boost Your Sales')">Boost Your Sales</a></li>
+                    <li><a href="javascript:void(0);" (click)="redirectToFAQ('Website Analytics')">Website Analytics</a></li>
                     <li class="menu-heading">ACCOUNT</li>
-                    <li><a href="javascript:void(0);">Cearet New Account</a></li>
-                    <li><a href="javascript:void(0);">Change Password?</a></li>
-                    <li><a href="javascript:void(0);">Privacy &amp; Policy</a></li>
+                    <li><a href="javascript:void(0);" (click)="redirectToFAQ('Cearet New Account')">Cearet New Account</a></li>
+                    <li><a href="javascript:void(0);" (click)="redirectToFAQ('Change Password?')">Change Password?</a></li>
+                    <li><a href="javascript:void(0);" (click)="redirectToFAQ('Privacy')">Privacy &amp; Policy</a></li>
                     <li class="menu-heading">BILLING</li>
-                    <li><a href="javascript:void(0);">Payment info</a></li>
-                    <li><a href="javascript:void(0);">Auto-Renewal</a></li>
+                    <li><a href="javascript:void(0);" (click)="redirectToFAQ('Payment info')">Payment info</a></li>
+                    <li><a href="javascript:void(0);" (click)="redirectToFAQ('Auto-Renewal')">Auto-Renewal</a></li>
                     <li class="menu-button m-t-30">
                         <a href="javascript:void(0);" class="btn btn-primary"><i class="icon-question"></i> Need Help?</a>
                     </li>

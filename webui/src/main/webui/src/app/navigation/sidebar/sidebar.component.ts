@@ -6,6 +6,8 @@ import {Store} from "@ngrx/store";
 import {Router} from "@angular/router";
 import {LogoutAction} from "../../shared/store/actions";
 import {User} from "../../shared/entities/user";
+import {getCoursesCount} from "../../shared/store/selectors/course.selectors";
+import {getClassesCount} from "../../shared/store/selectors/class.selectors";
 
 @Component({
 	selector: 'app-sidebar',
@@ -22,8 +24,12 @@ export class SidebarComponent implements OnInit, OnDestroy {
 	@Output() activeInactiveMenuEvent = new EventEmitter();
     public themeClass: string = "theme-cyan";
     public darkClass: string = "";
-    public loggedInUser: User;
     private ngUnsubscribe = new Subject();
+
+    public loggedInUser: User;
+    public coursesCount: number;
+    public classesCount: number;
+    public usersCount: number;
 
 	constructor(private themeService: ThemeService, private store$: Store<any>, private router: Router) {
         this.themeService.themeClassChange.pipe(takeUntil(this.ngUnsubscribe)).subscribe(themeClass => {
@@ -38,6 +44,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
             this.loggedInUser = JSON.parse(localStorage.getItem('currentUser'));
         }
+        this.store$.select(getCoursesCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.coursesCount = data);
+        this.store$.select(getClassesCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.classesCount = data);
     }
     
     ngOnDestroy() {
@@ -64,5 +72,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
     logout() {
         this.store$.dispatch(new LogoutAction());
         this.router.navigate(['/auth/login']);
+    }
+
+    redirectToFAQ(question: string) {
+	    localStorage.setItem('FAQ_Question', question);
+        this.router.navigate(['/faq']);
     }
 }

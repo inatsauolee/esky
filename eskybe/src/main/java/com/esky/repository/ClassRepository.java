@@ -30,4 +30,10 @@ public interface ClassRepository extends JpaRepository<Class, Long> {
 
     @Query(value = "SELECT * FROM CLASSES c WHERE c.name LIKE ?1 OR c.school LIKE ?1 OR c.city LIKE ?1 OR c.description LIKE ?1", nativeQuery = true)
     Page<Class> findAllByFilter(Pageable pageable, String filterValue);
+
+    @Query(value = "SELECT COUNT(*) FROM CLASSES c WHERE c.CREATOR_ID = ?1", nativeQuery = true)
+    Long countByCreator(Long id);
+
+    @Query(value = "SELECT COUNT(*) FROM CLASSES c WHERE c.ID IN (SELECT class_id FROM classes_students s WHERE s.students_id = ?1)", nativeQuery = true)
+    Long countByStudent(Long id);
 }

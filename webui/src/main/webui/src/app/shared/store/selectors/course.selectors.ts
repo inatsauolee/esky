@@ -15,6 +15,11 @@ export const getAllCourses = createSelector(
   state => state.courses
 );
 
+export const getCoursesCount = createSelector(
+  selectCourseState,
+  state => state.count
+);
+
 export const getMyCoursesForCalendar = createSelector(
   selectCourseState,
   state => {

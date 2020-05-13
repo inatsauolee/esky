@@ -17,7 +17,10 @@ import {
   LoadCoursesByCreatorSuccessAction,
   LoadCoursesByCreatorFailAction,
   LoadCoursesByStudentSuccessAction,
-  LoadCoursesByStudentFailAction, LoadMyCoursesByCreatorSuccessAction, LoadMyCoursesByCreatorFailAction
+  LoadCoursesByStudentFailAction,
+  LoadMyCoursesByCreatorSuccessAction,
+  LoadMyCoursesByCreatorFailAction,
+  GetCourseCountSuccessAction, GetCourseCountFailAction
 } from '../actions/course.actions';
 import {catchError, mergeMap, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
@@ -140,6 +143,19 @@ export class CourseEffects {
         .pipe(
           mergeMap((content) => of(new LoadCourseByIdSuccessAction(content))),
           catchError(error => of(new LoadCourseByIdFailAction(error)))
+        )
+    )
+  );
+
+  @Effect()
+  getCourseCount$ = this.actions$.pipe(ofType(
+    CourseActionTypes.GetCourseCount
+  )).pipe(
+    switchMap(({payload}:any) =>
+      this.apiService.getCourseCount(payload.type, payload.id)
+        .pipe(
+          mergeMap((content) => of(new GetCourseCountSuccessAction(content))),
+          catchError(error => of(new GetCourseCountFailAction(error)))
         )
     )
   );

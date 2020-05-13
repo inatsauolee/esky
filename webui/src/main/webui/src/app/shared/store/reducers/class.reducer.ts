@@ -3,6 +3,7 @@ import {Class} from "../../entities/class";
 
 export interface ClassState {
   classes: Class[],
+  count: number,
   loading: boolean,
   loaded: boolean,
   load: boolean
@@ -10,6 +11,7 @@ export interface ClassState {
 
 const initialState: ClassState = {
   classes: [],
+  count: 0,
   loading: false,
   loaded: false,
   load: false
@@ -146,6 +148,23 @@ export function classReducer(state = initialState, action): ClassState {
     }
 
     case ClassActionTypes.LoadClassByIdFail : {
+      return {
+        ...state,
+        loaded: false,
+        loading: false
+      };
+    }
+
+    case ClassActionTypes.GetClassCountSuccess : {
+      return {
+        ...state,
+        count: action.payload,
+        loaded: true,
+        loading: false
+      };
+    }
+
+    case ClassActionTypes.GetClassCountFail : {
       return {
         ...state,
         loaded: false,

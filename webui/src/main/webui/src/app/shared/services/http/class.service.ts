@@ -87,4 +87,8 @@ export class ClassService {
     deleteClass(id: number) {
         return this.http.delete<Class>(environment.endpoint + api.class + api.delete + id);
     }
+
+    getClassCount(type: any, id: any) {
+        return this.http.get<number>(environment.endpoint + api.class + '/' + type + api.count + id);
+    }
 }

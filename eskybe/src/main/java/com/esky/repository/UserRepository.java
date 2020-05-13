@@ -24,4 +24,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByUsername(String username);
     Page<User> findByUsernameIgnoreCaseContainingOrFirstnameIgnoreCaseContainingOrLastnameIgnoreCaseContaining(Pageable pageable, String username, String firstName, String lastName);
+
+    @Query(value = "SELECT * FROM USERS u WHERE u.ID IN (SELECT students_id FROM classes_students s WHERE s.class_id IN " +
+            "(SELECT ID FROM CLASSES c WHERE c.CREATOR_ID = ?1))", nativeQuery = true)
+    long studentsCountByTeacher(Long id);
 }

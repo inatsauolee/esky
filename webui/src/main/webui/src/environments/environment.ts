@@ -23,5 +23,5 @@ export const api = {
   filter: '/filter',
   creator: '/creator/',
   student: '/student/',
-  count: '/count'
+  count: '/count/'
 };

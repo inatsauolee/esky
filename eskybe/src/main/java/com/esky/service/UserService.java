@@ -31,6 +31,9 @@ public interface UserService {
     //Find all Users:
     public Page<User> findAllUser(PageRequest pageRequest);
 
+    //Get Student Count By Teacher:
+    public long getStudentsCountByTeacher(Long id);
+
     //Get Users Count
     public long getUsersCount();
 

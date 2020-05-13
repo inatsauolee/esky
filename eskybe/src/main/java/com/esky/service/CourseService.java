@@ -40,7 +40,13 @@ public interface CourseService {
     //Find all Courses:
     public Page<Course> findAllCourse(PageRequest pageRequest);
 
-    //Get Courses Count
+    //Get Courses Count By Creator:
+    public long getCoursesCountByCreator(Long id);
+
+    //Get Courses Count By Student:
+    public long getCoursesCountByStudent(Long id);
+
+    //Get Courses Count:
     public long getCoursesCount();
 
 }

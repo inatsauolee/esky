@@ -17,7 +17,7 @@
     <version>${esky_version}</version>
     <modules>
         <module>eskybe</module>
-        <module>webui</module>
+<!--        <module>webui</module>-->
     </modules>
     <properties>
         <!-- Modules and project versions -->

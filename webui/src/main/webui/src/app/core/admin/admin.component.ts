@@ -10,7 +10,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import {Store} from "@ngrx/store";
-import {GetCourseCountAction} from "../../shared/store/actions";
+import {GetClassCountAction, GetCourseCountAction, GetUserCountAction} from "../../shared/store/actions";
 
 @Component({
     selector: 'app-admin',
@@ -56,6 +56,8 @@ export class AdminComponent implements AfterViewInit, OnInit, OnDestroy {
             // this.changeTheme(currentUser.role);
             // this.changeDarkMode(currentUser.role);
             this.store$.dispatch(new GetCourseCountAction({type: this.getType(currentUser.role), id: currentUser.id}))
+            this.store$.dispatch(new GetClassCountAction({type: this.getType(currentUser.role), id: currentUser.id}))
+            this.store$.dispatch(new GetUserCountAction({type: this.getTypeForUserCount(currentUser.role), id: currentUser.id}))
         }
         let that = this;
         this.router.events
@@ -123,6 +125,10 @@ export class AdminComponent implements AfterViewInit, OnInit, OnDestroy {
 
     getType(role: string) {
         return role === 'S' ? 'student' : 'creator';
+    }
+
+    getTypeForUserCount(role: string) {
+        return role === 'T' ? 'student' : 'creator';
     }
 
 }

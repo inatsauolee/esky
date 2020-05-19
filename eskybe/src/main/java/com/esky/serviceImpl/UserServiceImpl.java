@@ -113,6 +113,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.studentsCountByTeacher(id);
     }
 
+    //Get User Count By Creator:
+    @Override
+    public long getUserCountByCreator(Long id) {
+        return userRepository.getUerCountByCreator(id);
+    }
+
     //Get Users Count:
     @Override
     public long getUsersCount() {

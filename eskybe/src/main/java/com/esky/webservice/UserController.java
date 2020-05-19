@@ -77,6 +77,11 @@ public class UserController {
         return new ResponseEntity(userService.getStudentsCountByTeacher(id), HttpStatus.OK);
     }
 
+    @GetMapping("/creator/count/{id}")
+    public ResponseEntity getUserCountByCreator(@PathVariable Long id) {
+        return new ResponseEntity(userService.getUserCountByCreator(id), HttpStatus.OK);
+    }
+
     @GetMapping("/all/count")
     public ResponseEntity getUsersCount() {
         return new ResponseEntity(userService.getUsersCount(), HttpStatus.OK);

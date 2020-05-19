@@ -18,19 +18,19 @@
             <ul class="row list-unstyled">
                 <li class="col-4">
                     <small>Courses</small>
-                    <h6>{{coursesCount}}</h6>
+                    <h6>{{coursesCount ? coursesCount : '-'}}</h6>
                 </li>
                 <li class="col-4">
                     <small>Classes</small>
-                    <h6>5</h6>
+                    <h6>{{classesCount ? classesCount : '-'}}</h6>
                 </li>
                 <li class="col-4" *ngIf="loggedInUser.role === 'A'">
                     <small>Users</small>
-                    <h6>34</h6>
+                    <h6>{{usersCount ? usersCount : '-'}}</h6>
                 </li>
                 <li class="col-4" *ngIf="loggedInUser.role === 'T'">
                     <small>Students</small>
-                    <h6>34</h6>
+                    <h6>{{usersCount ? usersCount : '-'}}</h6>
                 </li>
                 <li class="col-4" *ngIf="loggedInUser.role === 'S'">
                     <small>Duration</small>

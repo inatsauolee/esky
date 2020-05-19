@@ -6,8 +6,9 @@ import {Store} from "@ngrx/store";
 import {Router} from "@angular/router";
 import {LogoutAction} from "../../shared/store/actions";
 import {User} from "../../shared/entities/user";
-import {getCoursesCount} from "../../shared/store/selectors/course.selectors";
-import {getClassesCount} from "../../shared/store/selectors/class.selectors";
+import {getCourseCount} from "../../shared/store/selectors/course.selectors";
+import {getClassCount} from "../../shared/store/selectors/class.selectors";
+import {getUserCount} from "../../shared/store/selectors";
 
 @Component({
 	selector: 'app-sidebar',
@@ -44,8 +45,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
             this.loggedInUser = JSON.parse(localStorage.getItem('currentUser'));
         }
-        this.store$.select(getCoursesCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.coursesCount = data);
-        this.store$.select(getClassesCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.classesCount = data);
+        this.store$.select(getCourseCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.coursesCount = data);
+        this.store$.select(getClassCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.classesCount = data);
+        this.store$.select(getUserCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.usersCount = data);
     }
     
     ngOnDestroy() {

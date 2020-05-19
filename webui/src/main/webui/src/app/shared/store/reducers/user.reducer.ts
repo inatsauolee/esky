@@ -1,11 +1,10 @@
 import {UserActionTypes} from '../actions/user.actions';
 import {User} from "../../entities/user";
-import {CourseState} from "./course.reducer";
-import {ClassState} from "./class.reducer";
 
 export interface UserState {
     users: any[],
     loggedInUser: User,
+    count: number,
     loading: boolean,
     loaded: boolean,
     load: boolean
@@ -14,6 +13,7 @@ export interface UserState {
 const initialeState: UserState = {
     users: [],
     loggedInUser: null,
+    count: 0,
     loading: false,
     loaded: false,
     load: false
@@ -65,6 +65,23 @@ export function userReducer(state = initialeState, action): UserState {
         }
 
         case UserActionTypes.LoadUserByIdFail : {
+            return {
+                ...state,
+                loaded: false,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.GetUserCountSuccess : {
+            return {
+                ...state,
+                count: action.payload,
+                loaded: true,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.GetUserCountFail : {
             return {
                 ...state,
                 loaded: false,

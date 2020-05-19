@@ -15,7 +15,7 @@ export const getAllCourses = createSelector(
   state => state.courses
 );
 
-export const getCoursesCount = createSelector(
+export const getCourseCount = createSelector(
   selectCourseState,
   state => state.count
 );

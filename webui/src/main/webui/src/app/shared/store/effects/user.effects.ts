@@ -10,12 +10,17 @@ import {
   LoadUsersByRoleSuccessAction,
   LoadUsersByRoleFailAction,
   LoadUserByCreatorSuccessAction,
-  LoadUserByCreatorFailAction, LoadUserByFilterFailAction, LoadUserByFilterSuccessAction
+  LoadUserByCreatorFailAction,
+  LoadUserByFilterFailAction,
+  LoadUserByFilterSuccessAction,
+  GetUserCountSuccessAction,
+  GetUserCountFailAction
 } from '../actions/user.actions';
 import {catchError, mergeMap, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {UserService} from "../../services/http/user.service";
 import {AuthenticationService} from "../../services/http/authentication.service";
+import {CourseActionTypes, GetCourseCountFailAction, GetCourseCountSuccessAction} from "../actions";
 
 @Injectable()
 export class UserEffects {
@@ -97,5 +102,18 @@ export class UserEffects {
           catchError(error => of(new LoginSuccessAction(error)))
         )
     )
+  );
+
+  @Effect()
+  getUserCount$ = this.actions$.pipe(ofType(
+      UserActionTypes.GetUserCount
+  )).pipe(
+      switchMap(({payload}:any) =>
+          this.apiService.getUserCount(payload.type, payload.id)
+              .pipe(
+                  mergeMap((content) => of(new GetUserCountSuccessAction(content))),
+                  catchError(error => of(new GetUserCountFailAction(error)))
+              )
+      )
   );
 }

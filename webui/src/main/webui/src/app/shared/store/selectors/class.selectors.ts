@@ -14,7 +14,7 @@ export const getAllClasses = createSelector(
   state => state.classes
 );
 
-export const getClassesCount = createSelector(
+export const getClassCount = createSelector(
     selectClassState,
     state => state.count
 );

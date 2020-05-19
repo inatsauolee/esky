@@ -12,6 +12,11 @@ export const getAllUsers = createSelector(
   state => state.users
 );
 
+export const getUserCount = createSelector(
+  selectUserState,
+  state => state.count
+);
+
 export const selectLoggedInUser = createSelector(
     selectUserState,
   state => state.loggedInUser

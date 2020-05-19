@@ -34,6 +34,9 @@ public interface UserService {
     //Get Student Count By Teacher:
     public long getStudentsCountByTeacher(Long id);
 
+    //Get User Count By Creator:
+    public long getUserCountByCreator(Long id);
+
     //Get Users Count
     public long getUsersCount();
 

@@ -49,4 +49,7 @@ export class UserService {
     return this.http.get<Course[]>(environment.endpoint + api.user + api.all + api.filter, {params});
   }
 
+    getUserCount(type: any, id: any) {
+      return this.http.get<number>(environment.endpoint + api.user + '/' + type + api.count + id);
+    }
 }

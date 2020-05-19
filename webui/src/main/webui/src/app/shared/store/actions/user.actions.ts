@@ -1,5 +1,6 @@
 import {Action} from '@ngrx/store';
 import {Pageable} from "../../entities/pageable";
+import {GetClassCountAction} from "./class.actions";
 
 export enum UserActionTypes {
     LoadUsers = '[User] Load All Users',
@@ -13,6 +14,10 @@ export enum UserActionTypes {
     LoadUserById = '[User] Load User By Id',
     LoadUserByIdFail = '[User] Load User By Id Fail',
     LoadUserByIdSuccess = '[User] Load User By Id Success',
+
+    GetUserCount = '[User] Get User Count ',
+    GetUserCountFail = '[User] Get User Count Fail',
+    GetUserCountSuccess = '[User] Get User Count Success',
 
     LoadUserByCreator = '[User] Load User By Creator',
     LoadUserByCreatorFail = '[User] Load User By Creator Fail',
@@ -87,6 +92,27 @@ export class LoadUserByIdFailAction implements Action {
 
 export class LoadUserByIdSuccessAction implements Action {
     readonly type = UserActionTypes.LoadUserByIdSuccess;
+
+    constructor(public payload: any) {
+    }
+}
+
+export class GetUserCountAction implements Action {
+    readonly type = UserActionTypes.GetUserCount;
+
+    constructor(public payload: {type: string, id: number}) {
+    }
+}
+
+export class GetUserCountFailAction implements Action {
+    readonly type = UserActionTypes.GetUserCountFail;
+
+    constructor(public payload: any) {
+    }
+}
+
+export class GetUserCountSuccessAction implements Action {
+    readonly type = UserActionTypes.GetUserCountSuccess;
 
     constructor(public payload: any) {
     }
@@ -174,6 +200,10 @@ export type UserActions =
     LoadUserByIdAction |
     LoadUserByIdFailAction |
     LoadUserByIdSuccessAction |
+
+    GetUserCountAction |
+    GetUserCountFailAction |
+    GetUserCountSuccessAction |
 
     LoadUserByCreatorAction |
     LoadUserByCreatorFailAction |

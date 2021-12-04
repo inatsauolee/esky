@@ -1,15 +1,15 @@
 package com.esky.repository;
 
-import com.esky.model.entities.Post;
+import com.esky.model.entities.Comment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PostRepository extends JpaRepository<Post, Long> {
+public interface CommentRepository extends JpaRepository<Comment, Long> {
 
-    Page<Post> findAll(Pageable pageable);
+    Page<Comment> findAll(Pageable pageable);
 
-    Page<Post> findById(Pageable pageable, Long id);
+    Page<Comment> findById(Pageable pageable, Long id);
 }

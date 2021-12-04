@@ -2,7 +2,9 @@ package com.esky.model.entities;
 
 import com.esky.model.ESKYTracableObject;
 import com.esky.model.pojo.ClassRequest;
+import com.esky.model.pojo.PostRequest;
 import com.esky.model.pojo.UserRequest;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,10 +16,10 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "CLASSES")
+@Table(name = "POSTS")
 @Getter
 @Setter
-public class Class extends ESKYTracableObject implements Serializable {
+public class Post extends ESKYTracableObject implements Serializable {
     /**
      *
      */
@@ -28,40 +30,34 @@ public class Class extends ESKYTracableObject implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "TITLE")
+    private String title;
 
-    @Column(name = "SCHOOL")
-    private String school;
+    @Column(name = "TEXT")
+    private String text;
 
-    @Column(name = "CITY")
-    private String city;
+    @Column(name = "FILES")
+    private String file;
 
-    @Column(name = "DESCRIPTION")
-    private String description;
+    @JsonIdentityReference(alwaysAsId = true)
+    @ManyToOne(targetEntity = Category.class)
+    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
+    private Category category;
 
-    @ElementCollection
-    private Set<User> students;
+    public Post() {}
 
-    public Class() {}
-
-    public Class(Long id) {
+    public Post(Long id) {
         this.id = id;
     }
 
-    public ClassRequest toRequest() {
-        final ClassRequest classRequest = new ClassRequest();
-        classRequest.setId(this.id);
-        classRequest.setName(this.name);
-        classRequest.setSchool(this.school);
-        classRequest.setCity(this.city);
-        classRequest.setDescription(this.description);
-        classRequest.setStudents(UserRequest.buildRequest(this.students));
-        classRequest.setUpdated(this.getUpdated());
-        classRequest.setUpdator(this.getUpdator() != null ? this.getUpdator().getId() : null);
-        classRequest.setCreated(this.getCreated());
-        classRequest.setCreator(this.getCreator() != null ? this.getCreator().toRequest() : null);
-        return classRequest;
+    public PostRequest toRequest() {
+        final PostRequest postRequest = new PostRequest();
+        postRequest.setId(this.id);
+        postRequest.setTitle(this.title);
+        postRequest.setText(this.text);
+        postRequest.setFile(this.file);
+        postRequest.setCategory(this.category != null ? this.category.getId() : null);
+        return postRequest;
     }
 
 }

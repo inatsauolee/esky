@@ -1,6 +1,7 @@
 package com.esky.model.entities;
 
 import com.esky.model.ESKYTracableObject;
+import com.esky.model.pojo.CategoryRequest;
 import com.esky.model.pojo.ClassRequest;
 import com.esky.model.pojo.UserRequest;
 import lombok.Getter;
@@ -14,10 +15,10 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "CLASSES")
+@Table(name = "CATEGORIES")
 @Getter
 @Setter
-public class Class extends ESKYTracableObject implements Serializable {
+public class Category extends ESKYTracableObject implements Serializable {
     /**
      *
      */
@@ -31,37 +32,25 @@ public class Class extends ESKYTracableObject implements Serializable {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "SCHOOL")
-    private String school;
-
-    @Column(name = "CITY")
-    private String city;
-
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @ElementCollection
-    private Set<User> students;
+    public Category() {}
 
-    public Class() {}
-
-    public Class(Long id) {
+    public Category(Long id) {
         this.id = id;
     }
 
-    public ClassRequest toRequest() {
-        final ClassRequest classRequest = new ClassRequest();
-        classRequest.setId(this.id);
-        classRequest.setName(this.name);
-        classRequest.setSchool(this.school);
-        classRequest.setCity(this.city);
-        classRequest.setDescription(this.description);
-        classRequest.setStudents(UserRequest.buildRequest(this.students));
-        classRequest.setUpdated(this.getUpdated());
-        classRequest.setUpdator(this.getUpdator() != null ? this.getUpdator().getId() : null);
-        classRequest.setCreated(this.getCreated());
-        classRequest.setCreator(this.getCreator() != null ? this.getCreator().toRequest() : null);
-        return classRequest;
+    public CategoryRequest toRequest() {
+        final CategoryRequest categoryRequest = new CategoryRequest();
+        categoryRequest.setId(this.id);
+        categoryRequest.setName(this.name);
+        categoryRequest.setDescription(this.description);
+        categoryRequest.setUpdated(this.getUpdated());
+        categoryRequest.setUpdator(this.getUpdator() != null ? this.getUpdator().getId() : null);
+        categoryRequest.setCreated(this.getCreated());
+        categoryRequest.setCreator(this.getCreator() != null ? this.getCreator().toRequest() : null);
+        return categoryRequest;
     }
 
 }

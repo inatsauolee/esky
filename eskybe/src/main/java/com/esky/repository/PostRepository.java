@@ -1,17 +1,16 @@
 package com.esky.repository;
 
-import com.esky.model.entities.Category;
-import com.esky.model.entities.Class;
+import com.esky.model.entities.Post;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Long> {
-    Class findCategoryByName(String projectName);
+public interface PostRepository extends JpaRepository<Post, Long> {
+    Post findCategoryByName(String projectName);
 
-    Page<Category> findAll(Pageable pageable);
+    Page<Post> findAll(Pageable pageable);
 
-    Page<Category> findByCategoryId(Pageable pageable, Long id);
+    Page<Post> findByCategoryId(Pageable pageable, Long id);
 }

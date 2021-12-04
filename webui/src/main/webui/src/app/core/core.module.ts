@@ -40,6 +40,7 @@ import {PageNumberPipe} from "../shared/pipes/page-number.pipe";
 import {MultiSelectModule} from 'primeng/multiselect';
 import {GetClassNamePipe} from "../shared/pipes/get-class-name.pipe";
 import {DropdownModule} from "primeng/primeng";
+import {BlogsModule} from "../blogs/blogs.module";
 
 
 const maskConfig: Partial<IConfig> = {
@@ -57,6 +58,7 @@ const maskConfig: Partial<IConfig> = {
         FullCalendarModule,
         ApplicationsModule,
         FileManagerModule,
+		BlogsModule,
         PagesModule,
         RouterModule,
         CommonElementsModule,

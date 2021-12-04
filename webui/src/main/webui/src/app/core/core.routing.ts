@@ -41,6 +41,9 @@ import { WidgetsWeatherComponent } from '../widgets/widgets-weather/widgets-weat
 import { WidgetsDataComponent } from '../widgets/widgets-data/widgets-data.component';
 import {UserComponent} from "./user/user.component";
 import {AuthGuard} from "../shared/_guards/auth.guard";
+import {BlogPostComponent} from "../blogs/blog-post/blog-post.component";
+import {BlogListComponent} from "../blogs/blog-list/blog-list.component";
+import {BlogDetailsComponent} from "../blogs/blog-details/blog-details.component";
 
 const routes: Routes = [   
     {
@@ -138,6 +141,15 @@ const routes: Routes = [
                     { path: 'page-testimonials', component: PageTestimonialsComponent, data: { title: ':: Lucid Angular :: Pages :: Testimonials ::' } },
                     { path: 'page-faq', component: PageFaqComponent, data: { title: ':: Lucid Angular :: Pages :: Faq ::' } },
                     
+                ]
+            },
+            {
+                path: 'blogs',
+                children: [
+                    { path: '', redirectTo: 'blog-post', pathMatch: 'full' },
+                    { path: 'blog-post', component: BlogPostComponent, data: { title: ':: Lucid Angular :: Blog Post :: Blog ::' } },
+                    { path: 'blog-list', component: BlogListComponent, data: { title: ':: Lucid Angular :: Blog List :: Blog ::' } },
+                    { path: 'blog-details', component: BlogDetailsComponent, data: { title: ':: Lucid Angular :: Blog Details :: Blog ::' } }
                 ]
             },
             {

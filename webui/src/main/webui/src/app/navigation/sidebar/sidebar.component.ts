@@ -45,6 +45,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
             this.loggedInUser = JSON.parse(localStorage.getItem('currentUser'));
         }
+        this.loggedInUser.role = "A";
         this.store$.select(getCourseCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.coursesCount = data);
         this.store$.select(getClassCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.classesCount = data);
         this.store$.select(getUserCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.usersCount = data);

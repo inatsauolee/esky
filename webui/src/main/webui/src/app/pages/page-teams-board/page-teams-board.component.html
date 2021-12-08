@@ -1,0 +1,62 @@
+<div class="container-fluid">
+
+	<div class="block-header">
+		<div class="row">
+			<div class="col-lg-5 col-md-8 col-sm-12">
+				<h2>
+					<a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+						<i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+						<i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+					</a>
+					Teams
+				</h2>
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item"><a [routerLink]="['/home']"><i class="icon-home"></i></a></li>
+					<li class="breadcrumb-item active">Teams</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row clearfix">
+		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+			<div class="card">
+				<div class="header">
+					<h2>DS - Design Team <small>Ranking 2th</small></h2>
+					<ul class="header-dropdown">
+						<li class="dropdown" ngbDropdown>
+							<a href="javascript:void(0);" class="dropdown-toggle" role="button" ngbDropdownToggle></a>
+							<ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+								<li><a href="javascript:void(0);">Add event</a></li>
+								<li><a href="javascript:void(0);">Invite friend</a></li>
+								<li><a href="javascript:void(0);">Quit team</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="body">
+					<h6 class="m-b-15">Info about Design Team <span class="badge badge-success float-right">New</span></h6>
+					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+						at its layout.</p>
+					<ul class="list-unstyled team-info m-t-20">
+						<li class="m-r-15"><small class="text-muted">Team</small></li>
+						<li><img src="assets/images/xs/avatar1.jpg" title="Avatar" alt="Avatar"></li>
+						<li><img src="assets/images/xs/avatar2.jpg" title="Avatar" alt="Avatar"></li>
+						<li><img src="assets/images/xs/avatar3.jpg" title="Avatar" alt="Avatar"></li>
+						<li><img src="assets/images/xs/avatar4.jpg" title="Avatar" alt="Avatar"></li>
+						<li><img src="assets/images/xs/avatar5.jpg" title="Avatar" alt="Avatar"></li>
+					</ul>
+					<p>
+						<ngb-progressbar type="success" [value]="87" height="5px"></ngb-progressbar>
+					</p>
+					<div class="row">
+						<div class="col-7">
+							<small>PROJECTS: 12</small>
+							<h6>BUDGET: 4,870 USD</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

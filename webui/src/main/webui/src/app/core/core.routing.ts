@@ -44,20 +44,33 @@ import {AuthGuard} from "../shared/_guards/auth.guard";
 import {BlogPostComponent} from "../blogs/blog-post/blog-post.component";
 import {BlogListComponent} from "../blogs/blog-list/blog-list.component";
 import {BlogDetailsComponent} from "../blogs/blog-details/blog-details.component";
+import {PageTeamsBoardComponent} from "../pages/page-teams-board/page-teams-board.component";
 
 const routes: Routes = [   
     {
         path: '',
         component: AdminComponent,
         children: [
-            { path: '', redirectTo:'dashboard', canActivate: [AuthGuard] },
+            { path: '', redirectTo:'home', canActivate: [AuthGuard] },
             {
-                path: 'dashboard',
-                component: IndexComponent, data: { title: 'ESKY | Dashboard' }, canActivate: [AuthGuard]
+                path: 'home',
+                component: IndexComponent, data: { title: 'ESKY | Home' }, canActivate: [AuthGuard]
+            },
+            {
+                path: 'profile',
+                component: ProfileComponent, data: { title: 'ESKY | Profile' }, canActivate: [AuthGuard]
             },
             {
                 path: 'calendar',
                 component: AppCalendarComponent, data: { title: 'ESKY | Calendar' }, canActivate: [AuthGuard]
+            },
+            {
+                path: 'chat',
+                component: AppChatComponent, data: { title: 'ESKY | Chat' }, canActivate: [AuthGuard]
+            },
+            {
+                path: 'teams',
+                component: PageTeamsBoardComponent, data: { title: 'ESKY | Teams' }, canActivate: [AuthGuard]
             },
             {
                 path: 'courses',
@@ -70,10 +83,6 @@ const routes: Routes = [
             {
                 path: 'users',
                 component: UserComponent, data: { title: 'ESKY | Users' }, canActivate: [AuthGuard]
-            },
-            {
-                path: 'profile',
-                component: ProfileComponent, data: { title: 'ESKY | Profile' }, canActivate: [AuthGuard]
             },
             {
                 path: 'faq',
@@ -144,12 +153,12 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'blogs',
+                path: 'posts',
                 children: [
                     { path: '', redirectTo: 'blog-post', pathMatch: 'full' },
                     { path: 'blog-post', component: BlogPostComponent, data: { title: ':: Lucid Angular :: Blog Post :: Blog ::' } },
                     { path: 'blog-list', component: BlogListComponent, data: { title: ':: Lucid Angular :: Blog List :: Blog ::' } },
-                    { path: 'blog-details', component: BlogDetailsComponent, data: { title: ':: Lucid Angular :: Blog Details :: Blog ::' } }
+                    { path: 'post-details', component: BlogDetailsComponent, data: { title: 'ESKY | Post Details' } }
                 ]
             },
             {

@@ -22,7 +22,7 @@ export class PageLoginComponent implements OnInit {
 	ngOnInit() {
 		this.store$.select(selectLoggedInUser).subscribe(data => {
 			if (data) {
-				this.router.navigate(['/dashboard']);
+				this.router.navigate(['/home']);
 			}
 		});
 	}

@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { CommonElementsModule } from '../common-elements/common-elements.module';
 import { NgxGalleryModule } from 'ngx-gallery';
+import {PageTeamsBoardComponent} from "./page-teams-board/page-teams-board.component";
 
 @NgModule({
 	declarations: [
@@ -31,6 +32,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 		PageHelperClassComponent,
 		PageTestimonialsComponent,
 		PageFaqComponent,
+		PageTeamsBoardComponent,
 		PageMaintananceComponent
 	],
 	imports: [

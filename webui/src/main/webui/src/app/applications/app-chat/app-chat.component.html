@@ -7,23 +7,10 @@
 						<i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
 					</a> Chat</h2>
 				<ul class="breadcrumb">
-					<li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>
-					<li class="breadcrumb-item">App</li>
+					<li class="breadcrumb-item"><a [routerLink]="['/home']"><i class="icon-home"></i></a></li>
 					<li class="breadcrumb-item active">Chat</li>
 				</ul>
 			</div>
-            <div class="col-lg-7 col-md-4 col-sm-12 text-right">
-                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
-                    <div echarts [options]="visitorsOptions" class="echart-line-chart" [autoResize]="true" style="height: 20px;">
-                    </div>
-                    <span>Visitors</span>
-                </div>
-                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm pt-2">
-                    <div echarts [options]="visitsOptions" class="echart-line-chart" [autoResize]="true" style="height: 20px;">
-                    </div>
-                    <span>Visits</span>
-                </div>
-            </div>
 		</div>
 	</div>
 

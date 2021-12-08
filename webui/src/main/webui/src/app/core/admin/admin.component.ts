@@ -26,7 +26,7 @@ export class AdminComponent implements AfterViewInit, OnInit, OnDestroy {
     public navTab: string = "menu";
     public currentActiveMenu = "light";
     public currentActiveSubMenu;
-    public themeClass: string = "theme-cyan";
+    public themeClass: string = "theme-blue";
     public smallScreenMenu = "";
     public darkClass: string = "";
     private ngUnsubscribe = new Subject();

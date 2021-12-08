@@ -2,6 +2,7 @@ package com.esky.model.pojo;
 
 import com.esky.model.entities.Category;
 import com.esky.model.entities.Comment;
+import com.esky.model.entities.Post;
 import com.esky.model.entities.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,8 @@ public class CommentRequest extends ESKYTracableRequest {
 
     private String text;
 
+    private Long post;
+
     public Category toSimpleObject() {
         Category category = new Category();
         category.setId(id);
@@ -46,6 +49,8 @@ public class CommentRequest extends ESKYTracableRequest {
         final Comment comment = new Comment();
         comment.setId(request.getId());
         comment.setText(request.getText());
+        if (request.getPost() != null)
+            comment.setPost(new Post(request.getPost()));
         comment.setUpdated(new Date());
         if (request.getUpdator() != null)
             comment.setUpdator(new User(request.getUpdator()));

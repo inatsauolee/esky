@@ -7,7 +7,7 @@ import { of, Subject } from 'rxjs';
 })
 export class ThemeService {
 
-    public themeClass: string = "theme-cyan";
+    public themeClass: string = "theme-blue";
     public darkClass:string = "";
 	public smallScreenMenu = "";
 

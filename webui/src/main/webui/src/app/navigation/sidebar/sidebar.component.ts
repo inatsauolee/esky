@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 	@Input() currentActiveSubMenu;
 	@Output() changeNavTabEvent = new EventEmitter();
 	@Output() activeInactiveMenuEvent = new EventEmitter();
-    public themeClass: string = "theme-cyan";
+    public themeClass: string = "theme-blue";
     public darkClass: string = "";
     private ngUnsubscribe = new Subject();
 
@@ -42,6 +42,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        localStorage.setItem('currentUser', JSON.stringify({role: 'U', firstname: 'Ahmed', lastname: 'Elhajouti'}));
         if (localStorage.getItem('currentUser')) {
             this.loggedInUser = JSON.parse(localStorage.getItem('currentUser'));
         }

@@ -22,8 +22,6 @@ public class LikeRequest extends ESKYTracableRequest {
 
     private Long post;
 
-    private Long comment;
-
     public Like toSimpleObject() {
         Like like = new Like();
         like.setId(id);
@@ -45,8 +43,6 @@ public class LikeRequest extends ESKYTracableRequest {
         like.setId(request.getId());
         if (request.getPost() != null)
             like.setPost(new Post(request.getPost()));
-        if (request.getComment() != null)
-            like.setComment(new Comment(request.getComment()));
         like.setUpdated(new Date());
         if (request.getUpdator() != null)
             like.setUpdator(new User(request.getUpdator()));

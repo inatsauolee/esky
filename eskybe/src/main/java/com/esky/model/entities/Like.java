@@ -33,11 +33,6 @@ public class Like extends ESKYTracableObject implements Serializable {
     @JoinColumn(name = "POST_ID", referencedColumnName = "ID")
     private Post post;
 
-    @JsonIdentityReference(alwaysAsId = true)
-    @ManyToOne(targetEntity = Comment.class)
-    @JoinColumn(name = "COMMENT_ID", referencedColumnName = "ID")
-    private Comment comment;
-
     public Like() {}
 
     public Like(Long id) {
@@ -48,7 +43,6 @@ public class Like extends ESKYTracableObject implements Serializable {
         final LikeRequest likeRequest = new LikeRequest();
         likeRequest.setId(this.id);
         likeRequest.setPost(this.getPost() != null ? this.getPost().getId() : null);
-        likeRequest.setComment(this.getComment() != null ? this.getComment().getId() : null);
         likeRequest.setUpdated(this.getUpdated());
         likeRequest.setUpdator(this.getUpdator() != null ? this.getUpdator().getId() : null);
         likeRequest.setCreated(this.getCreated());

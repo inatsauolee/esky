@@ -26,7 +26,7 @@ export const api = {
   creator: '/creator/',
   student: '/student/',
   count: '/count/',
-  like: '/like/',
+  like: '/like',
   dislike: '/dislike/',
   comment: '/comment'
 };

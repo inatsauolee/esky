@@ -6,9 +6,10 @@ export class Like extends EskyTracableObject{
 
     post: number;
 
-    constructor(id: number, post: number) {
+    constructor(id: number, post: number, creator: any) {
         super();
         this.id = id;
         this.post = post;
+        this.creator = creator;
     }
 }

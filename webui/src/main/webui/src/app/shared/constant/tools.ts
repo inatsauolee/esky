@@ -63,3 +63,17 @@ export class Color {
         yellow: "#ffff00"
     };
 }
+
+
+export function isItAlreadyLiked(postId: number, likes: any) {
+    let bool = false;
+    if(likes) {
+        let loggedInUser = JSON.parse(localStorage.getItem('currentUser'));
+        likes.map(like=>{
+            if(like.creator && like.creator.id == loggedInUser.id) {
+                bool = true;
+            }
+        });
+    }
+    return bool;
+}

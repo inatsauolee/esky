@@ -33,7 +33,8 @@
 					</div>
 					<ul class="stats">
 						<li><a (click)="goToPost(post)">Comment</a></li>
-						<li><a (click)="like(post.id)" class="icon-heart">{{post.likes ? post.likes.length : '0'}}</a></li>
+						<li *ngIf="post.liked == true"><a (click)="dislike(post);" class="icon-heart" style="color: red;">{{post.likes ? post.likes.length : '0'}}</a></li>
+						<li *ngIf="post.liked == false"><a (click)="like(post);" class="icon-heart">{{post.likes ? post.likes.length : '0'}}</a></li>
 						<li><a (click)="goToPost(post)" class="icon-bubbles">{{post.comments ? post.comments.length : '0'}}</a></li>
 					</ul>
 				</div>

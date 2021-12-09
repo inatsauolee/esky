@@ -95,11 +95,11 @@ export class PostService {
     }
 
     likeAPost(like: Like): Observable<Like> {
-        return this.http.post<Like>(environment.endpoint + api.post + api.like, like, httpOptions);
+        return this.http.post<Like>(environment.endpoint + api.like + api.save, like, httpOptions);
     }
 
-    dislikeAPost(like: Like) {
-        return this.http.get<number>(environment.endpoint + api.post + '/' + api.dislike + like.id);
+    dislikeAPost(like: any) {
+        return this.http.post<any>(environment.endpoint + api.like + api.delete,  like, httpOptions);
     }
 
     commentAPost(comment: Comment): Observable<Comment> {

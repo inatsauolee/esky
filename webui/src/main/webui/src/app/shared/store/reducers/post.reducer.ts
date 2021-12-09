@@ -1,5 +1,6 @@
 import {Post} from "../../entities/post";
 import {PostActionTypes} from "../actions/post.actions";
+import {isItAlreadyLiked} from "../../constant/tools";
 
 export interface PostState {
   posts: Post[],
@@ -20,7 +21,10 @@ const initialState: PostState = {
 export function postReducer(state = initialState, action): PostState {
   switch (action.type) {
     case PostActionTypes.AddPostSuccess : {
-      state.posts.unshift(action.payload.content);
+      let post = action.payload.content;
+      (post as any).retrievedImage = action.payload.file;
+      (post as any).liked = false;
+      state.posts.unshift(post);
       return {
         ...state,
         loaded: true,
@@ -54,9 +58,18 @@ export function postReducer(state = initialState, action): PostState {
     }
 
     case PostActionTypes.LoadPostsSuccess : {
+      let postList = [];
+      if(action.payload) {
+        action.payload.map(post => {
+          let base64Data = post.file ? post.file.fileByte : null;
+          (post as any).retrievedImage = 'data:image/jpeg;base64,' + base64Data;
+          (post as any).liked = isItAlreadyLiked(post.id, post.likes);
+          postList.push(post);
+        });
+      }
       return {
         ...state,
-        posts: action.payload,
+        posts: postList,
         loaded: true,
         loading: false
       };
@@ -173,6 +186,14 @@ export function postReducer(state = initialState, action): PostState {
     }
 
     case PostActionTypes.LikeAPostSuccess : {
+      state.posts.map(post => {
+        if(post.id == action.payload.post) {
+          if(!post.likes)
+            post.likes = [];
+          post.likes.push(action.payload);
+          (post as any).liked = true;
+        }
+      });
       return {
         ...state,
         loaded: true,
@@ -189,6 +210,14 @@ export function postReducer(state = initialState, action): PostState {
     }
 
     case PostActionTypes.DislikeAPostSuccess : {
+      state.posts.map(post => {
+        if(post.id == action.payload.post) {
+          if(post.likes) {
+            post.likes.pop();
+            (post as any).liked = false;
+          }
+        }
+      });
       return {
         ...state,
         loaded: true,
@@ -207,6 +236,8 @@ export function postReducer(state = initialState, action): PostState {
     case PostActionTypes.CommentAPostSuccess : {
 
       let currentPost =  JSON.parse(localStorage.getItem('currentPost'));
+      if(!currentPost.comments)
+        currentPost.comments = [];
       currentPost.comments.push(action.payload);
       localStorage.setItem('currentPost', JSON.stringify(currentPost));
       return {
@@ -227,5 +258,7 @@ export function postReducer(state = initialState, action): PostState {
     default: {
       return state;
     }
+
   }
+
 }

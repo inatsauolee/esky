@@ -53,7 +53,7 @@ public class Post extends ESKYTracableObject implements Serializable {
     @OneToMany( targetEntity=Comment.class, mappedBy="post" )
     private Set<Comment> comments;
 
-    @ElementCollection
+    @OneToMany( targetEntity=Like.class, mappedBy="post" )
     private Set<Like> likes;
 
     public Post() {}
@@ -72,24 +72,6 @@ public class Post extends ESKYTracableObject implements Serializable {
         postRequest.setComments(CommentRequest.buildRequest(this.comments));
         postRequest.setLikes(LikeRequest.buildRequest(this.likes));
         return postRequest;
-    }
-
-    // uncompress the image bytes before returning it to the angular application
-    public static byte[] decompressBytes(byte[] data) {
-        Inflater inflater = new Inflater();
-        inflater.setInput(data);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
-        byte[] buffer = new byte[1024];
-        try {
-            while (!inflater.finished()) {
-                int count = inflater.inflate(buffer);
-                outputStream.write(buffer, 0, count);
-            }
-            outputStream.close();
-        } catch (IOException ioe) {
-        } catch (DataFormatException e) {
-        }
-        return outputStream.toByteArray();
     }
 
 }

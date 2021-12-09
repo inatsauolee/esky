@@ -292,7 +292,7 @@ export class LikeAPostSuccessAction implements Action {
 export class DislikeAPostAction implements Action {
   readonly type = PostActionTypes.DislikeAPost;
 
-  constructor(public payload: Like) {
+  constructor(public payload: any) {
   }
 }
 

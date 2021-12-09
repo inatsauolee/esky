@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { EChartOption } from 'echarts';
 import {SidebarService} from "../../shared/services/sidebar.service";
 import {
 	AddPostAction, DislikeAPostAction, LikeAPostAction,
@@ -11,9 +10,8 @@ import {User} from "../../shared/entities/user";
 import {Pageable} from "../../shared/entities/pageable";
 import {Direction, Sort} from "../../shared/constant/tools";
 import {Post} from "../../shared/entities/post";
-import {getAllClassesForMultiSelect} from "../../shared/store/selectors/class.selectors";
-import {getAllPosts, getAllPostsForMultiSelect} from "../../shared/store/selectors/post.selectors";
-import {ThemeService} from "../../shared/services/theme.service";
+import {Like} from "../../shared/entities/like";
+import {getAllPosts} from "../../shared/store/selectors/post.selectors";
 import {Router} from "@angular/router";
 import {LoadCategoriesAction} from "../../shared/store/actions/core.actions";
 import {getAllCategories} from "../../shared/store/selectors/core.selectors";
@@ -55,13 +53,8 @@ export class BlogListComponent implements OnInit {
 			}
 		});
 		this.store$.select(getAllPosts).subscribe(data => {
-			this.postList = [];
 			if(data) {
-				data.map(post => {
-					let base64Data = post.file ? post.file.fileByte : null;
-					(post as any).retrievedImage = 'data:image/jpeg;base64,' + base64Data;
-					this.postList.push(post);
-				});
+				this.postList = data;
 			}
 		});
 	}
@@ -99,8 +92,6 @@ export class BlogListComponent implements OnInit {
 						this.postToAdd.updator = this.loggedInUser.id;
 						this.postToAdd.file = response.body ? (response.body as any).id : null;
 						this.store$.dispatch(new AddPostAction({post: this.postToAdd, file: this.retrievedImage}));
-						(this.postToAdd as any).retrievedImage = this.retrievedImage;
-						this.postList.unshift(this.postToAdd);
 						this.clear();
 						this.toastr.info('Posted successfully !', undefined, {
 							closeButton: true,
@@ -121,12 +112,27 @@ export class BlogListComponent implements OnInit {
 		this.router.navigate(['/posts/post-details']);
 	}
 
-	like(id: number) {
-		this.store$.dispatch(new LikeAPostAction(null));
+	like(post: any) {
+		this.postList.map((p: any) =>{
+			if(p.id == post.id) {
+				p.liked = true;
+				if(!p.likes) {
+					p.likes =[];
+				}
+				p.likes.push(new Like(null, p.id, this.loggedInUser));
+			}
+		});
+		this.store$.dispatch(new LikeAPostAction(new Like(null, post.id, {id: this.loggedInUser.id})));
 	}
 
-	dislike(id: number) {
-		this.store$.dispatch(new DislikeAPostAction(null));
+	dislike(post: any) {
+		let myLike = null;
+		post.likes.map(like => {
+			if(like.creator.id == this.loggedInUser.id) {
+				myLike = like;
+			}
+		});
+		this.store$.dispatch(new DislikeAPostAction(myLike));
 	}
 
 	onFileChanged(event) {

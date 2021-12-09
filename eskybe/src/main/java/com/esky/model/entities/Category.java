@@ -32,6 +32,7 @@ public class Category extends ESKYTracableObject implements Serializable {
     @Column(name = "NAME")
     private String name;
 
+    @Lob
     @Column(name = "DESCRIPTION")
     private String description;
 

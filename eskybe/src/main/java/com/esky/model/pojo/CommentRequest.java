@@ -8,10 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -30,14 +27,14 @@ public class CommentRequest extends ESKYTracableRequest {
 
     private Long post;
 
-    public Category toSimpleObject() {
-        Category category = new Category();
-        category.setId(id);
-        return category;
+    public Comment toSimpleObject() {
+        Comment comment = new Comment();
+        comment.setId(id);
+        return comment;
     }
 
-    public static List<CommentRequest> buildRequest(Collection<Comment> comments) {
-        List<CommentRequest> list = new ArrayList<>();
+    public static Set<CommentRequest> buildRequest(Collection<Comment> comments) {
+        Set<CommentRequest> list = new HashSet<>();
         comments.forEach(el -> {
             if (el != null)
                 list.add(el.toRequest());

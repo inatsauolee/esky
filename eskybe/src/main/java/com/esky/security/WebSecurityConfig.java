@@ -19,7 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -73,7 +72,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             // Un-secure H2 Database
             .antMatchers("/h2-console/**/**").permitAll()
 
-            .antMatchers("/auth/**").permitAll()
+                .antMatchers("/**").permitAll()
+                .antMatchers("/auth/**").permitAll()
             .anyRequest().authenticated();
 
        httpSecurity
@@ -85,11 +85,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .frameOptions().sameOrigin()  // required to set for H2 else H2 Console will be blank.
             .cacheControl();
     }
+    private static final String[] AUTH_WHITELIST = {
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/v2/api-docs",
+            "http://localhost:4200/",
+            "/webjars/**"
+    };
 
     @Override
     public void configure(WebSecurity web) throws Exception {
     	// Allow OPTIONS calls to be accessed without authentication
         web.ignoring()
+                .antMatchers(
+                        AUTH_WHITELIST
+                )
+    .and()
+    .ignoring()
             .antMatchers(HttpMethod.OPTIONS,"/**")
         // AuthenticationTokenFilter will ignore the below paths
        .and()

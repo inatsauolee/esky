@@ -28,7 +28,7 @@ public class Comment extends ESKYTracableObject implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "TEXT")
+    @Column(name = "TEXT", length = 10000)
     private String text;
 
     @JsonIdentityReference(alwaysAsId = true)

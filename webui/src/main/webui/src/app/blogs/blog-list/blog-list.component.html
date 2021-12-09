@@ -4,105 +4,37 @@
 			<div class="card single_post">
 				<div class="body">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Enter Blog title" />
+						<input [(ngModel)]="postToAdd.title" name="title" type="text" class="form-control" placeholder="Post title" />
 					</div>
-					<select class="form-control show-tick">
+					<select [(ngModel)]="postToAdd.category" name="title" class="form-control show-tick">
 						<option>Select Category</option>
-						<option>Web Design</option>
-						<option>Photography</option>
-						<option>Technology</option>
-						<option>Lifestyle</option>
-						<option>Sports</option>
+						<option *ngFor="let cat of categoryList" value="{{cat.id}}">{{cat.name}}</option>
 					</select>
 					<div class="form-group m-t-20">
-						<textarea rows="4" class="form-control no-resize" placeholder="Enter Blog text"></textarea>
+						<textarea [(ngModel)]="postToAdd.text" name="text" rows="4" class="form-control no-resize" placeholder="Post text"></textarea>
 					</div>
 					<div class="form-group m-t-20 m-b-20">
-						<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+						<input (change)="onFileChanged($event)" [(ngModel)]="postToAdd.file" name="file" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
 					</div>
-					<button type="button" class="btn btn-block btn-primary   m-t-20">Post</button>
+					<button (click)="post()" type="button" class="btn btn-block btn-primary   m-t-20">Post</button>
 				</div>
 			</div>
-			<div class="card single_post">
+			<div *ngFor="let post of postList" class="card single_post">
 				<div class="body">
 					<div class="img-post">
-						<img class="d-block img-fluid" src="assets/images/blog/blog-page-1.jpg" alt="First slide">
+						<img class="d-block img-fluid" [src]="post.retrievedImage" alt="First slide">
 					</div>
-					<h3><a [routerLink]="['/posts/post-details']">All photographs are accurate</a></h3>
-					<p>It is a long established fact that a reader will be distracted by the readable content of a page when
-						looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
+					<h3><a (click)="goToPost(post)" >{{post.title}}</a></h3>
+					<p>{{post.text}}</p>
 				</div>
 				<div class="footer">
 					<div class="actions">
-						<a [routerLink]="['/posts/post-details']" class="btn btn-outline-secondary">Continue Reading</a>
+						<a (click)="goToPost(post)" class="btn btn-outline-secondary">Continue Reading</a>
 					</div>
 					<ul class="stats">
-						<li><a href="javascript:void(0);">General</a></li>
-						<li><a href="javascript:void(0);" class="icon-heart">28</a></li>
-						<li><a href="javascript:void(0);" class="icon-bubbles">128</a></li>
-					</ul>
-				</div>
-			</div>
-	
-			<div class="card single_post">
-				<div class="body">
-					<div class="img-post">
-						<img class="d-block img-fluid" src="assets/images/blog/blog-page-2.jpg" alt="">
-					</div>
-					<h3><a [routerLink]="['/posts/post-details']">All photographs are accurate</a></h3>
-					<p>It is a long established fact that a reader will be distracted by the readable content of a page when
-						looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
-				</div>
-				<div class="footer">
-					<div class="actions">
-						<a [routerLink]="['/posts/post-details']" class="btn btn-outline-secondary">Continue Reading</a>
-					</div>
-					<ul class="stats">
-						<li><a href="javascript:void(0);">General</a></li>
-						<li><a href="javascript:void(0);" class="icon-heart">28</a></li>
-						<li><a href="javascript:void(0);" class="icon-bubbles">128</a></li>
-					</ul>
-				</div>
-			</div>
-	
-			<div class="card single_post">
-				<div class="body">
-					<div class="img-post">
-						<img class="d-block img-fluid" src="assets/images/blog/blog-page-3.jpg" alt="">
-					</div>
-					<h3><a [routerLink]="['/posts/post-details']">All photographs are accurate</a></h3>
-					<p>It is a long established fact that a reader will be distracted by the readable content of a page when
-						looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
-				</div>
-				<div class="footer">
-					<div class="actions">
-						<a [routerLink]="['/posts/post-details']" class="btn btn-outline-secondary">Continue Reading</a>
-					</div>
-					<ul class="stats">
-						<li><a href="javascript:void(0);">General</a></li>
-						<li><a href="javascript:void(0);" class="icon-heart">28</a></li>
-						<li><a href="javascript:void(0);" class="icon-bubbles">128</a></li>
-					</ul>
-				</div>
-			</div>
-	
-			<div class="card single_post">
-				<div class="body">
-					<div class="img-post">
-						<img class="d-block img-fluid" src="assets/images/blog/blog-page-4.jpg" alt="">
-					</div>
-					<h3><a [routerLink]="['/posts/post-details']">All photographs are accurate</a></h3>
-					<p>It is a long established fact that a reader will be distracted by the readable content of a page when
-						looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
-				</div>
-				<div class="footer">
-					<div class="actions">
-						<a [routerLink]="['/posts/post-details']" class="btn btn-outline-secondary">Continue Reading</a>
-					</div>
-					<ul class="stats">
-						<li><a href="javascript:void(0);">General</a></li>
-						<li><a href="javascript:void(0);" class="icon-heart">28</a></li>
-						<li><a href="javascript:void(0);" class="icon-bubbles">128</a></li>
+						<li><a (click)="goToPost(post)">Comment</a></li>
+						<li><a (click)="like(post.id)" class="icon-heart">{{post.likes ? post.likes.length : '0'}}</a></li>
+						<li><a (click)="goToPost(post)" class="icon-bubbles">{{post.comments ? post.comments.length : '0'}}</a></li>
 					</ul>
 				</div>
 			</div>
@@ -128,20 +60,11 @@
 			</div>
 			<div class="card">
 				<div class="header">
-					<h2>Categories Clouds</h2>
+					<h2>Categories</h2>
 				</div>
 				<div class="body widget">
 					<ul class="list-unstyled categories-clouds m-b-0">
-						<li class="mr-1"><a href="javascript:void(0);">eCommerce</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Microsoft Technologies</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Creative UX</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Wordpress</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Angular JS</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Enterprise Mobility</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Website Design</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">HTML5</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Infographics</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Wordpress Development</a></li>
+						<li *ngFor="let cat of categoryList"  class="mr-1"><a href="javascript:void(0);">{{cat.name}}</a></li>
 					</ul>
 				</div>
 			</div>

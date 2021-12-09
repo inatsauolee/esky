@@ -1,6 +1,7 @@
 package com.esky.model.entities;
 
 import com.esky.model.ESKYTracableObject;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import constant.AuthorityName;
 import java.io.Serializable;
 import java.util.Date;
@@ -32,7 +33,7 @@ public class User extends ESKYTracableObject implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "login", nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
     @Column(name = "fname")
@@ -56,7 +57,7 @@ public class User extends ESKYTracableObject implements Serializable {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @Column(name = "pass")
+    @Column(name = "password")
     private String password;
 
     @Column(name = "preferences")
@@ -68,6 +69,11 @@ public class User extends ESKYTracableObject implements Serializable {
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
 	private List<Authority> authorities;
+
+    @JsonIdentityReference(alwaysAsId = true)
+    @ManyToOne(targetEntity = File.class)
+    @JoinColumn(name = "FILE_ID", referencedColumnName = "ID")
+    private File file;
 
 //    @JsonIgnore
 //    @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
@@ -98,6 +104,7 @@ public class User extends ESKYTracableObject implements Serializable {
         userRequest.setStatus(this.status);
         userRequest.setRole(this.role);
         userRequest.setEnabled(this.enabled);
+        userRequest.setFile(this.file);
         return userRequest;
     }
 }

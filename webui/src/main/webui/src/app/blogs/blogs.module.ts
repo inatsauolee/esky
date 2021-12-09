@@ -6,6 +6,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
 	declarations: [BlogPostComponent, BlogListComponent, BlogDetailsComponent],
@@ -16,6 +17,7 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
 		CommonModule,
 		RouterModule,
 		NgxEchartsModule,
+		FormsModule,
 		RichTextEditorAllModule
 	]
 })

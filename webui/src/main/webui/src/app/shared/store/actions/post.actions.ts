@@ -1,6 +1,8 @@
 import {Action} from '@ngrx/store';
 import {Post} from "../../entities/post";
 import {Pageable} from "../../entities/pageable";
+import {Like} from "../../entities/like";
+import {Comment} from "../../entities/comment";
 
 export enum PostActionTypes {
   AddPost = '[Post] Add Post',
@@ -42,12 +44,24 @@ export enum PostActionTypes {
   GetPostCount = '[Post] Get Post Count ',
   GetPostCountFail = '[Post] Get Post Count Fail',
   GetPostCountSuccess = '[Post] Get Post Count Success',
+
+  LikeAPost = '[Post] Like A Post',
+  LikeAPostFail = '[Post] Like A Post Fail',
+  LikeAPostSuccess = '[Post] Like A Post Success',
+
+  DislikeAPost = '[Post] Dislike A Post',
+  DislikeAPostFail = '[Post] Dislike A Post Fail',
+  DislikeAPostSuccess = '[Post] Dislike A Post Success',
+
+  CommentAPost = '[Post] Comment A Post',
+  CommentAPostFail = '[Post] Comment A Post Fail',
+  CommentAPostSuccess = '[Post] Comment A Post Success',
 }
 
 export class AddPostAction implements Action {
   readonly type = PostActionTypes.AddPost;
 
-  constructor(public payload: Post) {
+  constructor(public payload: {post: Post, file: any}) {
   }
 }
 
@@ -254,6 +268,69 @@ export class GetPostCountSuccessAction implements Action {
   }
 }
 
+export class LikeAPostAction implements Action {
+  readonly type = PostActionTypes.LikeAPost;
+
+  constructor(public payload: Like) {
+  }
+}
+
+export class LikeAPostFailAction implements Action {
+  readonly type = PostActionTypes.LikeAPostFail;
+
+  constructor(public payload: any) {
+  }
+}
+
+export class LikeAPostSuccessAction implements Action {
+  readonly type = PostActionTypes.LikeAPostSuccess;
+
+  constructor(public payload: any) {
+  }
+}
+
+export class DislikeAPostAction implements Action {
+  readonly type = PostActionTypes.DislikeAPost;
+
+  constructor(public payload: Like) {
+  }
+}
+
+export class DislikeAPostFailAction implements Action {
+  readonly type = PostActionTypes.DislikeAPostFail;
+
+  constructor(public payload: any) {
+  }
+}
+
+export class DislikeAPostSuccessAction implements Action {
+  readonly type = PostActionTypes.DislikeAPostSuccess;
+
+  constructor(public payload: any) {
+  }
+}
+
+export class CommentAPostAction implements Action {
+  readonly type = PostActionTypes.CommentAPost;
+
+  constructor(public payload: Comment) {
+  }
+}
+
+export class CommentAPostFailAction implements Action {
+  readonly type = PostActionTypes.CommentAPostFail;
+
+  constructor(public payload: any) {
+  }
+}
+
+export class CommentAPostSuccessAction implements Action {
+  readonly type = PostActionTypes.CommentAPostSuccess;
+
+  constructor(public payload: any) {
+  }
+}
+
 export type PostActions =
   AddPostAction |
   AddPostFailAction |
@@ -286,10 +363,22 @@ export type PostActions =
   LoadPostsByFilterAction |
   LoadPostsByFilterFailAction |
   LoadPostsByFilterSuccessAction |
-    
+
   LoadPostByIdAction |
   LoadPostByIdFailAction |
   LoadPostByIdSuccessAction |
+
+  LikeAPostAction |
+  LikeAPostFailAction |
+  LikeAPostSuccessAction |
+
+  DislikeAPostAction |
+  DislikeAPostFailAction |
+  DislikeAPostSuccessAction |
+
+  CommentAPostAction |
+  CommentAPostFailAction |
+  CommentAPostSuccessAction |
 
   GetPostCountAction |
   GetPostCountFailAction |

@@ -5,12 +5,14 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://localhost:8080/esky-back'
+  endpoint: 'http://localhost:8080'
 };
 
 export const api = {
+  category: '/category',
   course: '/course',
   class: '/class',
+  post: '/post',
   user: '/user',
   save: '/save',
   get: '/get',
@@ -23,5 +25,8 @@ export const api = {
   filter: '/filter',
   creator: '/creator/',
   student: '/student/',
-  count: '/count/'
+  count: '/count/',
+  like: '/like/',
+  dislike: '/dislike/',
+  comment: '/comment'
 };

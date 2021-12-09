@@ -23,7 +23,7 @@ import {Store} from "@ngrx/store";
 export class UserComponent implements OnInit {
 
   public sidebarVisible: boolean = true;
-  public activeTab: number = 0;
+  public activeTab: number = 1;
   public loggedInUser: User;
   public pageable: Pageable = new Pageable('0', '9', Sort.id, Direction.desc);
   public userList: User[] = [];
@@ -50,7 +50,14 @@ export class UserComponent implements OnInit {
     });
     this.loadUsers();
     this.store$.select(getAllUsers).subscribe(data => {
-      this.userList = data;
+      this.userList = [];
+      if(data) {
+        data.map(user => {
+          let base64Data = user.file ? user.file.fileByte : null;
+          (user as any).retrievedImage = 'data:image/jpeg;base64,' + base64Data;
+          this.userList.push(user);
+        });
+      }
     });
   }
 

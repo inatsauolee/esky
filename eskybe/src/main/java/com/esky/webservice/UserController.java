@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Set;
 
+@CrossOrigin
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping(path = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 
@@ -29,9 +29,13 @@ public class UserController {
         return new ResponseEntity(userService.saveUser(user), HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody User user) {
-        return new ResponseEntity(userService.saveUser(user), HttpStatus.OK);
+    @PutMapping("/update")
+    public ResponseEntity updateUser(@RequestBody User request) {
+        User finalUser = userService.getUserById(request.getId());
+        finalUser.setFirstname(request.getFirstname());
+        finalUser.setLastname(request.getLastname());
+        finalUser.setFile(request.getFile());
+        return new ResponseEntity(userService.saveUser(finalUser), HttpStatus.OK);
     }
 
     @GetMapping("/get/{id}")

@@ -3,6 +3,14 @@ import {Pageable} from "../../entities/pageable";
 import {GetClassCountAction} from "./class.actions";
 
 export enum UserActionTypes {
+    AddUser = '[User] Add User',
+    AddUserFail = '[User] Add User Fail',
+    AddUserSuccess = '[User] AddU ser Success',
+
+    UpdateUser = '[User] Update User',
+    UpdateUserFail = '[User] Update User Fail',
+    UpdateUserSuccess = '[User] UpdateU ser Success',
+
     LoadUsers = '[User] Load All Users',
     LoadUsersFail = '[User] Load All Users Fail',
     LoadUsersSuccess = '[User] Load All Users Success',
@@ -32,6 +40,48 @@ export enum UserActionTypes {
     LoginSuccess = '[User] Login Success',
 
     Logout = '[User] Logout'
+}
+
+export class AddUserAction implements Action {
+    readonly type = UserActionTypes.AddUser;
+
+    constructor(public payload: any) {
+    }
+}
+
+export class AddUserSuccessAction implements Action {
+    readonly type = UserActionTypes.AddUserSuccess;
+
+    constructor(public payload: any) {
+    }
+}
+
+export class AddUserFailAction implements Action {
+    readonly type = UserActionTypes.AddUserFail;
+
+    constructor(public payload: any) {
+    }
+}
+
+export class UpdateUserAction implements Action {
+    readonly type = UserActionTypes.UpdateUser;
+
+    constructor(public payload: any) {
+    }
+}
+
+export class UpdateUserSuccessAction implements Action {
+    readonly type = UserActionTypes.UpdateUserSuccess;
+
+    constructor(public payload: any) {
+    }
+}
+
+export class UpdateUserFailAction implements Action {
+    readonly type = UserActionTypes.UpdateUserFail;
+
+    constructor(public payload: any) {
+    }
 }
 
 export class LoadUsers implements Action {
@@ -189,6 +239,14 @@ export class LogoutAction implements Action {
 }
 
 export type UserActions =
+    AddUserAction |
+    AddUserFailAction |
+    AddUserSuccessAction |
+
+    UpdateUserAction |
+    UpdateUserFailAction |
+    UpdateUserSuccessAction |
+
     LoadUsers |
     LoadUsersFailAction |
     LoadUsersSuccessAction |

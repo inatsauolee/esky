@@ -1,13 +1,31 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Pageable} from "../../entities/pageable";
 import {Class} from "../../entities/class";
 import {api, environment} from "../../../../environments/environment";
 import {Course} from "../../entities/course";
+import {Post} from "../../entities/post";
+import {Observable} from "rxjs";
+import {User} from "../../entities/user";
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable()
 export class UserService {
   constructor(private http: HttpClient) {
+  }
+
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(environment.endpoint + api.user + api.save, user, httpOptions);
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(environment.endpoint + api.user + api.update, user, httpOptions);
   }
 
   getAllUsers() {

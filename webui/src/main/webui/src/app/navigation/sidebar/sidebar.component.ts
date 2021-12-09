@@ -42,10 +42,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        localStorage.setItem('currentUser', JSON.stringify({role: 'U', firstname: 'Ahmed', lastname: 'Elhajouti'}));
         if (localStorage.getItem('currentUser')) {
             this.loggedInUser = JSON.parse(localStorage.getItem('currentUser'));
         }
+        let base64Data = this.loggedInUser.file ? this.loggedInUser.file.fileByte : null;
+        (this.loggedInUser as any).retrievedImage = 'data:image/jpeg;base64,' + base64Data;
         this.loggedInUser.role = "A";
         this.store$.select(getCourseCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.coursesCount = data);
         this.store$.select(getClassCount).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.classesCount = data);

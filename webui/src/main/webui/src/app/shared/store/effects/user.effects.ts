@@ -14,29 +14,54 @@ import {
   LoadUserByFilterFailAction,
   LoadUserByFilterSuccessAction,
   GetUserCountSuccessAction,
-  GetUserCountFailAction
+  GetUserCountFailAction, AddUserSuccessAction, AddUserFailAction, UpdateUserSuccessAction, UpdateUserFailAction
 } from '../actions/user.actions';
 import {catchError, mergeMap, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {UserService} from "../../services/http/user.service";
 import {AuthenticationService} from "../../services/http/authentication.service";
-import {CourseActionTypes, GetCourseCountFailAction, GetCourseCountSuccessAction} from "../actions";
 
 @Injectable()
 export class UserEffects {
   constructor(private actions$: Actions, private apiService: UserService, private authService: AuthenticationService) {}
 
   @Effect()
-  loadAllUsers$ = this.actions$.pipe(ofType(
-    UserActionTypes.LoadUsers
+  addUser$ = this.actions$.pipe(ofType(
+      UserActionTypes.AddUser
   )).pipe(
-    switchMap(() =>
-      this.apiService.getAllUsers()
-        .pipe(
-          mergeMap((content) => of(new LoadUsersSuccessAction(content))),
-          catchError(error => of(new LoadUsersFailAction(error)))
-        )
-    )
+      switchMap(({payload}:any) =>
+          this.apiService.addUser(payload)
+              .pipe(
+                  mergeMap((content) => of(new AddUserSuccessAction(content))),
+                  catchError(error => of(new AddUserFailAction(error)))
+              )
+      )
+  );
+
+  @Effect()
+  updateUser$ = this.actions$.pipe(ofType(
+      UserActionTypes.UpdateUser
+  )).pipe(
+      switchMap(({payload}:any) =>
+          this.apiService.updateUser(payload)
+              .pipe(
+                  mergeMap((content) => of(new UpdateUserSuccessAction(content))),
+                  catchError(error => of(new UpdateUserFailAction(error)))
+              )
+      )
+  );
+
+  @Effect()
+  loadAllUsers$ = this.actions$.pipe(ofType(
+      UserActionTypes.LoadUsers
+  )).pipe(
+      switchMap(() =>
+          this.apiService.getAllUsers()
+              .pipe(
+                  mergeMap((content) => of(new LoadUsersSuccessAction(content))),
+                  catchError(error => of(new LoadUsersFailAction(error)))
+              )
+      )
   );
 
   @Effect()

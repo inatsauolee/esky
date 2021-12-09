@@ -20,12 +20,13 @@
 							<h6>Profile Photo</h6>
 							<div class="media">
 								<div class="media-left m-r-15">
-									<img src="assets/images/user.png" class="user-photo media-object" alt="User">
+									<img *ngIf="!loggedInUser.file" src="assets/images/sm/avatar2.jpg" style="max-width: 200px;" class="d-block user-photo media-object" alt="User">
+									<img *ngIf="loggedInUser.file" [src]="loggedInUser.retrievedImage" style="max-width: 200px;" class="d-block user-photo media-object" alt="User">
 								</div>
 								<div class="media-body">
 									<p>Upload your photo.
 										<br> <em>Image should be at least 140px x 140px</em></p>
-									<button type="button" class="btn btn-default-dark" id="btn-upload-photo">Upload Photo</button>
+									<input (change)="onFileChanged($event)"  name="file" type="file" class="btn btn-default-dark" id="btn-upload-photo">
 									<input type="file" id="filePhoto" class="sr-only">
 								</div>
 							</div>
@@ -334,7 +335,7 @@
 									</div>
 								</div>
 							</div>
-							<button type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
+							<button (click)="update()" type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
 							<button type="button" class="btn btn-default">Cancel</button>
 						</div>
 
@@ -383,7 +384,7 @@
 									<p class="margin-top-30"><a href="javascript:void(0);"><i class="fa fa-plus-circle"></i> Add Payment Info</a></p>
 								</div>
 							</div> -->
-							<button type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
+							<button (click)="update" type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
 							<button class="btn btn-default">Cancel</button>
 						</div>
 
@@ -1058,7 +1059,7 @@
 									</ul>
 								</div>
 							</div>
-							<button type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
+							<button (click)="update" type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
 							<button class="btn btn-default">Cancel</button>
 						</div>
 

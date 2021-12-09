@@ -75,7 +75,12 @@
         <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let user of userList">
             <div class="card">
                 <div class="body text-center">
-                    <div class="chart easy-pie-chart-1" data-percent="75"> <span><img src="assets/images/sm/avatar1.jpg" alt="user" class="rounded-circle"/></span> </div>
+                    <div class="chart easy-pie-chart-1" data-percent="75">
+                        <span>
+                          <img *ngIf="!user.file" src="assets/images/sm/avatar1.jpg" alt="user" class="rounded-circle"/>
+                          <img *ngIf="user.file" [src]="user.retrievedImage" alt="user" class="rounded-circle"/>
+                        </span>
+                    </div>
                     <h6>{{user.firstname + ' ' + user.lastname}}</h6>
                     <ul class="social-links list-unstyled">
                         <li><a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a></li>

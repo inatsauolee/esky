@@ -20,58 +20,28 @@
 			<div class="card single_post">
 				<div class="body">
 					<div class="img-post">
-						<img class="d-block img-fluid" src="assets/images/blog/blog-page-1.jpg" alt="First slide">
+						<img class="d-block img-fluid" [src]="currentPost.retrievedImage" alt="First slide">
 					</div>
-					<h3><a [routerLink]="['/admin/blogs/blog-details']">All photographs are accurate</a></h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-						industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-						and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-						leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-						with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-						publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<h3><a [routerLink]="['/admin/blogs/blog-details']">{{currentPost.title}}</a></h3>
+					<p>{{currentPost.text}}</p>
 				</div>
 			</div>
 			<div class="card">
 				<div class="header">
-					<h2>Comments 3</h2>
+					<h2>Comments {{currentPost.comments ? currentPost.comments.length : 0}}</h2>
 				</div>
 				<div class="body">
 					<ul class="comment-reply list-unstyled">
-						<li class="row clearfix">
-							<div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail"
-									src="assets/images/sm/avatar2.jpg" alt="Awesome Image"></div>
-							<div class="text-box col-md-10 col-8 p-l-0 p-r0">
-								<h5 class="m-b-0">Gigi Hadid </h5>
-								<p>Why are there so many tutorials on how to decouple WordPress? how fast and easy it is to
-									get it running (and keep it running!) and its massive ecosystem. </p>
-								<ul class="list-inline">
-									<li><a href="javascript:void(0);">Mar 09 2018</a></li>
-									<li><a href="javascript:void(0);">Reply</a></li>
-								</ul>
+						<li *ngFor="let comment of currentPost.comments" class="row clearfix">
+							<div class="icon-box col-md-2 col-4">
+								<img *ngIf="!(comment.creator && comment.creator.file)" class="img-fluid img-thumbnail" src="assets/images/sm/avatar2.jpg" alt="Awesome Image">
+								<img *ngIf="comment.creator && comment.creator.file" class="img-fluid img-thumbnail" [src]="comment.creator.retrievedImage" alt="Awesome Image">
 							</div>
-						</li>
-						<li class="row clearfix">
-							<div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail"
-									src="assets/images/sm/avatar3.jpg" alt="Awesome Image"></div>
 							<div class="text-box col-md-10 col-8 p-l-0 p-r0">
-								<h5 class="m-b-0">Christian Louboutin</h5>
-								<p>Great tutorial but few issues with it? If i try open post i get following errors. Please
-									can you help me?</p>
+								<h5 class="m-b-0">{{comment.creator.firstname + ' ' + comment.creator.lastname}}</h5>
+								<p>{{comment.text}}</p>
 								<ul class="list-inline">
-									<li><a href="javascript:void(0);">Mar 12 2018</a></li>
-									<li><a href="javascript:void(0);">Reply</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="row clearfix">
-							<div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail"
-									src="assets/images/sm/avatar4.jpg" alt="Awesome Image"></div>
-							<div class="text-box col-md-10 col-8 p-l-0 p-r0">
-								<h5 class="m-b-0">Kendall Jenner</h5>
-								<p>Very nice and informative article. In all the years I've done small and side-projects as
-									a freelancer, I've ran into a few problems here and there.</p>
-								<ul class="list-inline">
-									<li><a href="javascript:void(0);">Mar 20 2018</a></li>
+									<li><a href="javascript:void(0);">{{comment.updated}}</a></li>
 									<li><a href="javascript:void(0);">Reply</a></li>
 								</ul>
 							</div>
@@ -85,10 +55,10 @@
 						<form class="row clearfix">
 							<div class="col-sm-12">
 								<div class="form-group">
-									<textarea rows="4" class="form-control no-resize"
+									<textarea [(ngModel)]="currentComment.text" name="text" rows="4" class="form-control no-resize"
 										placeholder="Write a comment..."></textarea>
 								</div>
-								<button type="submit" class="btn btn-block btn-primary">Comment</button>
+								<button (click)="comment()" type="submit" class="btn btn-block btn-primary">Comment</button>
 							</div>
 						</form>
 					</div>
@@ -108,20 +78,11 @@
 			</div>
 			<div class="card">
 				<div class="header">
-					<h2>Categories Clouds</h2>
+					<h2>Categories</h2>
 				</div>
 				<div class="body widget">
 					<ul class="list-unstyled categories-clouds m-b-0">
-						<li class="mr-1"><a href="javascript:void(0);">eCommerce</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Microsoft Technologies</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Creative UX</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Wordpress</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Angular JS</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Enterprise Mobility</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Website Design</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">HTML5</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Infographics</a></li>
-						<li class="mr-1"><a href="javascript:void(0);">Wordpress Development</a></li>
+						<li *ngFor="let cat of categoryList"  class="mr-1"><a href="javascript:void(0);">{{cat.name}}</a></li>
 					</ul>
 				</div>
 			</div>

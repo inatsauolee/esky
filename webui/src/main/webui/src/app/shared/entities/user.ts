@@ -16,8 +16,12 @@ export class User {
 
     role: string;
 
-    password: string;
+    password: any;
 
     preferences: string;
+
+    enabled: boolean;
+
+    file: any;
 
 }

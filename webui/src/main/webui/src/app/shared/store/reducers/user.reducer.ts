@@ -21,6 +21,38 @@ const initialeState: UserState = {
 
 export function userReducer(state = initialeState, action): UserState {
     switch (action.type) {
+        case UserActionTypes.AddUserSuccess : {
+            return {
+                ...state,
+                loaded: true,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.AddUserFail : {
+            return {
+                ...state,
+                loaded: false,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.UpdateUserSuccess : {
+            return {
+                ...state,
+                loaded: true,
+                loading: false
+            };
+        }
+
+        case UserActionTypes.UpdateUserFail : {
+            return {
+                ...state,
+                loaded: false,
+                loading: false
+            };
+        }
+
         case UserActionTypes.LoadUsersSuccess : {
             return {
                 ...state,
@@ -152,6 +184,7 @@ export function userReducer(state = initialeState, action): UserState {
             localStorage.removeItem('JWT');
             return {
                 ...state,
+                loggedInUser: null,
                 loaded: false,
                 loading: false
             };

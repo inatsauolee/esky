@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import com.esky.model.entities.Authority;
+import com.esky.model.entities.File;
 import com.esky.model.entities.User;
 
 import lombok.Getter;
@@ -34,6 +35,8 @@ public class UserRequest extends ESKYTracableRequest implements Serializable {
 
     private Boolean enabled;
 
+    private File file;
+
     public User toUser() {
         User user = new User(this.id);
         return user;
@@ -57,6 +60,7 @@ public class UserRequest extends ESKYTracableRequest implements Serializable {
         user.setStatus(request.status);
         user.setRole(request.role);
         user.setEnabled(request.enabled);
+        user.setFile(request.file);
         return user;
     }
 

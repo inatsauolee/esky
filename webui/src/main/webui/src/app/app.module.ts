@@ -24,6 +24,8 @@ import {JwtInterceptor} from "./shared/_helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./shared/_helpers/error.interceptor";
 import {AuthenticationService} from "./shared/services/http/authentication.service";
 import {ClassService} from "./shared/services/http/class.service";
+import {PostService} from "./shared/services/http/post.service";
+import {CoreService} from "./shared/services/http/core.service";
 
 @NgModule({
     declarations: [
@@ -54,7 +56,7 @@ import {ClassService} from "./shared/services/http/class.service";
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-        AuthenticationService, UserService, CourseService, ClassService],
+        AuthenticationService, UserService, CourseService, ClassService, PostService, CoreService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

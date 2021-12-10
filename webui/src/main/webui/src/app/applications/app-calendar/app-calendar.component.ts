@@ -1,4 +1,4 @@
-import { Component, ViewChild, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import {Component, ViewChild, ChangeDetectorRef, OnDestroy, OnInit} from '@angular/core';
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Options } from 'fullcalendar';
 import { EChartOption } from 'echarts';
@@ -8,7 +8,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import {Store} from "@ngrx/store";
-import {LoadMyCoursesByCreatorAction} from "../../shared/store/actions";
+import {LoadCoursesAction, LoadMyCoursesByCreatorAction} from "../../shared/store/actions";
+import {getAllCourses} from "../../shared/store/selectors/course.selectors";
+import {Pageable} from "../../shared/entities/pageable";
+import {Direction, Sort} from "../../shared/constant/tools";
 
 @Component({
 	selector: 'app-app-calendar',
@@ -24,13 +27,26 @@ export class AppCalendarComponent implements OnDestroy {
 	public sidebarVisible: boolean = true;
     public displayEvent: any;
     private ngUnsubscribe = new Subject();
+	public pageable: Pageable = new Pageable('0', '20', Sort.id, Direction.desc);
 
 	constructor(private store$: Store<any>, private sidebarService: SidebarService, private cdr: ChangeDetectorRef, private eventService: EventService, private modalService: NgbModal) {
 		this.visitorsOptions = this.loadLineChartOptions([3, 5, 1, 6, 5, 4, 8, 3], "#49c5b6");
 		this.visitsOptions = this.loadLineChartOptions([4, 6, 3, 2, 5, 6, 5, 4], "#f4516c");
-		this.store$.dispatch(new LoadMyCoursesByCreatorAction({idCreator: 1}));
-        this.eventService.getEvents().pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => {
-        	console.log(data);
+		this.store$.dispatch(new LoadCoursesAction(this.pageable));
+		this.store$.select(getAllCourses).subscribe(data => {
+			console.log("hahah")
+			const events = [];
+			data.map(d => {
+				const dateObj = new Date(d.date);
+				const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1) + '-' + dateObj.getUTCDate();
+				events.push({
+					id: d.id,
+					title: d.name,
+					url: d.status,
+					start: yearMonth,
+					color: this.getRandomColor()}
+				);
+			});
 			this.calendarOptions = {
 				editable: true,
 				eventLimit: false,
@@ -39,10 +55,19 @@ export class AppCalendarComponent implements OnDestroy {
 					center: 'title',
 					right: 'month,agendaWeek,agendaDay,listMonth'
 				},
-				events: data
+				events: events
 			};
 		});
     }
+
+	getRandomColor() {
+		const letters = '0123456789ABCDEF';
+		let color = '#';
+		for (var i = 0; i < 6; i++) {
+			color += letters[Math.floor(Math.random() * 16)];
+		}
+		return color;
+	}
     
     ngOnDestroy() {
         this.ngUnsubscribe.next();

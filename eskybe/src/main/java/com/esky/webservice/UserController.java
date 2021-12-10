@@ -34,6 +34,8 @@ public class UserController {
         User finalUser = userService.getUserById(request.getId());
         finalUser.setFirstname(request.getFirstname());
         finalUser.setLastname(request.getLastname());
+        finalUser.setLang(request.getLang());
+        finalUser.setPreferences(request.getPreferences());
         finalUser.setFile(request.getFile());
         return new ResponseEntity(userService.saveUser(finalUser), HttpStatus.OK);
     }

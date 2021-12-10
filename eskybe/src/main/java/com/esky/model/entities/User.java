@@ -103,6 +103,8 @@ public class User extends ESKYTracableObject implements Serializable {
         userRequest.setLastname(this.lastname);
         userRequest.setStatus(this.status);
         userRequest.setRole(this.role);
+        userRequest.setLang(this.lang);
+        userRequest.setPreferences(this.preferences);
         userRequest.setEnabled(this.enabled);
         userRequest.setFile(this.file);
         return userRequest;

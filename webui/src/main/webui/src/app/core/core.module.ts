@@ -41,6 +41,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {GetClassNamePipe} from "../shared/pipes/get-class-name.pipe";
 import {DropdownModule} from "primeng/primeng";
 import {BlogsModule} from "../blogs/blogs.module";
+import {DatePipe} from "../shared/pipes/date.pipe";
 
 
 const maskConfig: Partial<IConfig> = {
@@ -73,6 +74,7 @@ const maskConfig: Partial<IConfig> = {
         FormsModule
     ],
 	declarations: [
+		DatePipe,
 		PageNumberPipe,
 		GetClassNamePipe,
 		AdminComponent,

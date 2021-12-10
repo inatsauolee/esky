@@ -58,7 +58,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     }
 
     showToastr() {
-        this.toastr.info('Hello, welcome to Esky, enjoy online education.', undefined, {
+        this.toastr.info('Hello, welcome to SYNAPS, enjoy online education.', undefined, {
             closeButton: true,
             positionClass: 'toast-top-right'
         });

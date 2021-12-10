@@ -54,39 +54,39 @@ const routes: Routes = [
             { path: '', redirectTo:'home', canActivate: [AuthGuard] },
             {
                 path: 'home',
-                component: IndexComponent, data: { title: 'ESKY | Home' }, canActivate: [AuthGuard]
+                component: IndexComponent, data: { title: 'SYNAPS | Home' }, canActivate: [AuthGuard]
             },
             {
                 path: 'profile',
-                component: ProfileComponent, data: { title: 'ESKY | Profile' }, canActivate: [AuthGuard]
+                component: ProfileComponent, data: { title: 'SYNAPS | Profile' }, canActivate: [AuthGuard]
             },
             {
                 path: 'calendar',
-                component: AppCalendarComponent, data: { title: 'ESKY | Calendar' }, canActivate: [AuthGuard]
+                component: AppCalendarComponent, data: { title: 'SYNAPS | Calendar' }, canActivate: [AuthGuard]
             },
             {
                 path: 'chat',
-                component: AppChatComponent, data: { title: 'ESKY | Chat' }, canActivate: [AuthGuard]
+                component: AppChatComponent, data: { title: 'SYNAPS | Chat' }, canActivate: [AuthGuard]
             },
             {
                 path: 'teams',
-                component: PageTeamsBoardComponent, data: { title: 'ESKY | Teams' }, canActivate: [AuthGuard]
+                component: PageTeamsBoardComponent, data: { title: 'SYNAPS | Teams' }, canActivate: [AuthGuard]
             },
             {
-                path: 'courses',
-                component: CourseComponent, data: { title: 'ESKY | Courses' }, canActivate: [AuthGuard]
+                path: 'events',
+                component: CourseComponent, data: { title: 'SYNAPS | Events' }, canActivate: [AuthGuard]
             },
             {
-                path: 'classes',
-                component: ClassComponent, data: { title: 'ESKY | Classes' }, canActivate: [AuthGuard]
+                path: 'categories',
+                component: ClassComponent, data: { title: 'SYNAPS | Categories' }, canActivate: [AuthGuard]
             },
             {
                 path: 'users',
-                component: UserComponent, data: { title: 'ESKY | Users' }, canActivate: [AuthGuard]
+                component: UserComponent, data: { title: 'SYNAPS | Users' }, canActivate: [AuthGuard]
             },
             {
                 path: 'faq',
-                component: PageFaqComponent, data: { title: 'ESKY | FAQ' }, canActivate: [AuthGuard]
+                component: PageFaqComponent, data: { title: 'SYNAPS | FAQ' }, canActivate: [AuthGuard]
             },
             { 
                 path: 'app',
@@ -158,7 +158,7 @@ const routes: Routes = [
                     { path: '', redirectTo: 'blog-post', pathMatch: 'full' },
                     { path: 'blog-post', component: BlogPostComponent, data: { title: ':: Lucid Angular :: Blog Post :: Blog ::' } },
                     { path: 'blog-list', component: BlogListComponent, data: { title: ':: Lucid Angular :: Blog List :: Blog ::' } },
-                    { path: 'post-details', component: BlogDetailsComponent, data: { title: 'ESKY | Post Details' } }
+                    { path: 'post-details', component: BlogDetailsComponent, data: { title: 'SYNAPS | Post Details' } }
                 ]
             },
             {

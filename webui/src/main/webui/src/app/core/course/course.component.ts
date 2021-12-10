@@ -10,7 +10,6 @@ import {
 import {Store} from "@ngrx/store";
 import {getAllCourses} from "../../shared/store/selectors/course.selectors";
 import {Course} from "../../shared/entities/course";
-import {Class} from "../../shared/entities/class";
 import {NgbCalendar, NgbDateAdapter, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {selectLoggedInUser} from "../../shared/store/selectors";
 import {User} from "../../shared/entities/user";
@@ -34,7 +33,7 @@ export class CourseComponent implements OnInit {
     ];
 
   public sidebarVisible: boolean = true;
-  public activeTab: number = 0;
+  public activeTab: number = 1;
 
   tabChange(num: number){
     if(this.activeTab != num){
@@ -105,6 +104,8 @@ export class CourseComponent implements OnInit {
     this.courseToAdd.endTime = this.getTime(this.courseToAdd.endTime);
     this.courseToAdd.classes = this.selectedClasses.map(c => { return {id: c}});
     this.store$.dispatch(new AddCourseAction(this.courseToAdd));
+    this.courseToAdd  = new Course(null, '', '', '', 'Not started', new Date(), '', '', 'None', null, []);
+
   }
 
   getTime(time: string) {
@@ -121,6 +122,10 @@ export class CourseComponent implements OnInit {
 
   filter() {
     this.loadCources();
+  }
+
+  join(link: string) {
+    window.open(link);
   }
 
   prevPage() {

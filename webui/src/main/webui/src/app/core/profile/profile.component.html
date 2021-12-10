@@ -62,22 +62,13 @@
 											<input data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Birthdate">
 										</div>
 									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="http://">
-									</div>
 								</div>
 								<div class="col-lg-6 col-md-12">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Address Line 1">
+										<input [(ngModel)]="loggedInUser.lang" type="text" class="form-control" placeholder="Shool name">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Address Line 2">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="City">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="State/Province">
+										<input [(ngModel)]="loggedInUser.preferences" type="text" class="form-control" placeholder="City">
 									</div>
 									<div class="form-group">
 										<select class="form-control">
@@ -1037,7 +1028,7 @@
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-12">
-									<h6>Email from Esky</h6>
+									<h6>Email from SYNAPS</h6>
 									<p>I'd like to receive the following emails:</p>
 									<ul class="list-unstyled list-email-received">
 										<li>

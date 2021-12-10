@@ -33,6 +33,10 @@ public class UserRequest extends ESKYTracableRequest implements Serializable {
 
     private String role;
 
+    private String lang;
+
+    private String preferences;
+
     private Boolean enabled;
 
     private File file;
@@ -59,6 +63,8 @@ public class UserRequest extends ESKYTracableRequest implements Serializable {
         user.setLastname(request.lastname);
         user.setStatus(request.status);
         user.setRole(request.role);
+        user.setLang(request.lang);
+        user.setPreferences(request.preferences);
         user.setEnabled(request.enabled);
         user.setFile(request.file);
         return user;

@@ -1,19 +1,13 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {getAllUsers, getAllUsersForMultiSelect, selectLoggedInUser} from "../../shared/store/selectors";
 import {User} from "../../shared/entities/user";
 import {Pageable} from "../../shared/entities/pageable";
 import {Direction, Sort} from "../../shared/constant/tools";
-import {Class} from "../../shared/entities/class";
-import {
-  AddClassAction,
-  LoadClassesAction,
-  LoadClassesByCreatorAction,
-  LoadClassesByFilterAction, LoadUsersByRoleAction
-} from "../../shared/store/actions";
 import {NgbCalendar, NgbDateAdapter, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Store} from "@ngrx/store";
 import {SidebarService} from "../../shared/services/sidebar.service";
-import {getAllClasses, getAllClassesForMultiSelect} from "../../shared/store/selectors/class.selectors";
+import {Category} from "../../shared/entities/category";
+import {AddCategoryAction, LoadCategoriesAction} from "../../shared/store/actions/core.actions";
+import {getAllCategories} from "../../shared/store/selectors/core.selectors";
 
 @Component({
   selector: 'app-class',
@@ -36,14 +30,12 @@ export class ClassComponent implements OnInit {
     this.sidebarVisible = this.sidebarService.getStatus();
     this.cdr.detectChanges();
   }
-  selectedStudents = [];
-  students = [];
 
   public loggedInUser: User;
   public pageable: Pageable = new Pageable('0', '9', Sort.updated, Direction.desc);
-  public classList: Class[] = [];
+  public classList: Category[] = [];
   public filterValue: string = '';
-  public classToAdd: Class = new Class(null, '', '', '', '', []);
+  public classToAdd: Category = new Category(null, '', '');
 
   constructor(private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>, private store$: Store<any>, private sidebarService: SidebarService, private cdr: ChangeDetectorRef, private modalService: NgbModal) {
   }
@@ -52,40 +44,21 @@ export class ClassComponent implements OnInit {
     if(localStorage.getItem('currentUser')) {
       this.loggedInUser =  JSON.parse(localStorage.getItem('currentUser'));
     }
-    this.store$.dispatch(new LoadUsersByRoleAction({pageable: {...this.pageable, sort: Sort.id}, filterValue: '', role: 'S'}));
-    this.store$.select(getAllUsersForMultiSelect).subscribe(data => {
-      if(data) {
-        this.students = data;
-      }
-    });
-    this.store$.select(selectLoggedInUser).subscribe(data => {
-      if(data) {
-        this.loggedInUser = data;
-      }
-    });
     this.loadClasses();
-    this.store$.select(getAllClasses).subscribe(data => {
+    this.store$.select(getAllCategories).subscribe(data => {
       this.classList = data;
     });
   }
 
   loadClasses() {
-    if(this.activeTab === 0) {
-      this.store$.dispatch(new LoadClassesByCreatorAction({pageable: this.pageable, filterValue: this.filterValue, idCreator: this.loggedInUser.id}));
-    } else if (this.activeTab === 1) {
-      if(this.filterValue === '') {
-        this.store$.dispatch(new LoadClassesAction(this.pageable));
-      } else {
-        this.store$.dispatch(new LoadClassesByFilterAction({pageable: this.pageable, filterValue: this.filterValue}));
-      }
-    }
+    this.store$.dispatch(new LoadCategoriesAction( this.pageable));
   }
 
   addClass() {
     this.classToAdd.creator = this.loggedInUser;
     this.classToAdd.updator = this.loggedInUser.id;
-    this.classToAdd.students = this.selectedStudents.map(s => { return {id: s}});
-    this.store$.dispatch(new AddClassAction(this.classToAdd));
+    this.store$.dispatch(new AddCategoryAction(this.classToAdd));
+    this.classToAdd = new Category(null, '', '');
   }
 
   filter() {

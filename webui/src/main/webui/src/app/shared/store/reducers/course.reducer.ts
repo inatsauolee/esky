@@ -1,5 +1,6 @@
 import {CourseActionTypes} from '../actions/course.actions';
 import {Course} from "../../entities/course";
+import {isItAlreadyLiked} from "../../constant/tools";
 
 export interface CourseState {
   courses: Course[],
@@ -20,6 +21,8 @@ const initialState: CourseState = {
 export function courseReducer(state = initialState, action): CourseState {
   switch (action.type) {
     case CourseActionTypes.AddCourseSuccess : {
+      let base64Data = action.payload.creator.file ? action.payload.creator.file.fileByte : null;
+      action.payload.creator.retrievedImage = 'data:image/jpeg;base64,' + base64Data;
       state.courses.unshift(action.payload);
       return {
         ...state,
@@ -54,9 +57,18 @@ export function courseReducer(state = initialState, action): CourseState {
     }
 
     case CourseActionTypes.LoadCoursesSuccess : {
+      let courseList = [];
+      if(action.payload) {
+        console.log("hhhh")
+        action.payload.map(course => {
+          let base64Data = course.creator.file ? course.creator.file.fileByte : null;
+          course.creator.retrievedImage = 'data:image/jpeg;base64,' + base64Data;
+          courseList.push(course);
+        });
+      }
       return {
         ...state,
-        courses: action.payload,
+        courses: courseList,
         loaded: true,
         loading: false
       };
@@ -71,9 +83,17 @@ export function courseReducer(state = initialState, action): CourseState {
     }
 
     case CourseActionTypes.LoadCoursesByCreatorSuccess : {
+      let courseList = [];
+      if(action.payload) {
+        action.payload.map(course => {
+          let base64Data = course.creator.file ? course.creator.file.fileByte : null;
+          course.creator.retrievedImage = 'data:image/jpeg;base64,' + base64Data;
+          courseList.push(course);
+        });
+      }
       return {
         ...state,
-        courses: action.payload,
+        courses: courseList,
         loaded: true,
         loading: false
       };

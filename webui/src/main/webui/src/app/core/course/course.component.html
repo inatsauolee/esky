@@ -9,11 +9,11 @@
                         <i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
                         <i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
                     </a>
-                    Courses
+                    Events
                 </h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a [routerLink]="['/']"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item active">Courses</li>
+                    <li class="breadcrumb-item active">Events</li>
                 </ul>
             </div>
             <div class="col-lg-7 col-md-4 col-sm-12 text-right">
@@ -22,7 +22,7 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" [ngClass]="{'active show': (0 == activeTab)}"
                                (click)="tabChange(0)">
-                                <span>Mine</span>
+                                <span>My Events</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -77,7 +77,9 @@
                     <div class="col-lg-3 text-center">
                         <small style="color: #00000059;font-size: 10px;margin-left: 0;">Created By:</small>
                         <span>
-                            <img src="assets/images/sm/avatar1.jpg" alt="user" class="rounded-circle"
+                            <img *ngIf="!course.creator.file" src="assets/images/sm/avatar1.jpg" alt="user" class="rounded-circle"
+                                 style="width: 50px;"/>
+                            <img *ngIf="course.creator.file" [src]="course.creator.retrievedImage" alt="user" class="rounded-circle"
                                  style="width: 50px;"/>
                         </span>
                         <a style="font-weight: bold;font-size: 12px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
@@ -108,7 +110,7 @@
                     <div class="row">
                         <div class="col-lg-4 text-left">
                             <h6>Date</h6>
-                            <p style="margin-bottom: 0;">{{course.date}}</p>
+                            <p style="margin-bottom: 0;">{{course.date | date}}</p>
                             <small>Tomorrow</small>
                         </div>
                         <div class="col-lg-4 text-left">
@@ -117,8 +119,8 @@
                             <small>Duration: 1 hour</small>
                         </div>
                         <div class="col-lg-4 text-center">
-                            <span class="badge badge-success" style="margin: 2px;">{{course.status}}</span>
-                            <button class="btn btn-danger mr-1" style="margin: 2px;">JOIN NOW</button>
+                            <span class="badge badge-success" style="margin: 2px;">NOT STARTED</span>
+                            <button (click)="join(course.status)" class="btn btn-danger mr-1" style="margin: 2px;">JOIN NOW</button>
                         </div>
                     </div>
                     <p>
@@ -127,7 +129,7 @@
                     <div class="row">
                         <div class="row col-7" style="margin-bottom: -30px;"
                              *ngIf="course.classes && course.classes.length">
-                            <small>Classes:</small>
+                            <small>Categories:</small>
                             <ul class="list-unstyled team-info" style="margin-top: -6px;">
                                 <li *ngFor="let aClass of course.classes"><span
                                         class="badge badge-success float-right">{{aClass.name}}</span></li>
@@ -135,7 +137,7 @@
                         </div>
                         <div class="col-7" style="margin-bottom: -12px;"
                              *ngIf="!course.classes || course.classes.length === 0">
-                            <small>No Class found for this course.</small>
+                            <small>No Category found for this course.</small>
                         </div>
                     </div>
                 </div>
@@ -163,7 +165,7 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="title" id="defaultModalLabel">Add Course</h4>
+        <h4 class="title" id="defaultModalLabel">Add Event</h4>
     </div>
     <div class="modal-body">
         <div class="form-group">
@@ -179,8 +181,8 @@
         </div>
         <div class="form-group">
             <div class="form-line">
-            <p-multiSelect defaultLabel="Classes*" [options]="classes" [(ngModel)]="selectedClasses" [filter]="true" filterBy="label,value.name"></p-multiSelect>
-            <p>Selected Classes: {{selectedClasses | getClassName : classes}}</p>
+                <input type="text" [(ngModel)]="courseToAdd.status" class="form-control"
+                       placeholder="Link to the meeting">
             </div>
         </div>
         <hr/>

@@ -23,6 +23,10 @@ export class CoreService {
     constructor(private http: HttpClient) {
     }
 
+    addCategory(cat: Category): Observable<Category> {
+        return this.http.post<Category>(environment.endpoint + api.category + api.save, cat, httpOptions);
+    }
+
     getCountCategories() {
         return this.http.get<number>(environment.endpoint + api.category + api.count);
     }

@@ -21,6 +21,10 @@
                     <small>Posts</small>
                     <h6>{{coursesCount ? coursesCount : '3'}}</h6>
                 </li>
+                <li class="col-4">
+                    <small>Events</small>
+                    <h6>{{classesCount ? classesCount : '9'}}</h6>
+                </li>
                 <li class="col-4" *ngIf="loggedInUser.role === 'A'">
                     <small>Teams</small>
                     <h6>{{usersCount ? usersCount : '12'}}</h6>
@@ -57,8 +61,8 @@
                             <span>Profile</span></a></li>
                         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/calendar']"><i class="icon-calendar"></i>
                             <span>Calendar</span></a></li>
-                        <!--<li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/events']"><i class="icon-rocket"></i>
-                            <span>Events</span></a></li> -->
+                        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/events']"><i class="icon-rocket"></i>
+                            <span>Events</span></a></li>
                         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/teams']"><i class="icon-puzzle"></i>
                             <span>Teams</span></a></li>
                         <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/courses']"><i class="icon-notebook"></i>

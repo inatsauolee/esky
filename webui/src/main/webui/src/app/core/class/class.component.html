@@ -9,11 +9,11 @@
 						<i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
 						<i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
 					</a>
-					Classes
+					Categories
 				</h2>
 				<ul class="breadcrumb">
 					<li class="breadcrumb-item"><a [routerLink]="['/']"><i class="icon-home"></i></a></li>
-					<li class="breadcrumb-item active">Classes</li>
+					<li class="breadcrumb-item active">Categories</li>
 				</ul>
 			</div>
 			<div class="col-lg-7 col-md-4 col-sm-12 text-right">
@@ -80,8 +80,7 @@
 								<tr>
 									<th>Created By</th>
 									<th>Name</th>
-									<th>School</th>
-									<th>Members</th>
+									<th>Description</th>
 									<th style="text-align: right;padding-right: 58px;">Action</th>
 								</tr>
 							</thead>
@@ -100,16 +99,10 @@
 										<small>Last Update: {{aClass.updated}}</small>
 									</td>
 									<td>
-										<h6><a href="javascript:void(0);">{{aClass.school}}</a></h6>
-										<small>{{aClass.city}}</small>
+										<h6><a href="javascript:void(0);">{{aClass.description}}</a></h6>
 <!--										<div class="progress progress-xs">-->
 <!--											<div class="progress-bar" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" style="width: 48%;"></div>-->
 <!--										</div>-->
-									</td>
-									<td>
-										<ul class="list-unstyled team-info">
-											<li *ngFor="let student of aClass.students"><img src="assets/images/xs/avatar1.jpg" placement="top" ngbTooltip="Tooltip on top" alt="Avatar"></li>
-										</ul>
 									</td>
 									<td class="project-actions" style="text-align: right;">
 										<a class="btn btn-outline-secondary mr-1"><i class="icon-eye"></i></a>
@@ -146,31 +139,12 @@
 
 <ng-template #content let-modal>
 	<div class="modal-header">
-		<h4 class="title" id="defaultModalLabel">Add Class</h4>
+		<h4 class="title" id="defaultModalLabel">Add Category</h4>
 	</div>
 	<div class="modal-body">
 		<div class="form-group">
 			<div class="form-line">
 				<input type="text" [(ngModel)]="classToAdd.name" class="form-control" placeholder="Title*">
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="form-line">
-				<input type="text" [(ngModel)]="classToAdd.school" class="form-control"
-					   placeholder="School">
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="form-line">
-				<input type="text" [(ngModel)]="classToAdd.city" class="form-control"
-					   placeholder="City">
-			</div>
-		</div>
-		<hr/>
-		<div class="form-group">
-			<div class="form-line">
-				<p-multiSelect defaultLabel="Students*" [options]="students" [(ngModel)]="selectedStudents" [filter]="true" filterBy="label,value.name"></p-multiSelect>
-				<p>Selected Students: {{selectedStudents | getClassName : students}}</p>
 			</div>
 		</div>
 		<hr/>

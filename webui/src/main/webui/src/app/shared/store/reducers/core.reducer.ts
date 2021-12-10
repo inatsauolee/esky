@@ -1,5 +1,5 @@
-import {CategoryActionTypes} from "../actions/core.actions";
 import {Category} from "../../entities/category";
+import {CoreActionTypes} from "../actions/core.actions";
 
 export interface CoreState {
   categories: Category[],
@@ -19,7 +19,23 @@ const initialState: CoreState = {
 
 export function coreReducer(state = initialState, action): CoreState {
   switch (action.type) {
-    case CategoryActionTypes.LoadCategoriesSuccess : {
+    case CoreActionTypes.AddCategorySuccess : {
+      return {
+        ...state,
+        categories: [...state.categories, action.payload],
+        loaded: true,
+        loading: false
+      };
+    }
+
+    case CoreActionTypes.AddCategoryFail : {
+      return {
+        ...state,
+        loaded: false,
+        loading: false
+      };
+    }
+    case CoreActionTypes.LoadCategoriesSuccess : {
       return {
         ...state,
         categories: action.payload,
@@ -28,7 +44,7 @@ export function coreReducer(state = initialState, action): CoreState {
       };
     }
 
-    case CategoryActionTypes.LoadCategoriesFail : {
+    case CoreActionTypes.LoadCategoriesFail : {
       return {
         ...state,
         loaded: false,
